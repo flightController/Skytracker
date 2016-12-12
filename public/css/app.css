@@ -1,0 +1,154 @@
+/* Firmenlogo zentriert bei Loginscreen */
+#logo {
+    text-align: center;
+    margin: 10% auto 10% auto;
+}
+
+/* Menu Abstand rechts im Container */
+.navbar-right {
+    padding-right: 30px;
+}
+
+.brand-left {
+    display: flex;
+    justify-content: left;
+    position: absolute;
+    width: 100%;
+    padding-left: 5px;
+    left: 0;
+    top: 0;
+}
+
+.brand-centered {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+/* Firmenlogo */
+.brand-centered .navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown Menu erscheint bei Hover */
+ul.nav li.dropdown:hover ul.dropdown-menu{
+    display: block;
+    margin-top:0px
+}
+
+/* Top Menu Höhe */
+.container-fluid{
+    height: 60px;
+}
+
+.flightlist {
+    border: solid 0.5px gainsboro;
+    border-radius: 5px;
+    margin: 25px auto;
+}
+
+.flightlist h1 {
+    margin-top: 10px;
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.flightweather {
+    margin-top: 20px;
+}
+
+.weather {
+    font-size: 1.5em;
+}
+
+.btn-primary {
+    background-image: linear-gradient(to bottom, #0067d3 0%,#0067d3 100%) !important;
+    border-color: #0067d3;
+}
+
+.btn-primary:hover {
+    background-color: black !important;
+    background-position: 0 +40px !important;
+    border-color: black;
+}
+
+.flightDetailText {
+
+}
+
+.flightdetail {
+    border: solid 0.5px gainsboro;
+    border-radius: 5px;
+    margin: 25px auto;
+}
+.flightdetailmap {
+    border: solid 0.5px gainsboro;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.flightdetailweather {
+    border: solid 0.5px gainsboro;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.navbar-default {
+    margin-right: -30px;
+}
+
+.flightdetail h2 {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.flightdetailmap img {
+    margin: 0 auto 20px auto;
+}
+
+.row-height{
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+.inside {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.inside-full-height {
+    height: 100%;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.flightdetailflight {
+    border: solid 0.5px gainsboro;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.flightdetailflight h4{
+    font-size: 14px;
+    font-family: sans-serif;
+}
+
+@media screen and (min-width: 960px) {
+    .hidelarge {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .hidemediumsmall {
+        display: none;
+    }
+}
