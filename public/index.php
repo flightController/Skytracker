@@ -33,6 +33,8 @@ require __DIR__.'/../bootstrap/autoload.php';
 |
 */
 
+include_once '../resources/keys.php';
+
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
 /*

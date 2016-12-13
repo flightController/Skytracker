@@ -1,6 +1,6 @@
 <?php
 
-namespace app\lib;
+namespace App\lib;
 
 class WikipediaJsonAdapter
 {
@@ -33,6 +33,9 @@ class WikipediaJsonAdapter
     {
         $wikiInformation = $this->get($cityName);
         $wikiInformation = json_decode($wikiInformation);
+        if($wikiInformation = ""){
+            return "";
+        }
         $pages = $wikiInformation -> query -> pages;
 
         $objectvars = get_object_vars($pages);
@@ -50,7 +53,6 @@ class WikipediaJsonAdapter
 
     public function getShortCityDescription($cityName) : string
     {
-        $text = "";
         $text = $this->getCityDescription($cityName);
         return(substr($text,0,550).'...');
     }

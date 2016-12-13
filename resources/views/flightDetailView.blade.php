@@ -1,6 +1,8 @@
 <?php
    include_once '../resources/views/includes/head.php';
    include_once '../resources/views/includes/menu.php';
+   $flight = $data['flight'];
+   //$cityDescription = $data['cityDescription'];
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +18,7 @@
 <div class="container flightcontainer">
    <div class="row flightdetail">
       <div class="col-lg-12 col-md-12 col-sm-12 flightDetailText">
-         <h1>{$flight->getDestination()->getLocation()}</h1>
+         <h1>{{$flight->getDestination()->getLocation()}}</h1>
          <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                <p>$cityDescription</p>

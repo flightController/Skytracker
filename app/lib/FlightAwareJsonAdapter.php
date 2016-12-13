@@ -1,6 +1,9 @@
 <?php
 
-namespace app\lib;
+namespace App\lib;
+
+use App\Airport;
+use App\Flight;
 
 class FlightAwareJsonAdapter
 {

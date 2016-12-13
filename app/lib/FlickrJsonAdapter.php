@@ -1,6 +1,6 @@
 <?php
 
-namespace app\lib;
+namespace App\lib;
 
 class FlickrJsonAdapter
 {
