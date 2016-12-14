@@ -6,26 +6,24 @@ include_once '../resources/views/includes/menu.php';
 ?>
 
 <body>
-<?php
-foreach ($flights as $flight){
-    echo <<<EOF
+@foreach ($flights as $flight)
 <div class="container flightcontainer">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 flightlist">
-            <h1>{$flight->getDestination()->getLocation()}</h1>
+            <h1>{{$flight->getDestination()->getLocation()}}</h1>
             <div class="row">
                 <div class="col-lg-9 col-md-9 col-sm-12 flightlistblock">
-                    <p>test</p>
+                    <p>{{$cityDescriptions[$flight->getDestination()->getLocation()]}}</p>
                     <div class="row flightweather">
                         <div class="hidelarge col-md-4 col-sm-0">
-                            <img src=""/>
+                            <img src="{{$cityPictures[$flight->getDestination()->getLocation()]}}"/>
                         </div>
                         </div>
                         <div class="hidelarge col-md-4 col-sm-5 weather"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> Sonnig
                         </div>
                         <div class="hidelarge col-md-4 col-sm-5 weather"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 21°
                         </div>
-                        <div class="col-lg-3 col-md-12 col-sm-12"><button type="button" class="btn btn-primary btn-block"> Mehr Infos </button>
+                        <div class="col-lg-3 col-md-12 col-sm-12"><a href="/flight/{{$flight -> getIdent()}}"<button type="button" class="btn btn-primary btn-block"> Mehr Infos </button></a>
                         </div>
                         <div class="col-lg-1 hidemediumsmall">
                         </div>
@@ -37,14 +35,12 @@ foreach ($flights as $flight){
                         </div>
                     </div>
                     <div class="col-lg-3 hidemediumsmall">
-                    <img src=""/>
+                    <img src="{{$cityPictures[$flight->getDestination()->getLocation()]}}"/>
                 </div>
                 </div>
             </div>
         </div>
     </div>
-EOF;
-}
-?>
+@endforeach
 </body>
 </html>

@@ -7,35 +7,40 @@ use App\lib\WikipediaJsonAdapter;
 use Illuminate\Http\Request;
 use App\Flight;
 use App\lib\FlickrJsonAdapter;
+use App\Airport;
 
 class FlightController extends Controller
 {
     public function flightList(){
-        $adapter = new FlightAwareJsonAdapter(FLIGHT_AWARE_NAME, FLIGHT_AWARE_KEY);
-        $flights = $adapter -> getDepartedFlights('LSZH', 5);
-        //$flights = $this->getTestFlights();
-        //$cityDescriptions = $this->getWikiTexts($flights);
-        //$cityPictures = $this->getListViewCityPictures($flights);
-
-        //$this->view('flight/flightdetailview', ['flight' => $flight, 'cityDescription' => $cityDescription, 'cityPictures' => $cityPictures]);
+        //$adapter = new FlightAwareJsonAdapter(FLIGHT_AWARE_NAME, FLIGHT_AWARE_KEY);
+        //$flights = $adapter -> getDepartedFlights('LSZH', 5);
+        $flights = $this->getTestFlights();
+        $cityDescriptions = $this->getWikiTexts($flights);
+        $cityPictures = $this->getListViewCityPictures($flights);
 
         $data = array(
             'flights' => $flights,
+            'cityDescriptions' => $cityDescriptions,
+            'cityPictures' => $cityPictures,
         );
         return view('flightListView', $data);
 
     }
 
     public function flight($ident){
-        $adapter = new FlightAwareJsonAdapter(FLIGHT_AWARE_NAME, FLIGHT_AWARE_KEY);
-        $flight = $adapter ->getFlight($identCode);
-        //$flight = $this->getTestFlight();
-        //$cityDescription = $this->getWikiText($flight);
-        //$cityPictures = $this->getDetailViewCityPictures($flight);
+        //$adapter = new FlightAwareJsonAdapter(FLIGHT_AWARE_NAME, FLIGHT_AWARE_KEY);
+        //$flight = $adapter ->getFlight($identCode);
+        $flight = $this->getTestFlight();
+        $cityDescription = $this->getWikiText($flight);
+        $cityPictures = $this->getDetailViewCityPictures($flight);
 
-        //$this->view('flight/flightdetailview', ['flight' => $flight, 'cityDescription' => $cityDescription, 'cityPictures' => $cityPictures]);
+        $data = array(
+            'flight' => $flight,
+            'cityDescription' => $cityDescription,
+            'cityPictures' => $cityPictures,
+        );
 
-        return view('flightDetailView', ['flight', $flight]);
+        return view('flightDetailView', $data);
     }
 
     private function getWikiText(Flight $flight): string
@@ -62,7 +67,11 @@ class FlightController extends Controller
         foreach ($flights as $flight) {
             $city = $flight->getDestination()->getLocation();
             $cityPicture = $flickJsonAdapter->getSmallPictures($city, 1);
-            $cityPictures[$city] = $cityPicture[0] ? $cityPicture[0] : "";
+            if(isset($cityPicture[0])){
+                $cityPictures[$city] = $cityPicture[0];
+            } else {
+                $cityPictures[$city] = "";
+            }
         }
         return $cityPictures;
     }
@@ -77,5 +86,23 @@ class FlightController extends Controller
         $cityPicture[$city] = $cityPicture;
 
         return $cityPictures;
+    }
+
+    private function getTestFlight()
+    {
+        $airport = new Airport('BSL', 'Basel', 'Basel');
+        $flight = new Flight('BSL1337', 'swiss', $airport, $airport, "", null);
+        return $flight;
+
+    }
+
+    private function getTestFlights()
+    {
+        $flights = array();
+        for ($i = 0; $i < 5; $i++) {
+            $flights[] = $this->getTestFlight();
+        }
+
+        return $flights;
     }
 }

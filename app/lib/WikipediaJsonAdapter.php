@@ -33,9 +33,10 @@ class WikipediaJsonAdapter
     {
         $wikiInformation = $this->get($cityName);
         $wikiInformation = json_decode($wikiInformation);
-        if($wikiInformation = ""){
+        if($wikiInformation == ""){
             return "";
         }
+
         $pages = $wikiInformation -> query -> pages;
 
         $objectvars = get_object_vars($pages);
