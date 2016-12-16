@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="de">
-<?php
-include_once '../resources/views/includes/head.php';
-include_once '../resources/views/includes/menu.php';
-?>
+@extends('layouts.app')
+@section('content')
 
 <body>
 @foreach ($flights as $flight)
@@ -43,4 +39,4 @@ include_once '../resources/views/includes/menu.php';
     </div>
 @endforeach
 </body>
-</html>
+@endsection

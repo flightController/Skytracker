@@ -1,15 +1,5 @@
-<?php
-include_once '../resources/views/includes/head.php';
-include_once '../resources/views/includes/menu.php';
-?>
-
-        <!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Sky Tracker</title>
-    <meta name="description" content="Flugtracker ABB Technikerschule">
-</head>
+@extends('layouts.app')
+@section('content')
 
 <body>
 <div class="container flightcontainer">
@@ -55,4 +45,4 @@ include_once '../resources/views/includes/menu.php';
 </div>
 
 </body>
-</html>
+@endsection

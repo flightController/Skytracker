@@ -11,6 +11,11 @@ use App\Airport;
 
 class FlightController extends Controller
 {
+    public function __construct()
+    {
+        $this -> middleware('auth');
+    }
+
     public function flightList(){
         //$adapter = new FlightAwareJsonAdapter(FLIGHT_AWARE_NAME, FLIGHT_AWARE_KEY);
         //$flights = $adapter -> getDepartedFlights('LSZH', 5);
