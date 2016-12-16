@@ -22,7 +22,7 @@ class WikipediaJsonAdapter
         curl_setopt_array($ch, $options);
         $response = curl_exec($ch);
         if ($response === false) {
-            throw new Exception('Curl error: ' . curl_error($ch));
+            return "";
         }
         curl_close($ch);
         return $response;
@@ -33,7 +33,7 @@ class WikipediaJsonAdapter
     {
         $wikiInformation = $this->get($cityName);
         $wikiInformation = json_decode($wikiInformation);
-        if($wikiInformation == ""){
+        if(!isset($wikiInformation)){
             return "";
         }
 

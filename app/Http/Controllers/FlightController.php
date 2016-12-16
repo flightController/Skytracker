@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Flight;
 use App\lib\FlickrJsonAdapter;
 use App\Airport;
+use App\UserSetting;
+use Illuminate\Support\Facades\Auth;
 
 class FlightController extends Controller
 {
@@ -17,9 +19,23 @@ class FlightController extends Controller
     }
 
     public function flightList(){
-        //$adapter = new FlightAwareJsonAdapter(FLIGHT_AWARE_NAME, FLIGHT_AWARE_KEY);
-        //$flights = $adapter -> getDepartedFlights('LSZH', 5);
-        $flights = $this->getTestFlights();
+
+        $userSettings = UserSetting::where('user_id', '=', Auth::user()->id) -> first();
+        if(!isset($userSettings)){
+            echo 'No User Settings found';
+        }
+
+        $numberOfFlights = $userSettings -> number_of_flights;
+        $homeAirport = $userSettings -> home_airport;
+        $test_mode = $userSettings -> test_mode;
+
+        if($test_mode){
+            $flights = $this->getTestFlights($numberOfFlights);
+        } else{
+            $adapter = new FlightAwareJsonAdapter(FLIGHT_AWARE_NAME, FLIGHT_AWARE_KEY);
+            $flights = $adapter -> getDepartedFlights($homeAirport, $numberOfFlights);
+        }
+
         $cityDescriptions = $this->getWikiTexts($flights);
         $cityPictures = $this->getListViewCityPictures($flights);
 
@@ -33,9 +49,18 @@ class FlightController extends Controller
     }
 
     public function flight($ident){
-        //$adapter = new FlightAwareJsonAdapter(FLIGHT_AWARE_NAME, FLIGHT_AWARE_KEY);
-        //$flight = $adapter ->getFlight($identCode);
-        $flight = $this->getTestFlight();
+        $userSettings = UserSetting::where('user_id', '=', Auth::user()->id) -> first();
+        if(!isset($userSettings)){
+            echo 'No User Settings found';
+        }
+
+        if($userSettings -> test_mode){
+            $flight = $this->getTestFlight();
+        } else {
+            $adapter = new FlightAwareJsonAdapter(FLIGHT_AWARE_NAME, FLIGHT_AWARE_KEY);
+            $flight = $adapter ->getFlight($ident);
+        }
+
         $cityDescription = $this->getWikiText($flight);
         $cityPictures = $this->getDetailViewCityPictures($flight);
 
@@ -101,10 +126,10 @@ class FlightController extends Controller
 
     }
 
-    private function getTestFlights()
+    private function getTestFlights($number_of_flights)
     {
         $flights = array();
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < $number_of_flights; $i++) {
             $flights[] = $this->getTestFlight();
         }
 
