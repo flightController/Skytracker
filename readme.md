@@ -1,40 +1,62 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img width="150"src="https://laravel.com/laravel.png"></a></p>
+# SkyTracker
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## How To Install
 
-## About Laravel
+### VM and Vagrant
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+- Install virtualbox/paralles
+- install vagrant
+- install vagrant-plugin
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+###Homestead
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+1. Go to Terminal / CMD and insert:
+2. cd ~
+3. git clone https://github.com/laravel/homestead.git Homestead
+4. cd ~/.homestead
+5. bash init.sh / Windows: init.bat
+6. sudo nano ~/.homestead/Homestead.yaml
+7. Change these parameters
+-     1. provider: parallels
+-     2. folders:  - map: ~/Sites  (folder where you store the Site)
+-     3. to: /home/vagrant/Code
+-     4. sites: - map: yourdomain.app 
+-     5. to: /home/vagrant/Code/Laravel/public
+-     6. if you already installed homestead before run in Terminal: vagrant reload --provision
 
-## Learning Laravel
+###hosts
+1. sudo nano etc/hosts
+2. insert: 192.168.10.10 yourdomain.app
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+###Vagrant
+1. cd ~/Homestead
+2. start vm with: vagrant up
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+other vagrant commands:
+2. stop vm: vagrant halt
+3. destroy vm: vagrant destroy --force
+4. connect to vm with ssh: vagrant ssh
+5. update to the new vagrant box: vagrant box update
 
-## Contributing
+###mySql
+1. vagrant ssh
+2. mysql
+3. create database skytracker;
+4. open .env file in the project folder
+5. host: localhost
+6. port: 33060
+7. user / pw: homestead/secret
+8. do the same settings in config/database.php
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+###Laravel
+1. still with ssh: cd /home/vagrant/Code/Skytracker
+2. composer install
+3. php artisan migrate
+4. php artisan key:generate
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+###voyager admin panel
+1. cd /home/vagrant/Code/Skytracker/
+4. composer require tcg/voyager
+3. 6. php artisan voyager:install
+7. php artisan voyager:admin name@mail.com --create
+8. Im folder sql run this sql-script to insert settings: user_settings.sql
