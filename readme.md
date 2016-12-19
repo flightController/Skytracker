@@ -33,7 +33,7 @@
 2. start vm with: vagrant up
 3. If id_rsa Error you have to create a ssh-key: ssh-keygen -t rsa -C "you@homestead" (Windows: use git-bash) 
 
-other vagrant commands:
+#### other vagrant commands:
 2. stop vm: vagrant halt
 3. destroy vm: vagrant destroy --force
 4. connect to vm with ssh: vagrant ssh
