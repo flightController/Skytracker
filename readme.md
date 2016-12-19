@@ -57,6 +57,6 @@ other vagrant commands:
 ###voyager admin panel
 1. cd /home/vagrant/Code/Skytracker/
 4. composer require tcg/voyager
-3. 6. php artisan voyager:install
+3. php artisan voyager:install
 7. php artisan voyager:admin name@mail.com --create
 8. Im folder sql run this sql-script to insert settings: user_settings.sql
