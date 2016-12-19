@@ -1,6 +1,6 @@
 # SkyTracker
 
-## How To Install
+## How To Install (In VM)
 
 ### VM and Vagrant
 
@@ -8,7 +8,7 @@
 - install vagrant
 - install vagrant-plugin
 
-###Homestead
+### Homestead
 
 1. Go to Terminal / CMD and insert:
 2. cd ~
@@ -24,11 +24,11 @@
 -     5. to: /home/vagrant/Code/Laravel/public
 -     6. if you already installed homestead before run in Terminal: vagrant reload --provision
 
-###hosts
+### hosts
 1. sudo nano etc/hosts
 2. insert: 192.168.10.10 yourdomain.app
 
-###Vagrant
+### Vagrant
 1. cd ~/Homestead
 2. start vm with: vagrant up
 3. If id_rsa Error you have to create a ssh-key: ssh-keygen -t rsa -C "you@homestead" (Windows: use git-bash) 
@@ -39,7 +39,7 @@ other vagrant commands:
 4. connect to vm with ssh: vagrant ssh
 5. update to the new vagrant box: vagrant box update
 
-###mySql
+### mySql
 1. vagrant ssh
 2. mysql
 3. create database skytracker;
@@ -49,15 +49,42 @@ other vagrant commands:
 7. user / pw: homestead/secret
 8. do the same settings in config/database.php
 
-###Laravel
+### Laravel
 1. still with ssh: cd /home/vagrant/Code/Skytracker
 2. composer install
 3. php artisan migrate
 4. php artisan key:generate
 
-###voyager admin panel
+### voyager admin panel
 1. cd /home/vagrant/Code/Skytracker/
-4. composer require tcg/voyager
+2. composer require tcg/voyager
 3. php artisan voyager:install
-7. php artisan voyager:admin name@mail.com --create
-8. Im folder sql run this sql-script to insert settings: user_settings.sql
+4. php artisan voyager:admin name@mail.com --create
+5. Im folder sql run this sql-script to insert settings: user_settings.sql
+
+## How To Install (local)
+
+### Install
+1. Install composer
+2. Install php
+3. Install apache
+4. Install mysql
+
+### composer
+1. navigate with cmd/terminal to the project folder
+2. type: composer install
+
+### mysql
+1. create database skytracker;
+2. open .env file in the project folder
+3. enter host
+4. enter port
+5. enter user and pw
+6. do the same settings in config/database.php
+
+### voyager admin panel
+1. navigate with cmd/terminal to the project folder
+2. composer require tcg/voyager
+3. php artisan voyager:install
+4. php artisan voyager:admin name@mail.com --create
+5. In folder sql run this sql-script to insert settings: user_settings.sql
