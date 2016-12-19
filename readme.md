@@ -31,6 +31,7 @@
 ###Vagrant
 1. cd ~/Homestead
 2. start vm with: vagrant up
+3. If id_rsa Error you have to create a ssh-key: ssh-keygen -t rsa -C "you@homestead" (Windows: use git-bash) 
 
 other vagrant commands:
 2. stop vm: vagrant halt
