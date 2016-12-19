@@ -13,7 +13,7 @@
 1. Go to Terminal / CMD and insert:
 2. cd ~
 3. git clone https://github.com/laravel/homestead.git Homestead
-4. cd ~/.homestead
+4. cd ~/homestead
 5. bash init.sh / Windows: init.bat
 6. sudo nano ~/.homestead/Homestead.yaml
 7. Change these parameters
