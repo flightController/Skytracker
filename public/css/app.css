@@ -1,45 +1,61 @@
-/* Firmenlogo zentriert bei Loginscreen */
+/*
+* === FIRMENLOGO ZENTRIERT BEI LOGIN UND REGISTRATION ===
+*/
 #logo {
     text-align: center;
     margin: 10% auto 10% auto;
 }
 
+/*
+* === MARGIN DEFAULT VON ROW UND CONTAINER ENTFERNEN ===
+*/
 .row {
     margin-right: 0px;
     margin-left: 0px;
 }
-
 .container {
     padding-right: 0px;
     padding-left: 0px;
 }
 
-/* Login Panel Border entfernt */
+/*
+* === LOGIN PANEL BORDER ENTFERNT ===
+*/
 .panel-default {
     border: none;
 }
 
-/* Login Panel Schatten entfernt */
+/*
+* === LOGIN PANEL SCHATTEN ENTFERNT ===
+*/
 .panel {
     box-shadow: none !important;
 }
 
-/* Menu Abstand rechts im Container */
+/*
+* === MENU ABSTAND RECHTS IM NAVBAR CONTAINER ===
+*/
 .navbar-right {
     padding-right: 30px;
 }
 
-/* Submit Button Breite */
-
+/*
+* === BREITE DES SUBMITBUTTON ===
+*/
 .submitbutton {
     width: 100%;
 }
 
-/* Logo bei Login und Registration responsive und central */
+/*
+* === LOGO BEI LOGIN UND REGISTRATION RESPONSIVE UND DENNOCH ZENTRIERT ===
+*/
 .img-responsive {
     display: inline;
 }
 
+/*
+* === GESTALTUNG DES NAVBARS ===
+*/
 .brand-left {
     display: flex;
     justify-content: left;
@@ -50,8 +66,6 @@
     top: 0;
 }
 
-
-
 .brand-centered {
     display: flex;
     justify-content: center;
@@ -61,23 +75,29 @@
     top: 0;
 }
 
-/* Firmenlogo */
+/*
+* === FIRMENLOGO ===
+*/
 .brand-centered .navbar-brand {
     display: flex;
     align-items: center;
 }
 
-/* Dropdown Menu erscheint bei Hover */
+/*
+* === DROPDOWNMENU ERSCHEINT BEI :HOVER ===
+*/
 ul.nav li.dropdown:hover ul.dropdown-menu{
     display: block;
     margin-top:0px
 }
-
 /* Top Menu Höhe */
 .container-fluid{
     height: 60px;
 }
 
+/*
+* === FLUGLISTEN DARSTELLUNG ===
+*/
 .flightlist {
     border: solid 0.5px gainsboro;
     border-radius: 5px;
@@ -102,32 +122,51 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     font-size: 1.5em;
 }
 
+/*
+* === PRIMARYBUTTON FARBE ===
+*/
 .btn-primary {
     background-image: linear-gradient(to bottom, #0067d3 0%,#0067d3 100%) !important;
     border-color: #0067d3;
 }
 
+/*
+* === PRIMARYBUTTON FARBE BEI :HOVER ===
+*/
 .btn-primary:hover {
     background-color: black !important;
     background-position: 0 +40px !important;
     border-color: black;
 }
 
+/*
+* === SCHRIFTGRÖSSE DETAILTEXT ===
+*/
 .flightDetailText {
     margin-bottom: 20px;
 }
 
+/*
+* === BORDER UM DIE FLUGINFORMATIONEN / MARGINEINSTELLUNGEN ===
+*/
 .flightdetail {
     border: solid 0.5px gainsboro;
     border-radius: 5px;
     margin: 25px auto;
 }
+
+/*
+* === BORDER UM DIE FLUGTRACKERKARTE / MARGINEINSTELLUNGEN ===
+*/
 .flightdetailmap {
     border: solid 0.5px gainsboro;
     margin: 20px;
     border-radius: 5px;
 }
 
+/*
+* === BORDER UM DIE WETTERDETAILS / MARGINEINSTELLUNGEN ===
+*/
 .flightdetailweather {
     border: solid 0.5px gainsboro;
     margin: 20px;
@@ -135,20 +174,24 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 }
 
 /*
-.navbar-default {
-    margin-right: -30px;
-}*/
-
+* === GESTALTUNG H2 IM DETAILTEXT ===
+*/
 .flightdetail h2 {
     font-size: 16px;
     font-weight: bold;
     font-family: sans-serif;
 }
 
+/*
+* === EINSTELLUNGEN KARTENBILD  IM DETAILBEREICH===
+*/
 .flightdetailmap img {
     margin: 0 auto 20px auto;
 }
 
+/*
+* === GLEICHHOHE ELEMENTE AUF DETAILSEITE ===
+*/
 .row-height{
     display: table;
     table-layout: fixed;
@@ -167,6 +210,9 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     margin-top: 0px;
 }
 
+/*
+* === FLUGINFORMATIONEN AUF DETAILSEITE ===
+*/
 .flightdetailflight {
     border: solid 0.5px gainsboro;
     margin-top: 20px;
@@ -177,23 +223,35 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     width: 95%;
 }
 
+/*
+* === H4 IN FLUGINFORMATIONEN ===
+*/
 .flightdetailflight h4{
     font-size: 14px;
     font-family: sans-serif;
 }
 
+/*
+* === EINSTELLUNGEN FÜR SCREENS ÜBER 1200PX ===
+*/
 @media screen and (min-width: 1200px) {
     .flightlist {
         margin: 15px auto 15px auto;
     }
 }
 
+/*
+* === EINSTELLUNGEN FÜR SCREENS ÜBER 960PX ===
+*/
 @media screen and (min-width: 960px) {
     .hidelarge {
         display: none;
     }
 }
 
+/*
+* === EINSTELLUNGEN FÜR SCREENS UNTER 960PX ===
+*/
 @media screen and (max-width: 960px) {
     .hidemediumsmall {
         display: none;
@@ -205,14 +263,18 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 
 }
 
-/* Media Carousel Flightdetailpage*/
-
+/*
+* === BILDERKARUSELL AUF FLUGDETAILSEITE ===
+*/
 .media-carousel
 {
     padding: 0 40px 30px 40px;
     margin: 30px 30px 0px 30px;
 }
-/* Previous button  */
+
+/*
+* === ZURÜCK BUTTON ===
+*/
 .media-carousel .carousel-control.left
 {
     left: -12px;
@@ -224,7 +286,10 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     width : 40px;
     margin-top: 30px
 }
-/* Next button  */
+
+/*
+* === VORWÄRTS BUTTON ===
+*/
 .media-carousel .carousel-control.right
 {
     right: -12px !important;
@@ -236,7 +301,10 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     width : 40px;
     margin-top: 30px
 }
-/* Changes the position of the indicators */
+
+/*
+* === POSITIONSÄNDERUNG DER INDIKATOREN ===
+*/
 .media-carousel .carousel-indicators
 {
     right: 50%;
@@ -244,7 +312,10 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     bottom: 0px;
     margin-right: -19px;
 }
-/* Changes the colour of the indicators */
+
+/*
+* === FARBWECHSEL DER INDIKATOREN ===
+*/
 .media-carousel .carousel-indicators li
 {
     background: #c0c0c0;
@@ -253,9 +324,11 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 {
     background: #333333;
 }
+/*
+* === BILDGRÖSSE FESTLEGEN ===
+*/
 .media-carousel img
 {
     width: 250px;
     height: 100px
 }
-/* End carousel */
