@@ -4,11 +4,10 @@
 <body>
 @foreach ($flights as $flight)
 <div class="container flightcontainer">
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 flightlist">
+    <div class="row flightlistrow">
+        <div class="col-md-12 col-sm-12 flightlist">
             <h1>{{$flight->getDestination()->getLocation()}}</h1>
-            <div class="row">
-                <div class="col-lg-9 col-md-9 col-sm-12 flightlistblock">
+                <div class="col-md-9 col-sm-12 flightlistblock">
                     <p>{{$cityDescriptions[$flight->getDestination()->getLocation()]}}</p>
                     <div class="row flightweather">
                         <div class="hidelarge col-md-4 col-sm-0">
@@ -29,14 +28,13 @@
                         </div>
                         <div class="col-lg-2 hidemediumsmall">
                         </div>
-                    </div>
-                    <div class="col-lg-3 hidemediumsmall">
+                </div>
+                <div class="col-lg-3 hidemediumsmall">
                     <img src="{{$cityPictures[$flight->getDestination()->getLocation()]}}"/>
                 </div>
-                </div>
-            </div>
         </div>
     </div>
+</div>
 @endforeach
 </body>
 @endsection
