@@ -116,6 +116,7 @@ class FlightController extends Controller
     {
         $flickJsonAdapter = new FlickrJsonAdapter(FLICKR_API_KEY);
 
+        $cityPictures = array();
         $city = $flight->getDestination()->getLocation();
         $cityPicture = $flickJsonAdapter->getFullPictures($city, 8);
         $cityPictures[$city] = $cityPicture;
