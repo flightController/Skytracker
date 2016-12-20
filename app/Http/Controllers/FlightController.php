@@ -22,7 +22,13 @@ class FlightController extends Controller
 
         $userSettings = UserSetting::where('user_id', '=', Auth::user()->id) -> first();
         if(!isset($userSettings)){
-            echo 'No User Settings found';
+            $userSettings = UserSetting::create([
+                'user_id' => Auth::user()->id,
+                'home_airport' => 'LSZH',
+                'number_of_flights' => 5,
+                'refresh_time' => 300,
+                'test_mode' => 1,
+            ]);
         }
 
         $numberOfFlights = $userSettings -> number_of_flights;

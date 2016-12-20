@@ -28,6 +28,8 @@ DROP TABLE IF EXISTS `user_settings`;
 CREATE TABLE `user_settings` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
+  `created_at` timestamp DEFAULT NULL,
+  `updated_at` timestamp DEFAULT NULL,
   `number_of_flights` int(11) DEFAULT NULL,
   `refresh_time` int(11) DEFAULT NULL,
   `test_mode` tinyint(4) DEFAULT NULL,
@@ -37,9 +39,9 @@ CREATE TABLE `user_settings` (
 LOCK TABLES `user_settings` WRITE;
 /*!40000 ALTER TABLE `user_settings` DISABLE KEYS */;
 
-INSERT INTO `user_settings` (`id`, `user_id`, `number_of_flights`, `refresh_time`, `test_mode`)
+INSERT INTO `user_settings` (`id`, `user_id`, `created_at`, `updated_at`, `number_of_flights`, `refresh_time`, `test_mode`)
 VALUES
-	(1,1,5,300,1);
+	(1,1,0,0,5,300,1);
 
 /*!40000 ALTER TABLE `user_settings` ENABLE KEYS */;
 UNLOCK TABLES;
