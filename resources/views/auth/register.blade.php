@@ -15,45 +15,34 @@
                     <div class="panel-body">
                         <form class="form-horizontal" id ="register" role="form" method="POST" action="{{ url('/register') }}">
                             {{ csrf_field() }}
-
-
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                 <div class="col-md-12">
                                     <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus placeholder="Name">
-
                                     @if ($errors->has('name'))
-
                                         <span class="help-block">
-												<strong>{{ $errors->first('name') }}</strong>
-											</span>
+										<strong>{{ $errors->first('name') }}</strong>
+									</span>
                                     @endif
-
                                 </div>
                             </div>
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <div class="col-md-12">
                                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="Mail">
-
                                     @if ($errors->has('email'))
-
                                         <span class="help-block">
-													<strong>{{ $errors->first('email') }}</strong>
-												</span>
+											<strong>{{ $errors->first('email') }}</strong>
+										</span>
                                     @endif
-
                                 </div>
                             </div>
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <div class="col-md-12">
                                     <input id="password" type="password" class="form-control" name="password" required placeholder="Passwort">
-
                                     @if ($errors->has('password'))
-
                                         <span class="help-block">
-														<strong>{{ $errors->first('password') }}</strong>
-													</span>
+												<strong>{{ $errors->first('password') }}</strong>
+											</span>
                                     @endif
-
                                 </div>
                             </div>
                             <div class="form-group">
@@ -74,4 +63,8 @@
             </div>
         </div>
     </div>
+
+
+
+
 @endsection
