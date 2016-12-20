@@ -20,7 +20,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            Eingeloggt als <b>{{ Auth::user()->name }}</b><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            Eingeloggt als <b>{{ Auth::user()->name }} </b><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
