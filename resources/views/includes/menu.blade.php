@@ -37,7 +37,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="http://skytracker.local/admin">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                         </a>
 
