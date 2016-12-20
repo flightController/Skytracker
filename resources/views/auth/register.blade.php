@@ -5,7 +5,7 @@
         <div id="header">
             <div id="logo">
                 <a href="/home">
-                    <img src="images/logo.png" alt="SkyTracker" width="628" height="200"/>
+                    <img src="images/logo.png" class="img-responsive" alt="SkyTracker" width="628" height="200"/>
                 </a>
             </div>
         </div>

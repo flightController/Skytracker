@@ -35,6 +35,11 @@
     width: 100%;
 }
 
+/* Logo bei Login und Registration responsive und central */
+.img-responsive {
+    display: inline;
+}
+
 .brand-left {
     display: flex;
     justify-content: left;
