@@ -88,10 +88,10 @@ class FlightController extends Controller
     private function getWikiTexts(array $flights): array
     {
         $wikipediaAdapter = new WikipediaJsonAdapter();
-        $cityDescriptions = array();
         foreach ($flights as $flight) {
-            $cityDescriptions[$flight->getDestination()->getLocation()] = $wikipediaAdapter->getShortCityDescription($flight->getDestination()->getLocation());
+            $cities[] = $flight->getDestination()->getLocation();
         }
+        $cityDescriptions = $wikipediaAdapter ->getShortCityDescriptions($cities);
         return $cityDescriptions;
     }
 
@@ -115,11 +115,11 @@ class FlightController extends Controller
     private function getDetailViewCityPictures(Flight $flight): array
     {
         $flickJsonAdapter = new FlickrJsonAdapter(FLICKR_API_KEY);
-        $cityPictures = array();
 
+        $cityPictures = array();
         $city = $flight->getDestination()->getLocation();
         $cityPicture = $flickJsonAdapter->getFullPictures($city, 8);
-        $cityPicture[$city] = $cityPicture;
+        $cityPictures[$city] = $cityPicture;
 
         return $cityPictures;
     }
