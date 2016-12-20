@@ -19,6 +19,8 @@
     top: 0;
 }
 
+
+
 .brand-centered {
     display: flex;
     justify-content: center;
@@ -48,7 +50,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 .flightlist {
     border: solid 0.5px gainsboro;
     border-radius: 5px;
-    margin: 25px auto;
 }
 
 .flightlist h1 {
@@ -147,6 +148,12 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 .flightdetailflight h4{
     font-size: 14px;
     font-family: sans-serif;
+}
+
+@media screen and (min-width: 1200px) {
+    .flightlist {
+        margin: 25px auto 25px 15px;
+    }
 }
 
 @media screen and (min-width: 960px) {
