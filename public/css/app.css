@@ -14,9 +14,25 @@
     padding-left: 0px;
 }
 
+/* Login Panel Border entfernt */
+.panel-default {
+    border: none;
+}
+
+/* Login Panel Schatten entfernt */
+.panel {
+    box-shadow: none !important;
+}
+
 /* Menu Abstand rechts im Container */
 .navbar-right {
     padding-right: 30px;
+}
+
+/* Submit Button Breite */
+
+.submitbutton {
+    width: 100%;
 }
 
 .brand-left {
