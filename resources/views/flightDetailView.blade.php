@@ -30,6 +30,9 @@
                 <h4>Restliche Flugzeit: </h4> 3 Std 34 Min<br>
                 <h4>Flugzeugtyp: </h4> {{$flight->getAircraft()}}<br>
             </div>
+            <div class="col-md-3 col-md-offset-6">
+                <img src="../images/a380.jpg"/>
+            </div>
         </div>
         <div class='row'>
             <div class='col-lg-12'>
