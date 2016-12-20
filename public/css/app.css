@@ -152,7 +152,8 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 .flightdetail {
     border: solid 0.5px gainsboro;
     border-radius: 5px;
-    margin: 25px auto;
+    margin: 20px 0px 20px 0px;
+    padding-right: 30px;
 }
 
 /*
@@ -169,7 +170,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 */
 .flightdetailweather {
     border: solid 0.5px gainsboro;
-    margin: 20px;
+    margin: 20px 0px 20px 0px;
     border-radius: 5px;
 }
 
@@ -180,6 +181,15 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     font-size: 16px;
     font-weight: bold;
     font-family: sans-serif;
+    color: #0067d3;
+}
+
+/*
+* === GESTALTUNG H1 IM DETAILTEXT ===
+*/
+.flightdetail h1 {
+    margin-left: 12px;
+    color: #0067d3;
 }
 
 /*
@@ -215,12 +225,9 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 */
 .flightdetailflight {
     border: solid 0.5px gainsboro;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
     border-radius: 5px;
-    width: 95%;
+    margin: 20px 0px 20px 20px;
+    padding-bottom: 15px;
 }
 
 /*
@@ -228,6 +235,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 */
 .flightdetailflight h4{
     font-size: 14px;
+    font-weight: bold;
     font-family: sans-serif;
 }
 
@@ -329,6 +337,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 */
 .media-carousel img
 {
-    width: 250px;
+    width: 200px;
     height: 100px
 }

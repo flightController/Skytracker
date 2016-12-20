@@ -15,30 +15,20 @@
         <div class="row-height">
             <div class="col-md-6 flightdetailmap inside inside-full-height">
                 <h2>Skytracker</h2>
-                <img src="../images/worldmap.png"/>
+                <img src="../images/worldmap.png" class="img-responsive"/>
             </div>
             <div class="col-md-5 flightdetailweather inside inside-full-height">
                 <h2>Weather</h2>
             </div>
         </div>
-        <div class="col-md-12 flightdetailflight">
+        <div class="col-md-11 col-sm-11 flightdetailflight">
             <h2>Flugdetails</h2>
             </br>
             <div class="col-md-3">
-                <h4>Flugnummer: {{$flight->getIdent()}}</br></br>
-                    Fluggesellschaft: {{$flight->getAirline()}}</br></br>
-                    Restliche Flugzeit: 3 Std 34 Min</br></br>
-                    Flugzeugtyp: {{$flight->getAircraft()}}</br>
-                </h4>
-            </div>
-            <div class="col-md-3">
-                <h4>{{$flight->getIdent()}}</br></br>
-                    {{$flight->getAirline()}}</br></br>
-                    3 Std 34 Min </br></br>
-                    {{$flight->getAircraft()}} </br>
-                </h4>
-            </div>
-            <div class="col-md-6">
+                <h4>Flugnummer:</h4> {{$flight->getIdent()}}<br>
+                <h4>Fluggesellschaft: </h4> {{$flight->getAirline()}}<br>
+                <h4>Restliche Flugzeit: </h4> 3 Std 34 Min<br>
+                <h4>Flugzeugtyp: </h4> {{$flight->getAircraft()}}<br>
             </div>
         </div>
         <div class='row'>
@@ -48,32 +38,32 @@
                         <div class="item  active">
                             <div class="row">
                                 <div class="col-lg-3">
-                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x100"></a>
                                 </div>
                                 <div class="col-lg-3">
-                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x100"></a>
                                 </div>
                                 <div class="col-lg-3">
-                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x100"></a>
                                 </div>
                                 <div class="col-lg-3">
-                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x100"></a>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="row">
                                 <div class="col-lg-3">
-                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x100"></a>
                                 </div>
                                 <div class="col-lg-3">
-                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x100"></a>
                                 </div>
                                 <div class="col-lg-3">
-                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x100"></a>
                                 </div>
                                 <div class="col-lg-3">
-                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
+                                    <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/200x100"></a>
                                 </div>
                             </div>
                         </div>
