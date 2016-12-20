@@ -36,15 +36,11 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span><b class="caret"></b>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Ansicht</a></li>
-                            <li><a href="#">Benutzer</a></li>
-                            <li><a href="#">Standort</a></li>
-                        </ul>
+
                     </li>
                 </ul>
             </div>
