@@ -8,7 +8,4 @@
     </div>
     <script src="/js/app.js"></script>
 </body>
-<footer>
-    @include('includes/footer')
-</footer>
 </html>
