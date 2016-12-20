@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container menu-container">
     @if (Auth::user())
     <nav class="navbar navbar-default">
         <div class="container-fluid">
