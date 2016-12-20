@@ -127,7 +127,7 @@ class FlightController extends Controller
     private function getTestFlight()
     {
         $airport = new Airport('BSL', 'Basel', 'Basel');
-        $flight = new Flight('BSL1337', 'swiss', $airport, $airport, "", null);
+        $flight = new Flight('BSL1337', 'Swiss International', $airport, $airport, "A380", null);
         return $flight;
 
     }

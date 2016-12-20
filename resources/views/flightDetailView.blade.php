@@ -26,16 +26,16 @@
             </br>
             <div class="col-lg-3">
                 <h4>Flugnummer: </br></br>
-                    Ankunftszeit: </br></br>
+                    Fluggesellschaft: </br></br>
                     Restliche Flugzeit: </br></br>
                     Flugzeugtyp: </br>
                 </h4>
             </div>
             <div class="col-lg-3">
-                <h4>A34B6 </br></br>
-                    12:46 </br></br>
+                <h4>{{$flight->getIdent()}}</br></br>
+                    {{$flight->getAirline()}}</br></br>
                     3 Std 34 Min </br></br>
-                    Airbus A380 </br>
+                    {{$flight->getAircraft()}} </br>
                 </h4>
             </div>
             <div class="col-lg-6">
