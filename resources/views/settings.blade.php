@@ -1,6 +1,37 @@
 @extends('layouts.app')
 @section('content')
 
+    <?php
+    if (isset($_POST["submit"])) {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $homeAirport = $_POST['homeAirport'];
+        $password = $_POST['password'];
+        $numberOfFlights = $_POST['numberOfFlightsSelect'];
+        $refreshTime = $_POST['refreshTimeSelect'];
+        $testMode = $_POST['testModeSelect'];
+
+        // Check if name has been entered
+        if (!$_POST['name']) {
+            $errName = 'Bitte tragen Sie einen Namen ein';
+        }
+
+        // Check if email has been entered and is valid
+        if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $errEmail = 'Bitte geben Sie eine gültige E-Mail Adresse an';
+        }
+
+        // Check if Home Airport has been entered and is valid
+        if (!$_POST['homeAirport']) {
+            $errHomeAirport = 'Tragen Sie einen gültigen Heimflughafen ein';
+        }
+
+        // If there are no errors, send the email
+        if (!$errName && !$errEmail && !$errHomeAirport) {
+            $result='<div class="alert alert-success">Thank You! I will be in touch</div>';
+        }
+    }
+    ?>
 
     <div class="container">
         <div class="row settingrow">
@@ -105,39 +136,5 @@
             </div>
         </div>
     </div>
-
-
-    <?php
-    if (isset($_POST["submit"])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $homeAirport = $_POST['homeAirport'];
-        $password = $_POST['password'];
-        $numberOfFlights = $_POST['numberOfFlightsSelect'];
-        $refreshTime = $_POST['refreshTimeSelect'];
-        $testMode = $_POST['testModeSelect'];
-
-        // Check if name has been entered
-        if (!$_POST['name']) {
-            $errName = 'Bitte tragen Sie einen Namen ein';
-        }
-
-        // Check if email has been entered and is valid
-        if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $errEmail = 'Bitte geben Sie eine gültige E-Mail Adresse an';
-        }
-
-        // Check if Home Airport has been entered and is valid
-        if (!$_POST['homeAirport']) {
-            $errHomeAirport = 'Tragen Sie einen gültigen Heimflughafen ein';
-        }
-
-        // If there are no errors, send the email
-        if (!$errName && !$errEmail && !$errHomeAirport) {
-            $result='<div class="alert alert-success">Thank You! I will be in touch</div>';
-        }
-        }
-        ?>
-
 
 @endsection
