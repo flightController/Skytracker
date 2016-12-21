@@ -28,6 +28,6 @@ class SettingsController extends Controller
         $data = array([
             'userSettings' => UserSetting::where('user_id', '=', Auth::user()->id) -> first(),
         ]);
-        return view('settings', $data);
+        return view('settingsView', $data);
     }
 }
