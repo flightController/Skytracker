@@ -24,13 +24,13 @@
                             <label class='control-label'>Name</label>
                         </div>
                         <div class="col-md-6 settingoption">
-                            <input type="name" class="form-control" id="inputName" placeholder="Sven">
+                            <input type="name" class="form-control" id="inputName" placeholder="{{$userName}}">
                         </div>
                         <div class="col-md-12">
                             <label class='control-label'>E-Mail</label>
                         </div>
                         <div class="col-md-6 settingoption">
-                            <input type="email" class="form-control" id="inputEmail" placeholder="{{$userSettings->get}}">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="{{$userEmail}}">
                         </div>
                         <div class="col-md-12">
                             <label class='control-label'>Passwort ändern</label>
@@ -38,7 +38,10 @@
                         <div class="col-md-6 settingoption">
                             <input type="password" class="form-control" id="inputPassword" placeholder="********">
                         </div>
-
+                        <div class="col-md-6"><br><br><br></div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary submitbutton">Speichern</button>
+                        </div>
                     </div>
                     <div id="setting2" class="tab-pane fade">
                         <h3>Standorteinstellungen</h3>
@@ -51,29 +54,31 @@
                         </div>
                         <div class="col-md-6 settingoption">
                             <select class="form-control" id="exampleSelect1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
+                                <option hidden value="">{{$numberOfFlights}}</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
                             </select>
                         </div>
                         <div class="col-md-12">
                             <label class='control-label'>Refreshtime in Sekunden</label>
                         </div>
                         <div class="col-md-6 settingoption">
-                            <select class="form-control" id="exampleSelect1">
-                                <option>1</option>
-                                <option>5</option>
-                                <option>10</option>
-                                <option>30</option>
-                                <option>60</option>
-                                <option>300</option>
+                            <select class="form-control" id="exampleSelect1" >
+                                <option hidden value="">{{$refreshTime}}</option>
+                                <option value="1">1</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="30">30</option>
+                                <option value="60">60</option>
+                                <option value="300">300</option>
                             </select>
                         </div>
                         <div class="col-md-12">
@@ -81,12 +86,14 @@
                         </div>
                         <div class="col-md-6 settingoption">
                             <select class="form-control" id="exampleSelect1">
-                                <option>Ja</option>
-                                <option>Nein</option>
+                                <option hidden value=""><?php if ($testMode==1){echo "Ja";} elseif ($testMode==0) {echo "nein";}?></option>
+                                <option value="1">Ja</option>
+                                <option value="0">Nein</option>
                             </select>
                         </div>
-                        <div class="col-md-3 col-md-offset-3">
-
+                        <div class="col-md-6"><br><br><br></div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary submitbutton">Speichern</button>
                         </div>
                     </div>
                 </div>
