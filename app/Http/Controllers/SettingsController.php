@@ -25,8 +25,14 @@ class SettingsController extends Controller
      */
     public function index()
     {
+        $userSettings = UserSetting::where('user_id', '=', Auth::user()->id) -> first();
         $data = array([
-            'userSettings' => UserSetting::where('user_id', '=', Auth::user()->id) -> first(),
+            'userName' => Auth::user() -> name,
+            'userEmail' => Auth::user() -> email,
+            'numberOfFlights' => $userSettings -> number_of_flights,
+            'refreshTime' => $userSettings -> refresh_time,
+            'homeAirport' => $userSettings -> home_airport,
+            'testMode' => $userSettings -> test_mode,
         ]);
         return view('settings', $data);
     }
