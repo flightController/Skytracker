@@ -18,6 +18,8 @@ private $weathercondition;
 private $cloud;
 private $wind;
 private $icon;
+private $city;
+private $country;
 
     /**
      * Weather constructor.
@@ -26,14 +28,18 @@ private $icon;
      * @param $cloud
      * @param $wind
      * @param $icon
+     * @param $city
+     * @param $country
      */
-    public function __construct($temperature, $weathercondition, $cloud, $wind, $icon)
+    public function __construct($temperature, $weathercondition, $cloud, $wind, $icon, $city, $country)
     {
         $this->temperature = $temperature;
         $this->weathercondition = $weathercondition;
         $this->cloud = $cloud;
         $this->wind = $wind;
         $this->icon = $icon;
+        $this->city = $city;
+        $this->country = $country;
     }
 
     /**
@@ -76,7 +82,30 @@ private $icon;
         return $this->icon;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
 
+    /**
+     * @return mixed
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Weather constructor.
+     * @param $temperature
+     * @param $weathercondition
+     * @param $cloud
+     * @param $wind
+     * @param $icon
+     */
 
 
 }

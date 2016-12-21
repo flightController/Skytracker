@@ -71,4 +71,14 @@ class OpenWeatherJsonAdapter
         $icon = $data['weather'][0]['icon'];
         return $icon;
     }
+
+    /**
+     * @return string
+     */
+    public function getWeather()
+    {
+        return new Weather($temperature, $weathercondition, $cloud, $wind, $icon, $city, $country);
+    }
+
 }
+
