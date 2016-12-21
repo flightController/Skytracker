@@ -37,4 +37,19 @@ class SettingsController extends Controller
 
         return view('settings', $data);
     }
+
+    public function store(Request $request)
+    {
+        $userSettings = UserSetting::where('user_id', '=', Auth::user()->id) -> first();
+        $userSettings -> number_of_flights = $request -> number_of_flight ?: $userSettings -> number_of_flights;
+        $userSettings -> refresh_time = $request -> refresh_time ?: $userSettings -> refresh_time;
+        $userSettings -> home_airport = $request -> home_airport ?: $userSettings -> home_airport;
+        $userSettings -> test_mode =  $request ->  test_mode ?: $userSettings -> test_mode;
+        $userSettings -> save();
+
+        Auth::user() -> email = $request -> email ?: Auth::user() -> email;
+        Auth::user() -> name = $request -> name ?: Auth::user() -> name;
+        Auth::user() -> password = $request -> password ?: Auth::user() -> password;
+        Auth::user() -> save();
+    }
 }

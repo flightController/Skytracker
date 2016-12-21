@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/settings', 'SettingsController@index');
+Route::post ('/settings', 'SettingsController@store');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
