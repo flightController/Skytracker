@@ -16,7 +16,7 @@ class OpenWeatherJsonAdapter
     {
         $this->apiKey = $apiKey;
     }
-    public function getTemperature(string $city, string $country)
+    private function getTemperature(string $city, string $country)
     {
         $url = ($this->baseUrl . $city . "," . $country . $this->extendUrl . $this->language . '&appid=' . $this->apiKey . '&mode=json');
         $json = file_get_contents($url);
@@ -35,7 +35,7 @@ class OpenWeatherJsonAdapter
         //return $wind;
         // return $data;
     }
-    public function getWeathercondition(string $city, string $country)
+    private function getWeathercondition(string $city, string $country)
     {
         $url = ($this->baseUrl . $city . "," . $country . $this->extendUrl . $this->language . '&appid=' . $this->apiKey . '&mode=json');
         $json = file_get_contents($url);
@@ -44,7 +44,7 @@ class OpenWeatherJsonAdapter
         $weathercondition = $data['weather'][0]['description'];
         return $weathercondition;
     }
-    public function getCloud(string $city, string $country)
+    private function getCloud(string $city, string $country)
     {
         $url = ($this->baseUrl . $city . "," . $country . $this->extendUrl . $this->language . '&appid=' . $this->apiKey . '&mode=json');
         $json = file_get_contents($url);
@@ -53,7 +53,7 @@ class OpenWeatherJsonAdapter
         $cloud = $data['clouds']['all'];
         return $cloud;
     }
-    public function getWind(string $city, string $country)
+    private function getWind(string $city, string $country)
     {
         $url = ($this->baseUrl . $city . "," . $country . $this->extendUrl . $this->language . '&appid=' . $this->apiKey . '&mode=json');
         $json = file_get_contents($url);
@@ -62,7 +62,7 @@ class OpenWeatherJsonAdapter
         $wind = $data['wind']['speed'];
         return $wind;
     }
-    public function getIcon(string $city, string $country)
+    private function getIcon(string $city, string $country)
     {
         $url = ($this->baseUrl . $city . "," . $country . $this->extendUrl . $this->language . '&appid=' . $this->apiKey . '&mode=json');
         $json = file_get_contents($url);
@@ -71,4 +71,17 @@ class OpenWeatherJsonAdapter
         $icon = $data['weather'][0]['icon'];
         return $icon;
     }
+
+    public function getWeather(string $city, string $country)
+    {
+        $temperature = $this->getTemperature($city, $country);
+        $weathercondition = $this->getWeathercondition($city, $country);
+        $cloud = $this->getCloud($city, $country);
+        $wind = $this->getWind($city, $country);
+        $icon = $this->getIcon($city, $country);
+
+        return new Weather($temperature, $weathercondition, $cloud, $wind, $icon, $city, $country);
+    }
+
 }
+
