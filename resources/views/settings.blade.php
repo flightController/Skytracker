@@ -58,25 +58,25 @@
                             <label class='control-label'>Name</label>
                         </div>
                         <div class="col-md-6 settingoption">
-                            <input type="name" class="form-control" id="inputName" placeholder="{{$userName}}">
+                            <input type="text" name ="name" class="form-control" id="inputName" placeholder="{{$userName}}">
                         </div>
                         <div class="col-md-12">
                             <label class='control-label'>E-Mail</label>
                         </div>
                         <div class="col-md-6 settingoption">
-                            <input type="email" class="form-control" id="inputEmail" placeholder="{{$userEmail}}">
+                            <input type="email" name ="email" class="form-control" id="inputEmail" placeholder="{{$userEmail}}">
                         </div>
                         <div class="col-md-12">
                             <label class='control-label'>Heim Flughafen</label>
                         </div>
                         <div class="col-md-6 settingoption">
-                            <input type="homeAirport" class="form-control" id="inputEmail" placeholder="{{$homeAirport}}">
+                            <input type="text" name ="homeAirport" class="form-control" id="inputHomeAirport" placeholder="{{$homeAirport}}">
                         </div>
                         <div class="col-md-12">
                             <label class='control-label'>Passwort ändern</label>
                         </div>
                         <div class="col-md-6 settingoption">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="********">
+                            <input type="password" name ="password" class="form-control" id="inputPassword" placeholder="********">
                         </div>
                         <div class="col-md-6"><br><br><br></div>
                         <div class="col-md-6">
@@ -92,7 +92,7 @@
                             <label class='control-label'>Anzahl angezeigter Flüge</label>
                         </div>
                         <div class="col-md-6 settingoption">
-                            <select class="form-control" id="numberOfFlightsSelect">
+                            <select name ="numberOfFlights" class="form-control" id="numberOfFlightsSelect">
                                 <option hidden value="">{{$numberOfFlights}}</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -110,7 +110,7 @@
                             <label class='control-label'>Refreshtime in Sekunden</label>
                         </div>
                         <div class="col-md-6 settingoption">
-                            <select class="form-control" id="refreshTimeSelect" >
+                            <select name ="refreshTime" class="form-control" id="refreshTimeSelect" >
                                 <option hidden value="">{{$refreshTime}}</option>
                                 <option value="1">1</option>
                                 <option value="5">5</option>
@@ -124,7 +124,7 @@
                             <label class='control-label'>Arbeiten mit Testdaten</label>
                         </div>
                         <div class="col-md-6 settingoption">
-                            <select class="form-control" id="testModeSelect">
+                            <select name ="testMode" class="form-control" id="testModeSelect">
                                 <option hidden value=""><?php if ($testMode==1){echo "Ja";} elseif ($testMode==0) {echo "nein";}?></option>
                                 <option value="1">Ja</option>
                                 <option value="0">Nein</option>
