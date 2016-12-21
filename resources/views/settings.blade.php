@@ -3,73 +3,95 @@
 
 
     <div class="container">
-        <div class="row">
-            <div class="col-lg-5 col-md-5 col-sm-8 col-xs-9 bhoechie-tab-container">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item active text-center">
-                            <h4 class="glyphicon glyphicon-plane"></h4><br/>Flight
-                        </a>
-                        <a href="#" class="list-group-item text-center">
-                            <h4 class="glyphicon glyphicon-road"></h4><br/>Train
-                        </a>
-                        <a href="#" class="list-group-item text-center">
-                            <h4 class="glyphicon glyphicon-home"></h4><br/>Hotel
-                        </a>
-                        <a href="#" class="list-group-item text-center">
-                            <h4 class="glyphicon glyphicon-cutlery"></h4><br/>Restaurant
-                        </a>
-                        <a href="#" class="list-group-item text-center">
-                            <h4 class="glyphicon glyphicon-credit-card"></h4><br/>Credit Card
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
-                    <!-- flight section -->
-                    <div class="bhoechie-tab-content active">
-                        <center>
-                            <h1 class="glyphicon glyphicon-plane" style="font-size:14em;color:#55518a"></h1>
-                            <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                            <h3 style="margin-top: 0;color:#55518a">Flight Reservation</h3>
-                        </center>
-                    </div>
-                    <!-- train section -->
-                    <div class="bhoechie-tab-content">
-                        <center>
-                            <h1 class="glyphicon glyphicon-road" style="font-size:12em;color:#55518a"></h1>
-                            <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                            <h3 style="margin-top: 0;color:#55518a">Train Reservation</h3>
-                        </center>
-                    </div>
+        <div class="row settingrow">
+            <div class="col-md-12 settingcol">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a data-toggle="tab" href="#setting1">Benutzereinstellungen</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#setting2">Standorteinstellungen</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#setting3">Anzeigeeinstellungen</a>
+                    </li>
+                </ul>
 
-                    <!-- hotel search -->
-                    <div class="bhoechie-tab-content">
-                        <center>
-                            <h1 class="glyphicon glyphicon-home" style="font-size:12em;color:#55518a"></h1>
-                            <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                            <h3 style="margin-top: 0;color:#55518a">Hotel Directory</h3>
-                        </center>
+                <div class="tab-content">
+                    <div id="setting1" class="tab-pane fade in active">
+                        <h3>Benutzereinstellungen</h3>
+                        <div class="col-md-12 firstlabel">
+                            <label class='control-label'>Name</label>
+                        </div>
+                        <div class="col-md-6 settingoption">
+                            <input type="name" class="form-control" id="inputName" placeholder="Sven">
+                        </div>
+                        <div class="col-md-12">
+                            <label class='control-label'>E-Mail</label>
+                        </div>
+                        <div class="col-md-6 settingoption">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="{{$userSettings->get}}">
+                        </div>
+                        <div class="col-md-12">
+                            <label class='control-label'>Passwort ändern</label>
+                        </div>
+                        <div class="col-md-6 settingoption">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="********">
+                        </div>
+
                     </div>
-                    <div class="bhoechie-tab-content">
-                        <center>
-                            <h1 class="glyphicon glyphicon-cutlery" style="font-size:12em;color:#55518a"></h1>
-                            <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                            <h3 style="margin-top: 0;color:#55518a">Restaurant Diirectory</h3>
-                        </center>
+                    <div id="setting2" class="tab-pane fade">
+                        <h3>Standorteinstellungen</h3>
+
                     </div>
-                    <div class="bhoechie-tab-content">
-                        <center>
-                            <h1 class="glyphicon glyphicon-credit-card" style="font-size:12em;color:#55518a"></h1>
-                            <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                            <h3 style="margin-top: 0;color:#55518a">Credit Card</h3>
-                        </center>
+                    <div id="setting3" class="tab-pane fade">
+                        <h3>Anzeigeeinstellungen</h3>
+                        <div class="col-md-12 firstlabel">
+                            <label class='control-label'>Anzahl angezeigter Flüge</label>
+                        </div>
+                        <div class="col-md-6 settingoption">
+                            <select class="form-control" id="exampleSelect1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <label class='control-label'>Refreshtime in Sekunden</label>
+                        </div>
+                        <div class="col-md-6 settingoption">
+                            <select class="form-control" id="exampleSelect1">
+                                <option>1</option>
+                                <option>5</option>
+                                <option>10</option>
+                                <option>30</option>
+                                <option>60</option>
+                                <option>300</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <label class='control-label'>Arbeiten mit Testdaten</label>
+                        </div>
+                        <div class="col-md-6 settingoption">
+                            <select class="form-control" id="exampleSelect1">
+                                <option>Ja</option>
+                                <option>Nein</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-md-offset-3">
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- end row -->
     </div>
-    <!-- End container -->
-
 
 @endsection
