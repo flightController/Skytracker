@@ -130,6 +130,7 @@
                         <div class="col-md-6">
                             <button type="submit" class="btn btn-primary submitbutton">Speichern</button>
                         </div>
+                            <div class="col-md-6"><?php $result=" "; echo $result; ?></div>
                         </form>
                     </div>
                 </div>
