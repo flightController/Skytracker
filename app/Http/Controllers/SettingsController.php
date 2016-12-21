@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\UserSetting;
 
-class HomeController extends Controller
+class SettingsController extends Controller
 {
     /**
      * Create a new controller instance.
