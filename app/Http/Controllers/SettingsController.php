@@ -34,6 +34,7 @@ class SettingsController extends Controller
             'homeAirport' => $userSettings -> home_airport,
             'testMode' => $userSettings -> test_mode,
         ]);
+
         return view('settings', $data);
     }
 }
