@@ -2,6 +2,7 @@
 @section('content')
 
     <?php
+    $result='';
     if (isset($_POST["submit"])) {
         $name = $_POST['name'];
         $email = $_POST['email'];
@@ -26,9 +27,12 @@
             $errHomeAirport = 'Tragen Sie einen gültigen Heimflughafen ein';
         }
 
-        // If there are no errors, send the email
+        // If there are no errors
         if (!$errName && !$errEmail && !$errHomeAirport) {
             $result='<div class="alert alert-success">Thank You! I will be in touch</div>';
+        }
+        else {
+            $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later</div>';
         }
     }
     ?>
@@ -130,7 +134,7 @@
                         <div class="col-md-6">
                             <button type="submit" class="btn btn-primary submitbutton">Speichern</button>
                         </div>
-                            <div class="col-md-6"><?php $result=" "; echo $result; ?></div>
+                            <div class="col-md-6"><?php echo $result; ?></div>
                         </form>
                     </div>
                 </div>
