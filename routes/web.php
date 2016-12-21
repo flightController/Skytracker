@@ -18,6 +18,7 @@ Route::get('flight/{ident}', 'FlightController@flight');
 Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
+Route::get('/settings', 'SettingsController@index');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
