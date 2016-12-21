@@ -18,7 +18,7 @@
                         </div>
                         <div class="hidelarge col-md-4 col-sm-5 weather"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span> 21°
                         </div>
-                        <div class="col-lg-3 col-md-12 col-sm-12"><a href="/flight/{{$flight -> getIdent()}}"<button type="button" class="btn btn-primary btn-block"> Mehr Infos </button></a>
+                        <div class="col-lg-3 col-md-12 col-sm-12 moreinfobutton"><a href="/flight/{{$flight -> getIdent()}}"<button type="button" class="btn btn-primary btn-block"> Mehr Infos </button></a>
                         </div>
                         <div class="col-lg-1 hidemediumsmall">
                         </div>
