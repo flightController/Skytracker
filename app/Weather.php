@@ -9,7 +9,16 @@
 namespace app;
 
 
-class Weather
+use Illuminate\Database\Eloquent\Model;
+
+class Weather extends Model
 {
+private $temperature;
+private $weathercondition;
+private $cloud;
+private $wind;
+private $icon;
+
+
 
 }
