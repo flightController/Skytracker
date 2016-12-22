@@ -46,7 +46,7 @@ class SettingsController extends Controller
         $userSettings -> number_of_flights = $request -> number_of_flights ?: $userSettings -> number_of_flights;
         $userSettings -> refresh_time = $request -> refresh_time ?: $userSettings -> refresh_time;
         $userSettings -> home_airport = $request -> home_airport ?: $userSettings -> home_airport;
-        $userSettings -> test_mode =  $request ->  test_mode ?: $userSettings -> test_mode;
+        $userSettings -> test_mode =  $request -> test_mode;
         $userSettings -> save();
 
         Auth::user() -> email = $request -> email ?: Auth::user() -> email;
