@@ -51,45 +51,6 @@ class WikipediaJsonAdapter
         return $text;
     }
 
-    public function getCityDescriptions(array $cityNames): array
-    {
-        $searchString = "";
-        foreach ($cityNames as $cityName) {
-            $searchString .= $cityName . "|";
-        }
-
-        $wikiInformation = $this->get($cityName);
-        $wikiInformation = json_decode($wikiInformation);
-        if (!isset($wikiInformation)) {
-            return "";
-        }
-
-        $pages = $wikiInformation->query->pages;
-
-        $objectvars = get_object_vars($pages);
-        $cityDescriptions = array();
-
-        foreach ($cityNames as $cityName) {
-            foreach ($objectvars as $key => $value) {
-                $page = $pages->$key;
-                if (($page->title) == $cityName) {
-                    $cityDescriptions[$cityName] = $page->extract;
-                }
-            }
-        }
-
-        return $cityDescriptions;
-    }
-
-    public function getShortCityDescriptions(array $cityNames)
-    {
-        $cityDescriptions = $this->getCityDescriptions($cityNames);
-        foreach ($cityDescriptions as $city => $cityDescription) {
-            $cityDescription = (substr($cityDescription, 0, 550) . '...');
-        }
-        return $cityDescriptions;
-    }
-
     public function getShortCityDescription($cityName): string
     {
         $text = $this->getCityDescription($cityName);
