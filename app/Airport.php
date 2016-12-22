@@ -9,6 +9,7 @@ class Airport extends Model
     private $airportCode;
     private $name;
     private $location;
+    private $gpsCoordinates;
 
     /**
      * Airport constructor.
@@ -16,11 +17,12 @@ class Airport extends Model
      * @param $name
      * @param $location
      */
-    public function __construct($airportCode, $name, $location)
+    public function __construct($airportCode, $name, $location, $gpsCoordinates = null)
     {
         $this->airportCode = $airportCode;
         $this->name = $name;
         $this->location = $location;
+        $this->gpsCoordinates = $gpsCoordinates;
     }
 
     /**

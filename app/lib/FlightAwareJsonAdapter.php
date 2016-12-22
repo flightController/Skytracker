@@ -4,6 +4,7 @@ namespace App\lib;
 
 use App\Airport;
 use App\Flight;
+use App\GPSCoordinates;
 
 class FlightAwareJsonAdapter
 {
@@ -101,12 +102,15 @@ class FlightAwareJsonAdapter
             return null;
         }
 
-        $gpsCoordinates = new GPSCoordinates($flightInfo -> latitude, $flightInfo -> longitude, $flightInfo ->altitude);
         $destinationInfo = $this->getAirportInfo($flightInfo -> destination);
-        $destination = new Airport($flightInfo -> destination, $destinationInfo -> name, $destinationInfo -> location);
-        $originInfo = $this->getAirportInfo($flightInfo -> origin);
-        $origin = new Airport($flightInfo -> origin, $originInfo -> name, $originInfo -> location);
+        $destinationsGPS = new GPSCoordinates($destinationInfo ->longitude, $destinationInfo -> latitude);
+        $destination = new Airport($flightInfo -> destination, $destinationInfo -> name, $destinationInfo -> location, $destinationsGPS);
 
+        $originInfo = $this->getAirportInfo($flightInfo -> origin);
+        $originGPS = new GPSCoordinates($originInfo ->longitude, $originInfo -> latitude);
+        $origin = new Airport($flightInfo -> origin, $originInfo -> name, $originInfo -> location, $originGPS);
+
+        $gpsCoordinates = new GPSCoordinates($flightInfo -> latitude, $flightInfo -> longitude, $flightInfo ->altitude);
         $flight = new Flight($ident,"", $origin, $destination, $flightInfo -> type, $gpsCoordinates);
         return $flight;
     }
@@ -121,11 +125,12 @@ class FlightAwareJsonAdapter
 
         foreach ($departures as $departedInfo){
             $destinationInfo = $this->getAirportInfo($departedInfo -> destination);
-            $destination = new Airport($departedInfo -> destination, $destinationInfo -> name, $destinationInfo -> location);
+            $destinationsGPS = new GPSCoordinates($destinationInfo ->longitude, $destinationInfo -> latitude);
+            $destination = new Airport($departedInfo -> destination, $destinationInfo -> name, $destinationInfo -> location, $destinationsGPS);
 
             $originInfo = $this->getAirportInfo($departedInfo -> origin);
-            $origin = new Airport($departedInfo -> origin, $originInfo -> name, $originInfo -> location);
-
+            $originGPS = new GPSCoordinates($originInfo ->longitude, $originInfo -> latitude);
+            $origin = new Airport($departedInfo -> origin, $originInfo -> name, $originInfo -> location, $originGPS);
             $flights[] = new Flight($departedInfo -> ident,"", $origin, $destination, "", null);
         }
         return $flights;
