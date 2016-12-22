@@ -22,27 +22,34 @@
                             </div>
                             <div class="col-md-6 settingoption">
                                 <input type="text" name="name" class="form-control" id="inputName"
-                                       value="{{$userName}}">
+                                       placeholder="{{$userName}}">
                             </div>
                             <div class="col-md-12">
                                 <label class='control-label'>E-Mail</label>
                             </div>
                             <div class="col-md-6 settingoption">
                                 <input type="email" name="email" class="form-control" id="inputEmail"
-                                       value="{{$userEmail}}">
+                                       placeholder="{{$userEmail}}">
                             </div>
                             <div class="col-md-12">
                                 <label class='control-label'>Heim Flughafen</label>
                             </div>
                             <div class="col-md-6 settingoption">
                                 <input type="text" name="home_airport" class="form-control" id="inputHomeAirport"
-                                       value="{{$homeAirport}}">
+                                       placeholder="{{$homeAirport}}">
                             </div>
                             <div class="col-md-12">
                                 <label class='control-label'>Passwort ändern</label>
                             </div>
                             <div class="col-md-6 settingoption">
                                 <input type="password" name="password" class="form-control" id="inputPassword"
+                                       placeholder="********">
+                            </div>
+                            <div class="col-md-12">
+                                <label class='control-label'>Passwort bestätigen</label>
+                            </div>
+                            <div class="col-md-6 settingoption">
+                                <input type="password" name="password_confirmation" class="form-control" id="password-confirm"
                                        placeholder="********">
                             </div>
                             <div class="col-md-6"><br><br><br></div>

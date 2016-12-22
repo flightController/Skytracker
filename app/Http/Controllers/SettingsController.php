@@ -37,9 +37,9 @@ class SettingsController extends Controller
             'refresh_time' => 'numeric',
             'home_airport' => 'alpha_num',
             'test_mode' => 'boolean',
-            'email' => 'email',
-            'name' => 'alpha_dash',
-            'password' =>'min:6',
+            'email' => 'email|max:255|unique:users',
+            'name' => 'max:255',
+            'password' =>'min:6|confirmed',
         ]);
 
         $userSettings = UserSetting::where('user_id', '=', Auth::user()->id) -> first();
@@ -51,7 +51,7 @@ class SettingsController extends Controller
 
         Auth::user() -> email = $request -> email ?: Auth::user() -> email;
         Auth::user() -> name = $request -> name ?: Auth::user() -> name;
-        Auth::user() -> password = $request -> password ?: Auth::user() -> password;
+        Auth::user() -> password = bcrypt($request -> password) ?: Auth::user() -> password;
         Auth::user() -> save();
 
         $data = $this->getDataToDisplay();
