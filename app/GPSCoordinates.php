@@ -16,7 +16,7 @@ class GPSCoordinates extends Model
      * @param $longitude
      * @param $altitude
      */
-    public function __construct($latitude, $longitude, $altitude)
+    public function __construct($latitude, $longitude, $altitude = 0)
     {
         $this->latitude = $latitude;
         $this->longitude = $longitude;
