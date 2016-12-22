@@ -31,8 +31,19 @@ class SettingsController extends Controller
 
     public function store(Request $request)
     {
+
+        $this -> validate($request, [
+            'number_of_flights' => 'numeric',
+            'refresh_time' => 'numeric',
+            'home_airport' => 'alpha_num',
+            'test_mode' => 'boolean',
+            'email' => 'email',
+            'name' => 'alpha_dash',
+            'password' =>'min:6',
+        ]);
+
         $userSettings = UserSetting::where('user_id', '=', Auth::user()->id) -> first();
-        $userSettings -> number_of_flights = $request -> number_of_flight ?: $userSettings -> number_of_flights;
+        $userSettings -> number_of_flights = $request -> number_of_flights ?: $userSettings -> number_of_flights;
         $userSettings -> refresh_time = $request -> refresh_time ?: $userSettings -> refresh_time;
         $userSettings -> home_airport = $request -> home_airport ?: $userSettings -> home_airport;
         $userSettings -> test_mode =  $request ->  test_mode ?: $userSettings -> test_mode;

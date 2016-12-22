@@ -13,7 +13,7 @@
             </div>
 
             <div class="brand-left">
-                <a class="navbar-brand" href="#"><img class="logo" style="margin-right: 10px; padding: 0; width: 100px; height: 33px;" src="..\images\logo.png" alt="Sky Tracker"></a>
+                <a class="navbar-brand" href="/"><img class="logo" style="margin-right: 10px; padding: 0; width: 100px; height: 33px;" src="..\images\logo.png" alt="Sky Tracker"></a>
             </div>
 
             <div id="navbar9" class="navbar-collapse collapse">
@@ -37,7 +37,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="http://skytracker.local/admin">
+                        <a href="/settings">
                             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                         </a>
 
