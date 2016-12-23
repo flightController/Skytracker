@@ -340,3 +340,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     width: 200px;
     height: 100px
 }
+.listViewImage{
+    max-height: 150px;
+    max-width: 240px;
+}

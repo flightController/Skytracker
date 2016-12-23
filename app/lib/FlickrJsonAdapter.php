@@ -10,7 +10,6 @@ class FlickrJsonAdapter
     private $format = '&format=json';
     private $tags = '&tags=';
     private $content_type = '&content_type=1';
-    private $pages = '&content_type=1';
     private $per_page = '&per_page=';
 
     /**
@@ -25,8 +24,9 @@ class FlickrJsonAdapter
 
     private function getPictures(string $city, string $howmany, string $size, string $format)
     {
+        $city = preg_replace ( '/[^a-z0-9 ]/i', '', $city );
         $photo_url_array = array();
-        $url = (self::$baseUrl . $this->method . $this->tags . rawurlencode($city) . rawurlencode(' city') . $this->format . $this->content_type . $this->per_page . $howmany . '&api_key=' . $this->apiKey . '&nojsoncallback=1');
+        $url = (self::$baseUrl . $this->method . $this->tags . rawurlencode($city) . $this->format . $this->content_type . $this->per_page . $howmany . '&api_key=' . $this->apiKey . '&nojsoncallback=1');
         $response = json_decode(file_get_contents($url));
         if($response == null){
             $photo_url_array[] = "";

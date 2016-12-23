@@ -30,7 +30,7 @@
                         </div>
                 </div>
                 <div class="col-lg-3 hidemediumsmall">
-                    <img src="{{$cityPictures[$flight->getDestination()->getLocation()]}}"/>
+                    <img class="listViewImage" src="{{$cityPictures[$flight->getDestination()->getLocation()]}}"/>
                 </div>
         </div>
     </div>
