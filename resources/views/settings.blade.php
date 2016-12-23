@@ -49,7 +49,8 @@
                                 <label class='control-label'>Passwort bestätigen</label>
                             </div>
                             <div class="col-md-6 settingoption">
-                                <input type="password" name="password_confirmation" class="form-control" id="password-confirm"
+                                <input type="password" name="password_confirmation" class="form-control"
+                                       id="password-confirm"
                                        placeholder="********">
                             </div>
                             <div class="col-md-6"><br><br><br></div>
@@ -125,6 +126,13 @@
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
+                </ul>
+            </div>
+        @endif
+        @if(isset($success))
+            <div class="alert alert-success col-md-6">
+                <ul>
+                    <li>{{ $success }}</li>
                 </ul>
             </div>
         @endif

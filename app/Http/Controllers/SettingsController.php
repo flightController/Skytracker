@@ -55,6 +55,7 @@ class SettingsController extends Controller
         Auth::user() -> save();
 
         $data = $this->getDataToDisplay();
+        $data['success'] = 'Einstellungen wurden erfolgreich gespeichert.';
         return view('settings', $data);
     }
 
