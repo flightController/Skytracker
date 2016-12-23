@@ -115,11 +115,9 @@ class FlightController extends Controller
     private function getDetailViewCityPictures(Flight $flight): array
     {
         $flickJsonAdapter = new FlickrJsonAdapter(FLICKR_API_KEY);
-        $cityPictures = array();
 
         $city = $flight->getDestination()->getLocation();
-        $cityPicture = $flickJsonAdapter->getFullPictures($city, 8);
-        $cityPicture[$city] = $cityPicture;
+        $cityPictures = $flickJsonAdapter->getFullPictures($city, 8);
 
         return $cityPictures;
     }
