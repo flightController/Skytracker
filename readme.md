@@ -89,6 +89,10 @@
 4. php artisan voyager:admin name@mail.com --create
 5. In folder sql run this sql-script to insert settings: user_settings.sql
 
-## Export Vagrant box
+## Export / Import
+### Export Vagrant Box
 1. navigate with cmd/terminal to the project folder
 2. type: vagrant package --output mynew.box
+
+### Import Vagrant Box
+1. vagrant box add my-box file:///d:/path/to/file.box
