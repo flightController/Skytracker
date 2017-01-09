@@ -23,8 +23,8 @@ class OpenWeatherJsonAdapter
     public function getWeather(GPSCoordinates $gpsCoordinates) : Weather
     {
 
-        $latitude = $gpsCoordinates -> getLongitude();
-        $longitude = $gpsCoordinates -> getLatitude();
+        $latitude = $gpsCoordinates -> getLatitude();
+        $longitude = $gpsCoordinates -> getLongitude();
         $url = ($this->baseUrl . "lat=$latitude&lon=$longitude" . $this->extendUrl . $this->language . '&appid=' . $this->apiKey . '&mode=json');
         $json = file_get_contents($url);
         $data = json_decode($json, true);

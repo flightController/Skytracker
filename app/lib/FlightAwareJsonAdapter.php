@@ -103,11 +103,11 @@ class FlightAwareJsonAdapter
         }
 
         $destinationInfo = $this->getAirportInfo($flightInfo -> destination);
-        $destinationsGPS = new GPSCoordinates($destinationInfo ->longitude, $destinationInfo -> latitude);
+        $destinationsGPS = new GPSCoordinates($destinationInfo -> latitude, $destinationInfo ->longitude);
         $destination = new Airport($flightInfo -> destination, $destinationInfo -> name, $destinationInfo -> location, $destinationsGPS);
 
         $originInfo = $this->getAirportInfo($flightInfo -> origin);
-        $originGPS = new GPSCoordinates($originInfo ->longitude, $originInfo -> latitude);
+        $originGPS = new GPSCoordinates($originInfo -> latitude, $originInfo ->longitude);
         $origin = new Airport($flightInfo -> origin, $originInfo -> name, $originInfo -> location, $originGPS);
 
         $gpsCoordinates = new GPSCoordinates($flightInfo -> latitude, $flightInfo -> longitude, $flightInfo ->altitude);
@@ -125,11 +125,11 @@ class FlightAwareJsonAdapter
 
         foreach ($departures as $departedInfo){
             $destinationInfo = $this->getAirportInfo($departedInfo -> destination);
-            $destinationsGPS = new GPSCoordinates($destinationInfo ->longitude, $destinationInfo -> latitude);
+            $destinationsGPS = new GPSCoordinates($destinationInfo -> latitude, $destinationInfo ->longitude);
             $destination = new Airport($departedInfo -> destination, $destinationInfo -> name, $destinationInfo -> location, $destinationsGPS);
 
             $originInfo = $this->getAirportInfo($departedInfo -> origin);
-            $originGPS = new GPSCoordinates($originInfo ->longitude, $originInfo -> latitude);
+            $originGPS = new GPSCoordinates($originInfo -> latitude, $originInfo ->longitude);
             $origin = new Airport($departedInfo -> origin, $originInfo -> name, $originInfo -> location, $originGPS);
             $flights[] = new Flight($departedInfo -> ident,"", $origin, $destination, "", null);
         }
