@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+    <head>
+        <meta http-equiv="refresh" content="{{$refreshTime}}; URL={{$_SERVER['REQUEST_URI']}}">
+    </head>
 
     <body>
     <div class="container flightcontainer">

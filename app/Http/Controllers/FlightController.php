@@ -57,6 +57,7 @@ class FlightController extends Controller
             'cityDescriptions' => $cityDescriptions,
             'cityPictures' => $cityPictures,
             'weather' => $weather,
+            'refreshTime' => $userSettings -> refresh_time,
         );
         return view('flightListView', $data);
 
@@ -90,6 +91,7 @@ class FlightController extends Controller
             'cityPictures' => $cityPictures,
             'planePicture' => $planePicture,
             'weather' => $weather,
+            'refreshTime' => $userSettings -> refresh_time,
         );
 
         return view('flightDetailView', $data);
