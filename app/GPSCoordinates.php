@@ -22,4 +22,29 @@ class GPSCoordinates extends Model
         $this->longitude = $longitude;
         $this->altitude = $altitude;
     }
+
+    /**
+     * @return array
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAltitude()
+    {
+        return $this->altitude;
+    }
+
 }

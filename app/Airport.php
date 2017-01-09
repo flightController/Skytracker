@@ -48,4 +48,14 @@ class Airport extends Model
     {
         return $this->location;
     }
+
+    /**
+     * @return null
+     */
+    public function getGpsCoordinates()
+    {
+        return $this->gpsCoordinates;
+    }
+
+
 }

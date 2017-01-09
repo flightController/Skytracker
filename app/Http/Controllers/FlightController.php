@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\lib\FlightAwareJsonAdapter;
+use App\lib\OpenWeatherJsonAdapter;
 use App\lib\WikipediaJsonAdapter;
 use Illuminate\Http\Request;
 use App\Flight;
 use App\lib\FlickrJsonAdapter;
 use App\Airport;
 use App\UserSetting;
+use App\Weather;
 use Illuminate\Support\Facades\Auth;
 
 class FlightController extends Controller
@@ -45,10 +47,16 @@ class FlightController extends Controller
         $cityDescriptions = $this->getWikiTexts($flights);
         $cityPictures = $this->getListViewCityPictures($flights);
 
+        $openWeatherJSONAdapter = new OpenWeatherJsonAdapter(OPENWEATHER_API_KEY);
+        foreach ($flights as $flight){
+            $weather[$flight -> getDestination() -> getLocation()] = $openWeatherJSONAdapter ->getWeather($flight -> getDestination() -> getGpsCoordinates());
+        }
+
         $data = array(
             'flights' => $flights,
             'cityDescriptions' => $cityDescriptions,
             'cityPictures' => $cityPictures,
+            'weather' => $weather,
         );
         return view('flightListView', $data);
 
@@ -68,17 +76,20 @@ class FlightController extends Controller
         }
 
         $flickerAdapter = new FlickrJsonAdapter(FLICKR_API_KEY);
-
         $planePicture = $flickerAdapter ->getSmallPictures($flight -> getAircraft(), 1);
 
         $cityDescription = $this->getWikiText($flight);
         $cityPictures = $this->getDetailViewCityPictures($flight);
 
+        $openWeatherJSONAdapter = new OpenWeatherJsonAdapter(OPENWEATHER_API_KEY);
+        $weather = $openWeatherJSONAdapter ->getWeather($flight -> getDestination() -> getGpsCoordinates());
+
         $data = array(
             'flight' => $flight,
             'cityDescription' => $cityDescription,
             'cityPictures' => $cityPictures,
-            'planePicture' => $planePicture
+            'planePicture' => $planePicture,
+            'weather' => $weather,
         );
 
         return view('flightDetailView', $data);
