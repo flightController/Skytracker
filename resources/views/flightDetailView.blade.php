@@ -12,7 +12,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 flightdetailmapweather">
+
                 <div class="col-md-6 flightdetailmap">
                     <h2>Skytracker</h2>
                     <img src="../images/worldmap.png" class="img-responsive"/>
@@ -20,7 +20,7 @@
                 <div class="col-md-6 flightdetailweather">
                     <h2>Weather</h2>
                 </div>
-            </div>
+
             <div class="col-md-12 flightdetailflight">
                 <div class="col-md-6">
                     <h2>Flugdetails</h2>
