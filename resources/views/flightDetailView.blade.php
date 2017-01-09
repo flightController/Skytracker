@@ -24,7 +24,7 @@
             <div class="col-md-12 flightdetailflight">
                 <div class="col-md-6">
                     <h2>Flugdetails</h2>
-                    <img src="../images/a380.jpg" class="img-responsive"/>
+                    <img src="{{$planePicture[0] or ""}}" class="img-responsive"/>
                 </div>
                 <div class="col-md-5 col-md-offset-1 aircraftdetail">
                     <h4>Flugnummer:</h4> {{$flight->getIdent()}}<br><br>

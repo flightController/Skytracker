@@ -67,6 +67,10 @@ class FlightController extends Controller
             $flight = $adapter ->getFlight($ident);
         }
 
+        $flickerAdapter = new FlickrJsonAdapter(FLICKR_API_KEY);
+
+        $planePicture = $flickerAdapter ->getSmallPictures($flight -> getAircraft(), 1);
+
         $cityDescription = $this->getWikiText($flight);
         $cityPictures = $this->getDetailViewCityPictures($flight);
 
@@ -74,6 +78,7 @@ class FlightController extends Controller
             'flight' => $flight,
             'cityDescription' => $cityDescription,
             'cityPictures' => $cityPictures,
+            'planePicture' => $planePicture
         );
 
         return view('flightDetailView', $data);
