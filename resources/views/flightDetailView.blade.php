@@ -41,7 +41,7 @@
                                 <div class="row">
                                     @for($i = 0; $i < 4; $i++)
                                         <div class="col-lg-3 col-sm-12">
-                                            <a class="thumbnail" href="#"><img alt="" src="{{$cityPictures[$i] or ""}}"></a>
+                                            <a class="thumbnail" href="{{$cityPictures[$i] or ""}}" data-lightbox="Destination Pictures"><img alt="" src="{{$cityPictures[$i] or ""}}"></a>
                                         </div>
                                     @endfor
                                 </div>
@@ -50,7 +50,7 @@
                                 <div class="row">
                                     @for($i = 4; $i < 8; $i++)
                                     <div class="col-lg-3">
-                                        <a class="thumbnail" href="#"><img alt="" src="{{$cityPictures[$i] or ""}}"></a>
+                                        <a class="thumbnail" href="{{$cityPictures[$i] or ""}}" data-lightbox="Destination Pictures"><img alt="" src="{{$cityPictures[$i] or ""}}"></a>
                                     </div>
                                     @endfor
                                 </div>
@@ -63,6 +63,6 @@
             </div>
         </div>
     </div>
-
+    <script src="/js/lightbox.js"></script>
     </body>
 @endsection
