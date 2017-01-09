@@ -16,11 +16,13 @@
                 </div>
             </div>
 
-                <div class="col-md-6 flightdetailmap">
+                <div class="col-md-12 flightdetailmap">
                     <h2>Skytracker</h2>
+                    <div class="col-md-6">
                     <img src="../images/worldmap.png" class="img-responsive"/>
+                    </div>
                 </div>
-                <div class="col-md-6 flightdetailweather">
+                <div class="col-md-12 flightdetailweather">
                     <h2>Weather</h2>
                 </div>
 

@@ -161,7 +161,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 */
 .flightdetailmap {
     border: solid 0.5px gainsboro;
-    margin: 20px;
+    margin: 20px 0px 20px 20px;
     border-radius: 5px;
 }
 
@@ -170,7 +170,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 */
 .flightdetailweather {
     border: solid 0.5px gainsboro;
-    margin: 20px 0px 20px 0px;
+    margin: 20px 0px 20px 20px;
     border-radius: 5px;
 }
 
