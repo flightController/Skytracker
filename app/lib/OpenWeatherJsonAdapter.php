@@ -19,51 +19,6 @@ class OpenWeatherJsonAdapter
     {
         $this->apiKey = $apiKey;
     }
-    private function getTemperature(string $latitude, string $longitude)
-    {
-        $url = ($this->baseUrl . "lat=$latitude&lon=$longitude" . $this->extendUrl . $this->language . '&appid=' . $this->apiKey . '&mode=json');
-        $json = file_get_contents($url);
-        $data = json_decode($json, true);
-        $temperature = $data['main']['temp'];
-
-        return $temperature;
-    }
-    private function getWeathercondition(string $latitude, string $longitude)
-    {
-        $url = ($this->baseUrl . $latitude . "," . $longitude . $this->extendUrl . $this->language . '&appid=' . $this->apiKey . '&mode=json');
-        $json = file_get_contents($url);
-        $data = json_decode($json, true);
-        //Get weather condition
-        $weathercondition = $data['weather'][0]['description'];
-        return $weathercondition;
-    }
-    private function getCloud(string $latitude, string $longitude)
-    {
-        $url = ($this->baseUrl . $latitude . "," . $longitude . $this->extendUrl . $this->language . '&appid=' . $this->apiKey . '&mode=json');
-        $json = file_get_contents($url);
-        $data = json_decode($json, true);
-        //Get cloud percentage
-        $cloud = $data['clouds']['all'];
-        return $cloud;
-    }
-    private function getWind(string $latitude, string $longitude)
-    {
-        $url = ($this->baseUrl . $latitude . "," . $longitude . $this->extendUrl . $this->language . '&appid=' . $this->apiKey . '&mode=json');
-        $json = file_get_contents($url);
-        $data = json_decode($json, true);
-        //Get wind speed
-        $wind = $data['wind']['speed'];
-        return $wind;
-    }
-    private function getIcon(string $latitude, string $longitude)
-    {
-        $url = ($this->baseUrl . $latitude . "," . $longitude . $this->extendUrl . $this->language . '&appid=' . $this->apiKey . '&mode=json');
-        $json = file_get_contents($url);
-        $data = json_decode($json, true);
-        //Get weather condition
-        $icon = $data['weather'][0]['icon'];
-        return $icon;
-    }
 
     public function getWeather(GPSCoordinates $gpsCoordinates) : Weather
     {
