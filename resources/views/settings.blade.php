@@ -100,7 +100,7 @@
                             </div>
                             <div class="col-md-6 settingoption">
                                 <select name="test_mode" class="form-control" id="testModeSelect">
-                                    <option hidden value="">@if ($testMode == 1)
+                                    <option hidden value="{{$testMode}}">@if ($testMode == 1)
                                             Ja
                                         @elseif($testMode == 0)
                                             Nein

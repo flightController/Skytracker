@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+    <head>
+        <meta http-equiv="refresh" content="{{$refreshTime}}; URL=/">
+    </head>
 
 <body>
 @foreach ($flights as $flight)
