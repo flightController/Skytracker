@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\GPSCoordinates;
 use App\lib\FlightAwareJsonAdapter;
 use App\lib\OpenWeatherJsonAdapter;
 use App\lib\WikipediaJsonAdapter;
@@ -142,7 +143,8 @@ class FlightController extends Controller
 
     private function getTestFlight()
     {
-        $airport = new Airport('BSL', 'Basel', 'Basel');
+        $gpsCoordinates = new GPSCoordinates(47.5611006, 7.590549);
+        $airport = new Airport('BSL', 'Basel', 'Basel', $gpsCoordinates);
         $flight = new Flight('BSL1337', 'Swiss International', $airport, $airport, "A380", null);
         return $flight;
 
