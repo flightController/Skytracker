@@ -51,7 +51,9 @@ class SettingsController extends Controller
 
         Auth::user() -> email = $request -> email ?: Auth::user() -> email;
         Auth::user() -> name = $request -> name ?: Auth::user() -> name;
-        Auth::user() -> password = bcrypt($request -> password) ?: Auth::user() -> password;
+        if(!empty($request -> password)){
+            Auth::user() -> password = bcrypt($request -> password);
+        }
         Auth::user() -> save();
 
         $data = $this->getDataToDisplay();
