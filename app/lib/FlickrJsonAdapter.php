@@ -22,11 +22,11 @@ class FlickrJsonAdapter
     }
 
 
-    private function getPictures(string $city, string $howmany, string $size, string $format)
+    private function getPictures(string $searchString, string $howmany, string $size, string $format)
     {
-        $city = preg_replace ( '/[^a-z0-9 ]/i', '', $city );
+        $searchString = preg_replace ( '/[^a-z0-9 ]/i', '', $searchString );
         $photo_url_array = array();
-        $url = (self::$baseUrl . $this->method . $this->tags . rawurlencode($city) . $this->format . $this->content_type . $this->per_page . $howmany . '&api_key=' . $this->apiKey . '&nojsoncallback=1');
+        $url = (self::$baseUrl . $this->method . $this->tags . rawurlencode($searchString) . $this->format . $this->content_type . $this->per_page . $howmany . '&api_key=' . $this->apiKey . '&nojsoncallback=1');
         $response = json_decode(file_get_contents($url));
         if($response == null){
             $photo_url_array[] = "";
