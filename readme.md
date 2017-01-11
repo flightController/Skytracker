@@ -22,7 +22,8 @@
 -     3. to: /home/vagrant/Code
 -     4. sites:- map: yourdomain.app
 -     5. to: /home/vagrant/Code/Laravel/public
--     6. if you already installed homestead before run in Terminal: vagrant reload --provision
+-     6. databses: -skytracker
+-     7. if you already installed homestead before run in Terminal: vagrant reload --provision
 
 ### hosts
 1. sudo nano etc/hosts
@@ -75,19 +76,17 @@
 2. type: composer install
 
 ### mysql
-1. create database skytracker;
-2. open .env file in the project folder
-3. enter host
-4. enter port
-5. enter user and pw
-6. do the same settings in config/database.php
+1. open .env file in the project folder
+2. enter host
+3. enter port
+4. enter user and pw
+5. do the same settings in config/database.php
 
 ### voyager admin panel
 1. navigate with cmd/terminal to the project folder
 2. composer require tcg/voyager
 3. php artisan voyager:install
 4. php artisan voyager:admin name@mail.com --create
-5. In folder sql run this sql-script to insert settings: user_settings.sql
 
 ## Export / Import
 ### Export Vagrant Box
