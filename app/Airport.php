@@ -17,7 +17,7 @@ class Airport extends Model
      * @param $name
      * @param $location
      */
-    public function __construct($airportCode, $name, $location, $gpsCoordinates = null)
+    public function __construct($airportCode, $name, $location, $gpsCoordinates)
     {
         $this->airportCode = $airportCode;
         $this->name = $name;

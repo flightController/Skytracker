@@ -18,8 +18,19 @@
 
                 <div class="col-md-12 flightdetailmap">
                     <h2>Skytracker</h2>
-                    <div class="col-md-6">
-                    <img src="../images/worldmap.png" class="img-responsive"/>
+                    <div class="col-md-12">
+                        <article
+                                id="coordinates"
+                                data-originlatitude="{{$flight->getOrigin()->getGpsCoordinates()->getLatitude()}}"
+                                data-originlongitude="{{$flight->getOrigin()->getGpsCoordinates()->getLongitude()}}"
+                                data-destinationlatitude="{{$flight->getDestination()->getGpsCoordinates()->getLatitude()}}"
+                                data-destinationlongitude="{{$flight->getDestination()->getGpsCoordinates()->getLongitude()}}" >
+                        </article>
+                        <div id="map">
+                            <script src="/js/googleMapsPolylines.js">
+                                initMap();
+                            </script>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-12 flightdetailweather">
@@ -69,5 +80,7 @@
         </div>
     </div>
     <script src="/js/lightbox.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_KoeHUrv6K01WJ9ULPRWBQDXRQg_zGvg&callback=initMap"></script>
     </body>
 @endsection

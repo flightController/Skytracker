@@ -344,3 +344,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     max-height: 150px;
     max-width: 240px;
 }
+
+#map{
+    height: 500px;
+}
