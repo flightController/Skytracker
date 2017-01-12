@@ -24,7 +24,10 @@
                                 data-originlatitude="{{$flight->getOrigin()->getGpsCoordinates()->getLatitude()}}"
                                 data-originlongitude="{{$flight->getOrigin()->getGpsCoordinates()->getLongitude()}}"
                                 data-destinationlatitude="{{$flight->getDestination()->getGpsCoordinates()->getLatitude()}}"
-                                data-destinationlongitude="{{$flight->getDestination()->getGpsCoordinates()->getLongitude()}}" >
+                                data-destinationlongitude="{{$flight->getDestination()->getGpsCoordinates()->getLongitude()}}"
+                                data-flightlatitude="{{$flight->getGpsCoordinates()-> getLatitude()}}"
+                                data-flightlongitude="{{$flight->getGpsCoordinates() -> getLongitude()}}"
+                                >
                         </article>
                         <div id="map">
                             <script src="/js/googleMapsPolylines.js">
