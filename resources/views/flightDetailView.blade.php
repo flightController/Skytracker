@@ -27,6 +27,8 @@
                                 data-destinationlongitude="{{$flight->getDestination()->getGpsCoordinates()->getLongitude()}}"
                                 data-flightlatitude="{{$flight->getGpsCoordinates()-> getLatitude()}}"
                                 data-flightlongitude="{{$flight->getGpsCoordinates() -> getLongitude()}}"
+                                data-flightorigin="{{$flight->getOrigin()->getLocation()}}"
+                                data-flightdestination="{{$flight->getDestination()->getLocation()}}"
                                 >
                         </article>
                         <div id="map">
