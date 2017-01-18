@@ -145,7 +145,7 @@ class FlightController extends Controller
     {
         $gpsCoordinates = new GPSCoordinates(47.5611006, 7.590549);
         $airport = new Airport('BSL', 'Basel', 'Basel', $gpsCoordinates);
-        $flight = new Flight('BSL1337', 'Swiss International', $airport, $airport, "A380", null);
+        $flight = new Flight('BSL1337', 'Swiss International', $airport, $airport, "A380", null, 0, 0);
         return $flight;
 
     }

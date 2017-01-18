@@ -10,7 +10,8 @@ function initMap() {
     var centerLongitude = parseFloat((originLongitude + destinationLongitude) /2 );
     var flightOrigin = article.dataset.flightorigin;
     var flightDestination = article.dataset.flightdestination;
-
+    var flightDepartureTime = article.dataset.flightdeparturetime;
+    var flightArrivalTime = article.dataset.flightarrivaltime;
 
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 3,
@@ -19,12 +20,12 @@ function initMap() {
         scrollwheel: false,
     });
 
-    var flightPlanCoordinates = [
+    var flightPlaneCoordinates = [
         {lat: originLatitude, lng: originLongitude},
         {lat: destinationLatitude, lng: destinationLongitude},
     ];
     var flightPath = new google.maps.Polyline({
-        path: flightPlanCoordinates,
+        path: flightPlaneCoordinates,
         geodesic: true,
         strokeColor: '#FF0000',
         strokeOpacity: 1.0,
@@ -36,20 +37,22 @@ function initMap() {
         '</div>'+
         '<h1 id="firstHeading" class="firstHeading">Flug von ' + flightOrigin +' nach ' + flightDestination + '</h1>'+
         '<div id="bodyContent">'+
-        '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt' +
-            'ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo' +
-            'dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit' +
-            'amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</p>'+
-        '</div>'+
+        '<ul>' +
+        '<li>' +
+        'Zeit Abflug: ' + new Date(flightDepartureTime*1000) +
+        '</li>' +
+        '</ul></div>'+
         '</div>';
 
     var infowindow = new google.maps.InfoWindow({
         content: contentString
     });
 
+    var markerIcon = '/images/plane.png'
     var marker = new google.maps.Marker({
         position: {lat: flightLatitude, lng: flightLongitude},
         map: map,
+        icon: markerIcon,
         title: 'Aktuelle Position'
     });
 
