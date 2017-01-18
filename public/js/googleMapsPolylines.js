@@ -12,6 +12,7 @@ function initMap() {
     var flightDestination = article.dataset.flightdestination;
     var flightDepartureTime = article.dataset.flightdeparturetime;
     var flightArrivalTime = article.dataset.flightarrivaltime;
+    var flightroute = JSON.parse(article.dataset.flightroute);
 
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 3,
@@ -22,12 +23,27 @@ function initMap() {
 
     var flightPlaneCoordinates = [
         {lat: originLatitude, lng: originLongitude},
-        {lat: destinationLatitude, lng: destinationLongitude},
+        {lat: destinationLatitude, lng: destinationLongitude}
     ];
+
     var flightPath = new google.maps.Polyline({
         path: flightPlaneCoordinates,
         geodesic: true,
         strokeColor: '#FF0000',
+        strokeOpacity: 1.0,
+        strokeWeight: 1
+    });
+
+    var currentFlightRoute =[];
+
+    for (index = 0; index < flightroute.length; ++index) {
+        currentFlightRoute.push({lat: flightroute[index].latitude, lng: flightroute[index].longitude});
+    }
+
+    var currentFlightPath = new google.maps.Polyline({
+        path: currentFlightRoute,
+        geodesic: true,
+        strokeColor: '#0067d3',
         strokeOpacity: 1.0,
         strokeWeight: 2
     });
@@ -48,7 +64,11 @@ function initMap() {
         content: contentString
     });
 
-    var markerIcon = '/images/plane.png'
+    var markerIcon = {
+        url: '/images/plane.png',
+        anchor: new google.maps.Point(12, 12)
+    };
+
     var marker = new google.maps.Marker({
         position: {lat: flightLatitude, lng: flightLongitude},
         map: map,
@@ -61,4 +81,5 @@ function initMap() {
     });
 
     flightPath.setMap(map);
+    currentFlightPath.setMap(map);
 }

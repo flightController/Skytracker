@@ -79,11 +79,10 @@ class FlightAwareJsonAdapter
         return $airportNames;
     }
 
-    public function getFlightRoute(string $origin, string $destination){
-        $params = array('origin' => $origin,
-                        'destination' => $destination
+    public function getFlightRoute(string $ident){
+        $params = array('ident' => $ident,
             );
-        return $this -> get('RoutesBetweenAirports ', $params);
+        return $this -> get('GetLastTrack', $params)->GetLastTrackResult->data;
     }
 
     public function getAirportInfo($airportCode){
@@ -118,9 +117,10 @@ class FlightAwareJsonAdapter
         $departureTime = $flightInfo -> departureTime;
         $arrivalTime = $flightInfo -> arrivalTime;
         $groundSpeed = $flightInfo -> groundspeed;
+        $flightRoute = $this->getFlightRoute($ident);
 
         $gpsCoordinates = new GPSCoordinates($flightInfo -> latitude, $flightInfo -> longitude, $flightInfo ->altitude);
-        $flight = new Flight($ident,"", $origin, $destination, $flightInfo -> type, $gpsCoordinates, $departureTime, $arrivalTime, $groundSpeed);
+        $flight = new Flight($ident,"", $origin, $destination, $flightInfo -> type, $gpsCoordinates, $departureTime, $arrivalTime, $groundSpeed, $flightRoute);
         return $flight;
     }
 
@@ -141,7 +141,7 @@ class FlightAwareJsonAdapter
             $originGPS = new GPSCoordinates($originInfo -> latitude, $originInfo ->longitude);
             $origin = new Airport($departedInfo -> origin, $originInfo -> name, $originInfo -> location, $originGPS);
 
-            $flights[] = new Flight($departedInfo -> ident,"", $origin, $destination, "", null, 0, 0, 0);
+            $flights[] = new Flight($departedInfo -> ident,"", $origin, $destination, "", null, 0, 0, 0,[]);
         }
         return $flights;
     }

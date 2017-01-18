@@ -32,6 +32,7 @@
                                 data-flightairline="{{$flight->getAirline()}}"
                                 data-flightdeparturetime="{{$flight->getDepartureTime()}}"
                                 data-flightarrivaltime="{{$flight->getArrivalTime()}}"
+                                data-flightroute="{{json_encode($flight->getFlightRoute())}}"
                                 >
                         </article>
                         <div id="map">
