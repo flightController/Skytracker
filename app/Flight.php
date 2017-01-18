@@ -14,17 +14,9 @@ class Flight extends Model
     private $gpsCoordinates;
     private $departureTime;
     private $arrivalTime;
+    private $speed;
 
-    /**
-     * Flight constructor.
-     * @param $ident
-     * @param $airline
-     * @param $origin
-     * @param $destination
-     * @param $aircraft
-     * @param $gpsCoordinates
-     */
-    public function __construct(string $ident, string $airline = "", Airport $origin, Airport $destination, string $aircraft = "", GPSCoordinates $gpsCoordinates = null, $departureTime, $arrivalTime)
+    public function __construct(string $ident, string $airline = "", Airport $origin, Airport $destination, string $aircraft = "", GPSCoordinates $gpsCoordinates = null, int $departureTime, int $arrivalTime, int $speed = 0)
     {
         $this->ident = $ident;
         $this->airline = $airline;
@@ -34,6 +26,7 @@ class Flight extends Model
         $this->gpsCoordinates = $gpsCoordinates;
         $this->departureTime = $departureTime;
         $this->arrivalTime = $arrivalTime;
+        $this->speed = $speed;
     }
 
     /**

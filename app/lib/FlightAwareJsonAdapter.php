@@ -101,7 +101,6 @@ class FlightAwareJsonAdapter
         return $this -> get('Departed', $params);
     }
 
-
     public function getFlight(string $ident) : Flight
     {
         $flightInfo = $this->getInFlightInfo($ident);
@@ -118,9 +117,10 @@ class FlightAwareJsonAdapter
         $origin = new Airport($flightInfo -> origin, $originInfo -> name, $originInfo -> location, $originGPS);
         $departureTime = $flightInfo -> departureTime;
         $arrivalTime = $flightInfo -> arrivalTime;
+        $groundSpeed = $flightInfo -> groundspeed;
 
         $gpsCoordinates = new GPSCoordinates($flightInfo -> latitude, $flightInfo -> longitude, $flightInfo ->altitude);
-        $flight = new Flight($ident,"", $origin, $destination, $flightInfo -> type, $gpsCoordinates, $departureTime, $arrivalTime);
+        $flight = new Flight($ident,"", $origin, $destination, $flightInfo -> type, $gpsCoordinates, $departureTime, $arrivalTime, $groundSpeed);
         return $flight;
     }
 
@@ -141,7 +141,7 @@ class FlightAwareJsonAdapter
             $originGPS = new GPSCoordinates($originInfo -> latitude, $originInfo ->longitude);
             $origin = new Airport($departedInfo -> origin, $originInfo -> name, $originInfo -> location, $originGPS);
 
-            $flights[] = new Flight($departedInfo -> ident,"", $origin, $destination, "", null, 0, 0);
+            $flights[] = new Flight($departedInfo -> ident,"", $origin, $destination, "", null, 0, 0, 0);
         }
         return $flights;
     }
