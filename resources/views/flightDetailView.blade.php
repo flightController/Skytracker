@@ -18,7 +18,7 @@
 
                 <div class="col-md-12 flightdetailmap">
                     <h2>Skytracker</h2>
-                    <div class="col-md-12">
+                    <div class="col-md-12 googlemaps">
                         <article
                                 id="coordinates"
                                 data-originlatitude="{{$flight->getOrigin()->getGpsCoordinates()->getLatitude()}}"
@@ -43,16 +43,21 @@
                 </div>
                 <div class="col-md-12 flightdetailweather">
                     <h2>Weather</h2>
+                    <div class="col-md-6">
+
+                    </div>
                 </div>
 
             <div class="col-md-12 flightdetailflight">
-                <div class="col-md-6">
+                <div class="col-md-4 flightdetailairplan">
                     <h2>Flugdetails</h2>
-                    <img src="{{$planePicture[0] or ""}}" class="img-responsive"/>
+                    <img src="{{$planePicture[0] or ""}}" class="img-responsive airplanepicture"/>
                 </div>
-                <div class="col-md-5 col-md-offset-1 aircraftdetail">
+                <div class="col-md-3 col-md-offset-1 aircraftdetail">
                     <h4>Flugnummer:</h4> {{$flight->getIdent()}}<br><br>
                     <h4>Fluggesellschaft: </h4> {{$flight->getAirline()}}<br><br>
+                </div>
+                <div class="col-md-3 col-md-offset-1 aircraftdetail">
                     <h4>Restliche Flugzeit: </h4> 3 Std 34 Min<br><br>
                     <h4>Flugzeugtyp: </h4> {{$flight->getAircraft()}}<br><br>
                 </div>

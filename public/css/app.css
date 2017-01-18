@@ -230,6 +230,10 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     padding-bottom: 15px;
 }
 
+.flightdetailairplan {
+    padding: 0px;
+}
+
 /*
 * === H4 IN FLUGINFORMATIONEN ===
 */
@@ -269,6 +273,9 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
         margin-top: 20px;
     }
 
+    .aircraftdetail {
+        margin: 10px 0px 10px 0px !important;
+    }
 }
 
 /*
@@ -347,4 +354,21 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 
 #map{
     height: 500px;
+}
+
+/*
+* === Abstand oben und unten bei Google Map ===
+*/
+.googlemaps {
+    margin: 20px 0px 20px 0px;
+}
+
+/*
+* === Abstand von oben und unten ===
+*/
+.airplanepicture {
+    margin: 20px 0px 20px 0px;
+}
+.aircraftdetail {
+    margin: 60px 0px 20px 0px;
 }
