@@ -20,7 +20,7 @@
   - sites:- map: yourdomain.app
   - to: /home/vagrant/Code/Laravel/public
   - databses: -skytracker
-  - if you already installed homestead before run in Terminal: vagrant reload --provision
+  - if you already installed homestead before and you want to change some settings run in Terminal: vagrant reload --provision
 
 ### hosts
 1. sudo nano etc/hosts
