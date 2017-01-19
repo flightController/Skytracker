@@ -40,19 +40,21 @@ class FlightController extends Controller
         $test_mode = $userSettings -> test_mode;
 
         $endtime = microtime(true);
-        echo "Usersettings laden: " . ($endtime - $starttime) . "\n";
+        echo "Usersettings: " . ($endtime - $starttime) . "\n";
 
         if($test_mode){
             $flights = $this->getTestFlights($numberOfFlights);
         } else{
+            $starttime = microtime(true);
             $adapter = new FlightAwareJsonAdapter(FLIGHT_AWARE_NAME, FLIGHT_AWARE_KEY);
             $flights = $adapter -> getDepartedFlights($homeAirport, $numberOfFlights);
+            echo "Fligtaware: " . (microtime(true) - $starttime) . "\n";
         }
 
         $starttime = microtime(true);
         $cityDescriptions = $this->getWikiTexts($flights);
         $endtime = microtime(true);
-        echo "CityDescriptions: " . ($endtime-$starttime) . "\n";
+        echo "Wikipedia: " . ($endtime-$starttime) . "\n";
         $starttime = microtime(true);
         $cityPictures = $this->getListViewCityPictures($flights);
         $endtime = microtime(true);
@@ -64,7 +66,7 @@ class FlightController extends Controller
             $weather[$flight -> getDestination() -> getLocation()] = $openWeatherJSONAdapter ->getWeather($flight -> getDestination() -> getGpsCoordinates());
         }
         $endtime = microtime(true);
-        echo "Weather: " . ($endtime-$starttime) . "\n";
+        echo "OpenWeather: " . ($endtime-$starttime) . "\n";
 
         $data = array(
             'flights' => $flights,
