@@ -39,14 +39,17 @@ class WikipediaJsonAdapter
 
         $pages = $wikiInformation->query->pages;
 
-        $objectvars = get_object_vars($pages);
+        $objectVars = get_object_vars($pages);
         $text = "";
-        foreach ($objectvars as $key => $value) {
+        foreach ($objectVars as $key => $value) {
             $page = $pages->$key;
-            if ((($page->title) == $cityName)||(strlen($page->extract)) > 300){
+            if ((($page->title) == $cityName)&&(strlen($page->extract)) > 300){
                 return $page->extract;
             }
             $text .= $page->extract;
+            if(strlen($text)>600){
+                return $text;
+            }
         }
         return $text;
     }
