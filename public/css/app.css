@@ -372,3 +372,11 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 .aircraftdetail {
     margin: 60px 0px 20px 0px;
 }
+
+html {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background: url("/public/images/background.jpg") no-repeat fixed center center;
+}
