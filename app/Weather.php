@@ -1,20 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Heisenberg
- * Date: 21.12.2016
- * Time: 16:00
- */
 
 namespace app;
-
 
 use Illuminate\Database\Eloquent\Model;
 
 class Weather extends Model
 {
 private $temperature;
-private $weathercondition;
+private $weatherCondition;
 private $cloud;
 private $wind;
 private $icon;
@@ -24,7 +17,7 @@ private $country;
     public function __construct($temperature, $weatherCondition, $cloud, $wind, $icon)
     {
         $this->temperature = $temperature;
-        $this->weathercondition = $weatherCondition;
+        $this->weatherCondition = $weatherCondition;
         $this->cloud = $cloud;
         $this->wind = $wind;
         $this->icon = $icon;
@@ -43,7 +36,7 @@ private $country;
      */
     public function getWeatherCondition()
     {
-        return $this->weathercondition;
+        return $this->weatherCondition;
     }
 
     /**
