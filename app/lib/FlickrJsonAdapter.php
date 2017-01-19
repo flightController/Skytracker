@@ -33,6 +33,9 @@ class FlickrJsonAdapter
             return $photo_url_array;
         }
 
+        if(!isset($response->photos->photo)){
+            return[];
+        }
         $photo_array = $response->photos->photo;
 
         foreach ($photo_array as $single_photo) {

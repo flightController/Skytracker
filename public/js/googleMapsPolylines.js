@@ -4,14 +4,10 @@ function initMap() {
     var originLongitude = parseFloat(article.dataset.originlongitude);
     var destinationLatitude = parseFloat(article.dataset.destinationlatitude);
     var destinationLongitude = parseFloat(article.dataset.destinationlongitude);
-    var flightLatitude = parseFloat(article.dataset.flightlatitude);
-    var flightLongitude = parseFloat(article.dataset.flightlongitude);
     var centerLatitude = parseFloat((originLatitude + destinationLatitude) / 2);
     var centerLongitude = parseFloat((originLongitude + destinationLongitude) / 2);
     var flightOrigin = article.dataset.flightorigin;
     var flightDestination = article.dataset.flightdestination;
-    var flightDepartureTime = article.dataset.flightdeparturetime;
-    var flightArrivalTime = article.dataset.flightarrivaltime;
     var flightroute = JSON.parse(article.dataset.flightroute);
 
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -52,20 +48,22 @@ function initMap() {
         }],
     });
 
-    var contentString = '<div id="content">' +
+    var originString = '<div id="content">' +
         '<div id="siteNotice">' +
-        '</div>' +
-        '<h1 id="firstHeading" class="firstHeading">Flug von ' + flightOrigin + ' nach ' + flightDestination + '</h1>' +
-        '<div id="bodyContent">' +
-        '<ul>' +
-        '<li>' +
-        'Zeit Abflug: ' + new Date(flightDepartureTime * 1000) +
-        '</li>' +
-        '</ul></div>' +
+        '<h1 id="firstHeading" class="firstHeading">' + flightOrigin + '</h1>' +
         '</div>';
 
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString
+    var destinationString = '<div id="content">' +
+        '<div id="siteNotice">' +
+        '<h1 id="firstHeading" class="firstHeading">' + flightDestination + '</h1>' +
+        '</div>';
+
+    var originWindow = new google.maps.InfoWindow({
+        content: originString
+    });
+
+    var destinationWindow = new google.maps.InfoWindow({
+        content: destinationString
     });
 
     var originMarker = new google.maps.Marker({
@@ -78,8 +76,12 @@ function initMap() {
         map: map,
     });
 
-    currentFlightPath.addListener('click', function () {
-        infowindow.open(map, currentFlightPath);
+    originMarker.addListener('click', function () {
+        originWindow.open(map, originMarker);
+    });
+
+    destinationMarker.addListener('click', function () {
+        destinationWindow.open(map, destinationMarker);
     });
 
     flightPath.setMap(map);

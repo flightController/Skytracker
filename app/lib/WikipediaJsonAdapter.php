@@ -33,7 +33,7 @@ class WikipediaJsonAdapter
     {
         $wikiInformation = $this->get($cityName);
         $wikiInformation = json_decode($wikiInformation);
-        if (!isset($wikiInformation)) {
+        if (!isset($wikiInformation->query->pages)) {
             return "";
         }
 
@@ -43,7 +43,7 @@ class WikipediaJsonAdapter
         $text = "";
         foreach ($objectvars as $key => $value) {
             $page = $pages->$key;
-            if (($page->title) == $cityName) {
+            if ((($page->title) == $cityName)||(strlen($page->extract)) > 300){
                 return $page->extract;
             }
             $text .= $page->extract;
