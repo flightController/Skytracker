@@ -57,10 +57,10 @@
 
 ## How To Install (local)
 ### Install
-1. Install composer
-2. Install php
-3. Install apache
-4. Install mysql
+1. Install composer (https://getcomposer.org/download/)
+2. Install php (http://php.net/manual/de/install.php)
+3. Install and configure apache (http://httpd.apache.org/docs/2.4/de/install.html)
+4. Install and configure mysql (https://dev.mysql.com/downloads/installer/)
 
 ### composer
 1. navigate with cmd/terminal to the project folder
@@ -70,8 +70,9 @@
 1. open .env file in the project folder
 2. enter host
 3. enter port
-4. enter user and pw
-5. do the same settings in config/database.php
+4. enter database
+5. enter user and pw
+6. do the same settings in config/database.php
 
 ### voyager admin panel
 1. navigate with cmd/terminal to the project folder
