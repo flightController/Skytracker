@@ -43,7 +43,7 @@ class WikipediaJsonAdapter
         $text = "";
         foreach ($objectVars as $key => $value) {
             $page = $pages->$key;
-            if ((($page->title) == $cityName)&&(strlen($page->extract)) > 300){
+            if ((($page->title) == $cityName)&&((strlen($page->extract)) > 250)){
                 return $page->extract;
             }
             $text .= $page->extract;
