@@ -104,7 +104,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 * === FLUGLISTEN DARSTELLUNG ===
 */
 .flightlist {
-    border: solid 0.5px #000000;
+    border: solid 0.5px gainsboro;
     border-radius: 5px;
     background-color: #f8f8f8;
 }
@@ -157,6 +157,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 */
 .flightdetail {
     border: solid 0.5px gainsboro;
+    background-color: #f8f8f8;
     border-radius: 5px;
     margin: 20px 0px 20px 0px;
     padding-right: 30px;
