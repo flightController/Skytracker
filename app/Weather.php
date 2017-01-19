@@ -21,16 +21,6 @@ private $icon;
 private $city;
 private $country;
 
-    /**
-     * Weather constructor.
-     * @param $temperature
-     * @param $weatherCondition
-     * @param $cloud
-     * @param $wind
-     * @param $icon
-     * @param $city
-     * @param $country
-     */
     public function __construct($temperature, $weatherCondition, $cloud, $wind, $icon)
     {
         $this->temperature = $temperature;
@@ -95,15 +85,4 @@ private $country;
     {
         return $this->country;
     }
-
-    /**
-     * Weather constructor.
-     * @param $temperature
-     * @param $weathercondition
-     * @param $cloud
-     * @param $wind
-     * @param $icon
-     */
-
-
 }
