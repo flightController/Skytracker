@@ -37,7 +37,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-6 col-md-offset-3">
+                                <div class="col-md-6 col-md-offset-6">
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" name="remember"> Remember Me
@@ -46,9 +46,17 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-6 col-md-offset-3">
+                                <div class="col-md-6">
+                                    <a href="/register">
+                                    <button type="button" class="btn btn-primary registerbutton">Registrieren</button>
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
                                     <button type="submit" class="btn btn-primary submitbutton">Login</button>
                                 </div>
+                            </div>
+                            <div class="form-group">
+
                             </div>
                         </form>
                     </div>

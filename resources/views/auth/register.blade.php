@@ -51,7 +51,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-6 col-md-offset-3">
+                                <div class="col-md-6">
+                                <a href="/login">
+                                    <button type="button" class="btn btn-primary submitbutton">
+                                        zurück zum Login
+                                    </button>
+                                </a>
+                                </div>
+                                <div class="col-md-6">
                                     <button type="submit" class="btn btn-primary submitbutton">
                                         Registrieren
                                     </button>
