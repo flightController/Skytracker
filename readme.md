@@ -14,13 +14,13 @@
 5. bash init.sh / Windows: init.bat
 6. sudo nano ~/.homestead/Homestead.yaml
 7. Change these parameters
--     1. provider: parallels or vmware or hyperv or virtualbox
--     2. folders: - map: ~/Sites (folder where you store the Site)
--     3. to: /home/vagrant/Code
--     4. sites:- map: yourdomain.app
--     5. to: /home/vagrant/Code/Laravel/public
--     6. databses: -skytracker
--     7. if you already installed homestead before run in Terminal: vagrant reload --provision
+  - provider: parallels or vmware or hyperv or virtualbox
+  - folders: - map: ~/Sites (folder where you store the Site)
+  - to: /home/vagrant/Code
+  - sites:- map: yourdomain.app
+  - to: /home/vagrant/Code/Laravel/public
+  - databses: -skytracker
+  - if you already installed homestead before run in Terminal: vagrant reload --provision
 
 ### hosts
 1. sudo nano etc/hosts
