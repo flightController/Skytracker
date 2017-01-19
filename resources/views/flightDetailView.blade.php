@@ -55,12 +55,15 @@
                     <img src="{{$planePicture[0] or ""}}" class="img-responsive airplanepicture"/>
                 </div>
                 <div class="col-md-3 col-md-offset-1 aircraftdetail">
-                    <h4>Flugnummer:</h4> {{$flight->getIdent()}}<br><br>
-                    <h4>Fluggesellschaft: </h4> {{$flight->getAirline()}}<br><br>
+                    <h4>Flugnummer:</h4> {{$flight->getIdent()}}<br>
+                    <h4>Fluggesellschaft: </h4> {{$flight->getAirline()}}<br>
+                    <h4>Flugzeugtyp: </h4> {{$flight->getAircraft()}}<br>
                 </div>
                 <div class="col-md-3 col-md-offset-1 aircraftdetail">
-                    <h4>Restliche Flugzeit: </h4> 3 Std 34 Min<br><br>
-                    <h4>Flugzeugtyp: </h4> {{$flight->getAircraft()}}<br><br>
+                    <h4>Restliche Flugzeit: </h4> 3 Std 34 Min<br>
+                    <h4>Erwartete Ankunftszeit: </h4> {{$flight->getArrivalTime()}}<br>
+                    <h4>Aktuelle Höhe: </h4> {{$flight->getGpsCoordinates() -> getAltitude()}}<br>
+                    <h4>Aktuelle Geschw.: </h4> {{$flight->getSpeed()}}<br>
                 </div>
             </div>
             <div class='row'>

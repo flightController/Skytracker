@@ -108,7 +108,10 @@ class Flight extends Model
      */
     public function getSpeed(): int
     {
-        return $this->speed;
+        $speedmph = $this->speed;
+        $speedkmh = $speedmph * 1.60934;
+        echo round($speedkmh, 0);
+        return $speedkmh;
     }
 
     /**
