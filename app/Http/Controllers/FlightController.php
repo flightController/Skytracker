@@ -23,6 +23,7 @@ class FlightController extends Controller
 
     public function flightList(){
 
+        $starttime = microtime(true);
         $userSettings = UserSetting::where('user_id', '=', Auth::user()->id) -> first();
         if(!isset($userSettings)){
             $userSettings = UserSetting::create([
@@ -38,6 +39,9 @@ class FlightController extends Controller
         $homeAirport = $userSettings -> home_airport;
         $test_mode = $userSettings -> test_mode;
 
+        $endtime = microtime(true);
+        echo "Usersettings laden: " . ($endtime - $starttime) . "\n";
+
         if($test_mode){
             $flights = $this->getTestFlights($numberOfFlights);
         } else{
@@ -45,13 +49,22 @@ class FlightController extends Controller
             $flights = $adapter -> getDepartedFlights($homeAirport, $numberOfFlights);
         }
 
+        $starttime = microtime(true);
         $cityDescriptions = $this->getWikiTexts($flights);
+        $endtime = microtime(true);
+        echo "CityDescriptions: " . ($endtime-$starttime) . "\n";
+        $starttime = microtime(true);
         $cityPictures = $this->getListViewCityPictures($flights);
+        $endtime = microtime(true);
+        echo "Flickr: " . ($endtime-$starttime) . "\n";
 
+        $starttime = microtime(true);
         $openWeatherJSONAdapter = new OpenWeatherJsonAdapter(OPENWEATHER_API_KEY);
         foreach ($flights as $flight){
             $weather[$flight -> getDestination() -> getLocation()] = $openWeatherJSONAdapter ->getWeather($flight -> getDestination() -> getGpsCoordinates());
         }
+        $endtime = microtime(true);
+        echo "Weather: " . ($endtime-$starttime) . "\n";
 
         $data = array(
             'flights' => $flights,
