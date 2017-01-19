@@ -54,7 +54,7 @@
                                 <div class="col-md-6">
                                 <a href="/login">
                                     <button type="button" class="btn btn-primary submitbutton">
-                                        zurück zum Login
+                                        zum Login
                                     </button>
                                 </a>
                                 </div>

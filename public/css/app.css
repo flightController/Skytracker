@@ -104,8 +104,9 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 * === FLUGLISTEN DARSTELLUNG ===
 */
 .flightlist {
-    border: solid 0.5px gainsboro;
+    border: solid 0.5px #000000;
     border-radius: 5px;
+    background-color: #f8f8f8;
 }
 
 .flightlist h1 {
@@ -165,7 +166,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 * === BORDER UM DIE FLUGTRACKERKARTE / MARGINEINSTELLUNGEN ===
 */
 .flightdetailmap {
-    border: solid 0.5px gainsboro;
+    /*border: solid 0.5px gainsboro;*/
     margin: 20px 0px 20px 20px;
     border-radius: 5px;
 }
@@ -174,7 +175,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 * === BORDER UM DIE WETTERDETAILS / MARGINEINSTELLUNGEN ===
 */
 .flightdetailweather {
-    border: solid 0.5px gainsboro;
+    /*border: solid 0.5px gainsboro;*/
     margin: 20px 0px 20px 20px;
     border-radius: 5px;
 }
@@ -229,13 +230,13 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 * === FLUGINFORMATIONEN AUF DETAILSEITE ===
 */
 .flightdetailflight {
-    border: solid 0.5px gainsboro;
+    /*border: solid 0.5px gainsboro;*/
     border-radius: 5px;
     margin: 20px 0px 20px 20px;
     padding-bottom: 15px;
 }
 
-.flightdetailairplan {
+.flightdetailairplane {
     padding: 0px;
 }
 

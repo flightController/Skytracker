@@ -50,20 +50,22 @@
                 </div>
 
             <div class="col-md-12 flightdetailflight">
-                <div class="col-md-4 flightdetailairplan">
+                <div class="col-md-3 flightdetailairplane">
                     <h2>Flugdetails</h2>
                     <img src="{{$planePicture[0] or ""}}" class="img-responsive airplanepicture"/>
                 </div>
-                <div class="col-md-3 col-md-offset-1 aircraftdetail">
+                <div class="col-md-3 aircraftdetail">
                     <h4>Flugnummer:</h4> {{$flight->getIdent()}}<br>
                     <h4>Fluggesellschaft: </h4> {{$flight->getAirline()}}<br>
                     <h4>Flugzeugtyp: </h4> {{$flight->getAircraft()}}<br>
                 </div>
-                <div class="col-md-3 col-md-offset-1 aircraftdetail">
+                <div class="col-md-3 aircraftdetail">
                     <h4>Restliche Flugzeit: </h4> 3 Std 34 Min<br>
                     <h4>Erwartete Ankunftszeit: </h4> {{$flight->getArrivalTime()}}<br>
-                    <h4>Aktuelle Höhe: </h4> {{$flight->getGpsCoordinates() -> getAltitude()}}<br>
-                    <h4>Aktuelle Geschw.: </h4> {{$flight->getSpeed()}}<br>
+                </div>
+                <div class="col-md-3 aircraftdetail">
+                    <h4>Aktuelle Höhe: </h4> {{$flight->getGpsCoordinates() -> getAltitude()}} M.ü.M.<br>
+                    <h4>Aktuelle Geschw.: </h4> {{$flight->getSpeed()}} km/h<br>
                 </div>
             </div>
             <div class='row'>
