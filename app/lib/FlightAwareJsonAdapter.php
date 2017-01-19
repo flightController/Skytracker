@@ -137,11 +137,7 @@ class FlightAwareJsonAdapter
             $destinationsGPS = new GPSCoordinates($destinationInfo -> latitude, $destinationInfo ->longitude);
             $destination = new Airport($departedInfo -> destination, $destinationInfo -> name, $destinationInfo -> location, $destinationsGPS);
 
-            $originInfo = $this->getAirportInfo($departedInfo -> origin);
-            $originGPS = new GPSCoordinates($originInfo -> latitude, $originInfo ->longitude);
-            $origin = new Airport($departedInfo -> origin, $originInfo -> name, $originInfo -> location, $originGPS);
-
-            $flights[] = new Flight($departedInfo -> ident,"", $origin, $destination, "", null, 0, 0, 0,[]);
+            $flights[] = new Flight($departedInfo -> ident,"", null, $destination, "", null, 0, 0, 0,[]);
         }
         return $flights;
     }

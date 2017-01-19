@@ -17,7 +17,7 @@ class Flight extends Model
     private $speed;
     private $flightRoute;
 
-    public function __construct(string $ident, string $airline = "", Airport $origin, Airport $destination, string $aircraft = "", GPSCoordinates $gpsCoordinates = null, int $departureTime, int $arrivalTime, int $speed = 0, array $flightRoute=[])
+    public function __construct(string $ident, string $airline = "", Airport $origin = null, Airport $destination, string $aircraft = "", GPSCoordinates $gpsCoordinates = null, int $departureTime = null, int $arrivalTime = null, int $speed = 0, array $flightRoute=[])
     {
         $this->ident = $ident;
         $this->airline = $airline;
