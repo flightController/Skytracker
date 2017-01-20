@@ -11,7 +11,6 @@ use App\Flight;
 use App\lib\FlickrJsonAdapter;
 use App\Airport;
 use App\UserSetting;
-use App\Weather;
 use Illuminate\Support\Facades\Auth;
 
 class FlightController extends Controller
@@ -62,6 +61,7 @@ class FlightController extends Controller
 
         $starttime = microtime(true);
         $openWeatherJSONAdapter = new OpenWeatherJsonAdapter(OPENWEATHER_API_KEY);
+        $weather = array();
         foreach ($flights as $flight){
             $weather[$flight -> getDestination() -> getLocation()] = $openWeatherJSONAdapter ->getWeather($flight -> getDestination() -> getGpsCoordinates());
         }
@@ -88,18 +88,26 @@ class FlightController extends Controller
         if($userSettings -> test_mode){
             $flight = $this->getTestFlight();
         } else {
+            $starttime = microtime(true);
             $adapter = new FlightAwareJsonAdapter(FLIGHT_AWARE_NAME, FLIGHT_AWARE_KEY);
             $flight = $adapter ->getFlight($ident);
+            echo "flightAware: " . (microtime(true)-$starttime) . "\n";
         }
 
+        $starttime = microtime(true);
         $flickerAdapter = new FlickrJsonAdapter(FLICKR_API_KEY);
         $planePicture = $flickerAdapter ->getSmallPictures($flight -> getAircraft(), 1);
+        echo "Flickr: " . (microtime(true) - $starttime) . "\n";
 
+        $starttime = microtime(true);
         $cityDescription = $this->getWikiText($flight);
         $cityPictures = $this->getDetailViewCityPictures($flight);
+        echo "Wikipedia: " . (microtime(true) - $starttime) . "\n";
 
+        $starttime=microtime(true);
         $openWeatherJSONAdapter = new OpenWeatherJsonAdapter(OPENWEATHER_API_KEY);
         $weather = $openWeatherJSONAdapter ->getWeather($flight -> getDestination() -> getGpsCoordinates());
+        echo "OpenWeather" . (microtime(true) - $starttime) . "\n";
 
         $data = array(
             'flight' => $flight,

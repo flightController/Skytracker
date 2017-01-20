@@ -64,21 +64,6 @@ class FlightAwareJsonAdapter
         return $result;
     }
 
-    public function getAllAirportName (): array
-    {
-        $dataArray = array('data' => '');
-        $airportShortcuts = $this->get('AllAirports', $dataArray)->AllAirportsResult->data;
-        $airportInfo = array();
-        $airportNames = array ();
-        foreach ($airportShortcuts as $airportShortcut) {
-            $params = array('airportCode' => $airportShortcut);
-            $airportNames[] = array($airportShortcut => $this->get('AirportInfo', $params)->AirportInfoResult->name);
-            break;
-        }
-
-        return $airportNames;
-    }
-
     public function getFlightRoute(string $ident){
         $params = array('ident' => $ident,
             );

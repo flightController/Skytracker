@@ -7,7 +7,7 @@ class FlickrJsonAdapter
     private $apiKey;
     private static $baseUrl = 'https://www.flickr.com/services/rest/?';
     private $method = '&method=flickr.photos.search';
-    private $format = '&format=json';
+    private $responseType = '&format=json';
     private $tags = '&tags=';
     private $content_type = '&content_type=1';
     private $per_page = '&per_page=';
@@ -22,39 +22,40 @@ class FlickrJsonAdapter
     }
 
 
-    private function getPictures(string $searchString, string $howmany, string $size, string $format)
+    private function getPictures(string $searchString, string $howMany, string $size, string $format)
     {
         $searchString = preg_replace ( '/[^a-z0-9 ]/i', '', $searchString );
-        $photo_url_array = array();
-        $url = (self::$baseUrl . $this->method . $this->tags . rawurlencode($searchString) . $this->format . $this->content_type . $this->per_page . $howmany . '&api_key=' . $this->apiKey . '&nojsoncallback=1');
+        $photoUrls = array();
+        $url = (self::$baseUrl . $this->method . $this->tags . rawurlencode($searchString) . $this->responseType . $this->content_type . $this->per_page . $howMany . '&api_key=' . $this->apiKey . '&nojsoncallback=1');
         $response = json_decode(file_get_contents($url));
         if($response == null){
-            $photo_url_array[] = "";
-            return $photo_url_array;
+            $photoUrls[] = "";
+            return $photoUrls;
         }
 
         if(!isset($response->photos->photo)){
             return[];
         }
-        $photo_array = $response->photos->photo;
+        $responsePhotos= $response->photos->photo;
 
-        foreach ($photo_array as $single_photo) {
-            $farm_id = $single_photo->farm;
-            $server_id = $single_photo->server;
-            $photo_id = $single_photo->id;
-            $secret_id = $single_photo->secret;
+        foreach ($responsePhotos as $photo) {
+            $farmId = $photo->farm;
+            $serverId = $photo->server;
+            $photoId = $photo->id;
+            $secretId = $photo->secret;
 
-            $photo_url = 'http://farm' . $farm_id . '.staticflickr.com/' . $server_id . '/' . $photo_id . '_' . $secret_id . $size . '.' . $format;
-            $photo_url_array[] = $photo_url;
+            $photoUrl = 'http://farm' . $farmId . '.staticflickr.com/' . $serverId . '/' . $photoId . '_' . $secretId . $size . '.' . $format;
+            $photoUrls[] = $photoUrl;
 
         }
-        return $photo_url_array;
-    }
-    public function getSmallPictures(string $city, string $howmany) {
-        return $this->getPictures($city, $howmany, '_m', 'jpg');
+        return $photoUrls;
     }
 
-    public function getFullPictures(string $city, string $howmany) {
-        return $this->getPictures($city, $howmany, '', 'jpg');
+    public function getSmallPictures(string $city, string $howMany) {
+        return $this->getPictures($city, $howMany, '_m', 'jpg');
+    }
+
+    public function getFullPictures(string $city, string $howMany) {
+        return $this->getPictures($city, $howMany, '', 'jpg');
     }
 }

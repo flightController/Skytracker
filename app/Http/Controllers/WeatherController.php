@@ -6,11 +6,6 @@ use app\Weather;
 
 class WeatherController extends Controller {
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return Weather
-     */
     public function __construct()
     {
         $this->middleware('auth');

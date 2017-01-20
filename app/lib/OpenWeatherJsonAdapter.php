@@ -20,6 +20,10 @@ class OpenWeatherJsonAdapter
         $this->apiKey = $apiKey;
     }
 
+    /**
+     * @param GPSCoordinates $gpsCoordinates
+     * @return Weather
+     */
     public function getWeather(GPSCoordinates $gpsCoordinates) : Weather
     {
 
