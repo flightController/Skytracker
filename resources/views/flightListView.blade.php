@@ -19,9 +19,9 @@
                 </div>
             </div>
             <div class="col-md-12 divider"></div>
-            <div class="col-md-4 col-sm-4 weather"><img src="../images/sun.ico" class="weathericon" width="20px" height="20px"> {{$weather[$flight->getDestination()->getLocation()] -> getWeatherCondition()}}
+            <div class="col-md-4 col-sm-4 weather"><img src="../images/icon/{{$weather[$flight->getDestination()->getLocation()] -> getIcon()}}.png" class="weathericon" width="40px" height="40px"> {{$weather[$flight->getDestination()->getLocation()] -> getWeatherCondition()}}
             </div>
-            <div class="col-md-4 col-sm-4 weather"><img src="../images/thermometer.ico" class="weathericon" width="20px" height="20px"> {{$weather[$flight->getDestination()->getLocation()] -> getTemperature()}}°
+            <div class="col-md-4 col-sm-4 weather"><img src="../images/thermometer.ico" class="weathericon" width="20px" height="20px"> {{$weather[$flight->getDestination()->getLocation()] -> getTemperature()}} °C
             </div>
 
             <div class="col-md-4 moreinfobutton"><a href="/flight/{{$flight -> getIdent()}}"><button type="button" class="btn btn-primary btn-block"> Mehr Infos </button></a>

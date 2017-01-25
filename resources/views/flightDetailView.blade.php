@@ -17,7 +17,7 @@
             </div>
 
                 <div class="col-md-12 flightdetailmap">
-                    <h2>Skytracker</h2>
+                    <h2>Flugroute</h2>
                     <div class="col-md-12 googlemaps">
                         <article
                                 id="coordinates"
@@ -43,9 +43,12 @@
                     </div>
                 </div>
                 <div class="col-md-12 flightdetailweather">
-                    <h2>Weather</h2>
+                    <h2>Wetterdaten</h2>
                     <div class="col-md-6">
-
+                        <img src="../images/sun.ico" class="weathericon" width="20px" height="20px"> {{$weather -> getWeatherCondition()}}
+                    </div>
+                    <div class="col-md-6">
+                    <img src="../images/thermometer.ico" class="weathericon" width="20px" height="20px"> {{$weather -> getTemperature()}} °C
                     </div>
                 </div>
 
