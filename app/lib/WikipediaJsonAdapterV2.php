@@ -17,6 +17,7 @@ class WikipediaJsonAdapterV2
             CURLOPT_FOLLOWLOCATION => true,   // follow redirects
             CURLOPT_USERAGENT => $_SERVER['HTTP_USER_AGENT'], // name of client
             CURLOPT_SSL_VERIFYPEER => false,
+
         );
         $ch = curl_init($url);
         curl_setopt_array($ch, $options);
