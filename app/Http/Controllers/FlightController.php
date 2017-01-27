@@ -100,7 +100,8 @@ class FlightController extends Controller
         echo "Flickr: " . (microtime(true) - $starttime) . "\n";
 
         $starttime = microtime(true);
-        $cityDescription = $this->getWikiText($flight);
+        $cityDescription = $this->getWikiTexts([$flight]);
+        $cityDescription = $cityDescription[$flight->getDestination()->getLocation()];
         $cityPictures = $this->getDetailViewCityPictures($flight);
         echo "Wikipedia: " . (microtime(true) - $starttime) . "\n";
 
@@ -121,19 +122,13 @@ class FlightController extends Controller
         return view('flightDetailView', $data);
     }
 
-    private function getWikiText(Flight $flight): string
-    {
-        $wikipediaAdapter = new WikipediaJsonAdapter();
-        return $wikipediaAdapter->getShortCityDescription($flight->getDestination()->getLocation());
-    }
-
     private function getWikiTexts(array $flights): array
     {
         $wikipediaAdapter = new WikipediaJsonAdapter();
-        $cityDescriptions = array();
         foreach ($flights as $flight) {
-            $cityDescriptions[$flight->getDestination()->getLocation()] = $wikipediaAdapter->getShortCityDescription($flight->getDestination()->getLocation());
+            $cities[] = $flight->getDestination()->getLocation();
         }
+        $cityDescriptions = $wikipediaAdapter->getShortDescriptions($cities);
         return $cityDescriptions;
     }
 

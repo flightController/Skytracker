@@ -4,12 +4,12 @@ namespace App\lib;
 
 class WikipediaJsonAdapter
 {
-    private function get($what)
+    public function getJsonResponse($what)
     {
         $url = 'http://de.wikipedia.org/w/api.php';
-        $url .= '?action=query&format=json&prop=extracts&generator=search';
-        $url .= '&utf8=1&exsentences=5&exlimit=max&exintro=1&explaintext=1';
-        $url .= '&gsrnamespace=0&gsrlimit=10&gsrsearch=' . urlencode($what);
+        $url .= '?action=query&format=json&prop=extracts&indexpageids=1&continue=%7C%7C&titles=';
+        $url .= urlencode($what);
+        $url .= '&redirects=1&exchars=1000&exlimit=max&exintro=1&explaintext=1';
 
         $options = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
@@ -17,6 +17,7 @@ class WikipediaJsonAdapter
             CURLOPT_FOLLOWLOCATION => true,   // follow redirects
             CURLOPT_USERAGENT => $_SERVER['HTTP_USER_AGENT'], // name of client
             CURLOPT_SSL_VERIFYPEER => false,
+
         );
         $ch = curl_init($url);
         curl_setopt_array($ch, $options);
@@ -28,35 +29,56 @@ class WikipediaJsonAdapter
         return $response;
     }
 
-
-    public function getCityDescription($cityName): string
+    public function getDescriptions(array $searchTerms) : array
     {
-        $wikiInformation = $this->get($cityName);
-        $wikiInformation = json_decode($wikiInformation);
-        if (!isset($wikiInformation->query->pages)) {
-            return "";
+        $preparedSearchTerms = $this->prepareStrings($searchTerms);
+        $searchString = implode('|', $preparedSearchTerms);
+        $jsonResponse = $this->getJsonResponse($searchString);
+        $response = json_decode($jsonResponse);
+
+        $pageIds = $response->query->pageids;
+        $pages = $response->query->pages;
+        if(empty($pages)){
+            return [];
+        }
+        foreach ($searchTerms as $searchTerm){
+            $descriptions[$searchTerm] = "Für diese Destination wurde leider keine geeignete Beschreibung gefunden.";
         }
 
-        $pages = $wikiInformation->query->pages;
-
-        $objectVars = get_object_vars($pages);
-        $text = "";
-        foreach ($objectVars as $key => $value) {
-            $page = $pages->$key;
-            if ((($page->title) == $cityName)&&((strlen($page->extract)) > 250)){
-                return $page->extract;
+        foreach ($pageIds as $pageId){
+            $page = $pages->$pageId;
+            $title = $page->title;
+            if(empty($page->extract)){
+                continue;
             }
-            $text .= $page->extract;
-            if(strlen($text)>600){
-                return $text;
+            $description =  $page->extract;
+            for($i = 0; $i < count($preparedSearchTerms); $i++){
+                if($preparedSearchTerms[$i] == $title){
+                    $descriptions[$searchTerms[$i]] = $description;
+                }
             }
         }
-        return $text;
+        return $descriptions;
     }
 
-    public function getShortCityDescription($cityName): string
+
+    public function getShortDescriptions(array $searchTerms): array
     {
-        $text = $this->getCityDescription($cityName);
-        return (substr($text, 0, 550) . '...');
+        $descriptions = $this->getDescriptions($searchTerms);
+        foreach ($descriptions as $searchTerm => $description){
+            $description = (substr($description, 0, 550) . '...');
+        }
+        return $descriptions;
+    }
+
+    public function prepareStrings(array $strings){
+        foreach ($strings as $string){
+            $string = preg_replace('/\/.*$/', '',$string);
+            $string = preg_replace('/\(.*$/', '',$string);
+            $string = preg_replace('/\,.*$/', '',$string);
+            $string = preg_replace('/\.*$/', '',$string);
+           $preparedStrings[] = $string;
+        }
+        return $preparedStrings;
     }
 }
