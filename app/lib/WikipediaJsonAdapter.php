@@ -9,7 +9,7 @@ class WikipediaJsonAdapter
         $url = 'http://de.wikipedia.org/w/api.php';
         $url .= '?action=query&format=json&prop=extracts&indexpageids=1&continue=%7C%7C&titles=';
         $url .= urlencode($what);
-        $url .= '&redirects=1&exchars=1000&exlimit=max&exintro=1&explaintext=1';
+        $url .= '&redirects=1&exchars=600&exlimit=max&exintro=1&explaintext=1';
 
         $options = array(
             CURLOPT_RETURNTRANSFER => true,   // return web page
@@ -57,16 +57,6 @@ class WikipediaJsonAdapter
                     $descriptions[$searchTerms[$i]] = $description;
                 }
             }
-        }
-        return $descriptions;
-    }
-
-
-    public function getShortDescriptions(array $searchTerms): array
-    {
-        $descriptions = $this->getDescriptions($searchTerms);
-        foreach ($descriptions as $searchTerm => $description){
-            $description = (substr($description, 0, 550) . '...');
         }
         return $descriptions;
     }

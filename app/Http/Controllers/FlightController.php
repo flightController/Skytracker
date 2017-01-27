@@ -128,7 +128,7 @@ class FlightController extends Controller
         foreach ($flights as $flight) {
             $cities[] = $flight->getDestination()->getLocation();
         }
-        $cityDescriptions = $wikipediaAdapter->getShortDescriptions($cities);
+        $cityDescriptions = $wikipediaAdapter->getDescriptions($cities);
         return $cityDescriptions;
     }
 
