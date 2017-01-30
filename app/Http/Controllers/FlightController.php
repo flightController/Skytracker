@@ -20,6 +20,10 @@ class FlightController extends Controller
         $this -> middleware('auth');
     }
 
+    /**
+     * Controller for flights. Returns a view with an overview of different flights.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function flightList(){
 
         $starttime = microtime(true);
@@ -79,6 +83,11 @@ class FlightController extends Controller
 
     }
 
+    /**
+     * Controller for a specific Flight(ident). Returns a view with informations about the flight: Description, RouteMap, Weather, FlightInformation
+     * @param $ident
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function flight($ident){
         $userSettings = UserSetting::where('user_id', '=', Auth::user()->id) -> first();
         if(!isset($userSettings)){
@@ -122,6 +131,11 @@ class FlightController extends Controller
         return view('flightDetailView', $data);
     }
 
+    /**
+     * Get Wikipedia descriptions for the destinations of different flights.  Array: ['Location' => 'description']
+     * @param array $flights
+     * @return array
+     */
     private function getWikiTexts(array $flights): array
     {
         $wikipediaAdapter = new WikipediaJsonAdapter();
@@ -132,6 +146,11 @@ class FlightController extends Controller
         return $cityDescriptions;
     }
 
+    /**
+     * Get an array of Flickr-Pictures for different flights. For each flight one picture. Array: ['Location' => 'pictureLink']
+     * @param array $flights
+     * @return array
+     */
     private function getListViewCityPictures(array $flights): array
     {
         $flickJsonAdapter = new FlickrJsonAdapter(FLICKR_API_KEY);
@@ -149,6 +168,11 @@ class FlightController extends Controller
         return $cityPictures;
     }
 
+    /**
+     * Get an array of Pictures for one flight.
+     * @param Flight $flight
+     * @return array
+     */
     private function getDetailViewCityPictures(Flight $flight): array
     {
         $flickJsonAdapter = new FlickrJsonAdapter(FLICKR_API_KEY);
@@ -159,6 +183,10 @@ class FlightController extends Controller
         return $cityPictures;
     }
 
+    /**
+     * Get one flight. The Flightaware API-Key is not needed.
+     * @return Flight
+     */
     private function getTestFlight()
     {
         $gpsCoordinates = new GPSCoordinates(47.5611006, 7.590549, 10364);
@@ -168,7 +196,12 @@ class FlightController extends Controller
 
     }
 
-    private function getTestFlights($number_of_flights)
+    /**
+     * Get an array of flights. The Flightaware API-Key is not needed.
+     * @param $number_of_flights
+     * @return array
+     */
+    private function getTestFlights($number_of_flights) : array
     {
         $flights = array();
         for ($i = 0; $i < $number_of_flights; $i++) {
