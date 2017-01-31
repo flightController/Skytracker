@@ -45,10 +45,10 @@
                 <div class="col-md-12 flightdetailweather">
                     <h2>Wetterdaten</h2>
                     <div class="col-md-6">
-                        <img src="../images/sun.ico" class="weathericon" width="20px" height="20px"> {{$weather -> getWeatherCondition()}}
+                        <img src="../images/icon/{{$weather -> getIcon()}}.png" class="weathericon" width="40px" height="40px"> {{$weather -> getWeatherCondition()}}
                     </div>
                     <div class="col-md-6">
-                    <img src="../images/thermometer.ico" class="weathericon" width="20px" height="20px"> {{$weather -> getTemperature()}} °C
+                    <img src="../images/thermometer.ico" class="weathericon" width="30px" height="30px"> {{$weather -> getTemperature()}} °C
                     </div>
                 </div>
 
