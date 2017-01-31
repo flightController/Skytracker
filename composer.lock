@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "895790698f92371af0187b24e1248f78",
+    "content-hash": "117314e0a6872b9a3f4d1ee8d6fdcbc9",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -826,6 +826,51 @@
                 "tokenizer"
             ],
             "time": "2016-12-07T09:37:55+00:00"
+        },
+        {
+            "name": "larapack/doctrine-support",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/larapack/doctrine-support.git",
+                "reference": "a2a2fb71cb93c04277a46a2ce063342fd67398b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/larapack/doctrine-support/zipball/a2a2fb71cb93c04277a46a2ce063342fd67398b1",
+                "reference": "a2a2fb71cb93c04277a46a2ce063342fd67398b1",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.5",
+                "illuminate/support": "5.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Larapack\\DoctrineSupport\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mark Topper",
+                    "email": "mark@ulties.com"
+                }
+            ],
+            "description": "Better Doctrine Support with Laravel (Support for `enum`)",
+            "homepage": "https://github.com/larapack/doctrine-support",
+            "keywords": [
+                "dbal",
+                "doctrine",
+                "enum",
+                "laravel",
+                "support"
+            ],
+            "time": "2017-01-13T16:39:09+00:00"
         },
         {
             "name": "laravel/framework",
@@ -2392,22 +2437,23 @@
         },
         {
             "name": "tcg/voyager",
-            "version": "v0.10.8",
+            "version": "0.10.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/the-control-group/voyager.git",
-                "reference": "4a18590c635f4629c9247061c32b187fb3ce8867"
+                "reference": "3004bc00aa75650ff95958804915a6f98a60a721"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/4a18590c635f4629c9247061c32b187fb3ce8867",
-                "reference": "4a18590c635f4629c9247061c32b187fb3ce8867",
+                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/3004bc00aa75650ff95958804915a6f98a60a721",
+                "reference": "3004bc00aa75650ff95958804915a6f98a60a721",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "^2.5",
                 "illuminate/support": "5.3.*",
-                "intervention/image": "^2.3"
+                "intervention/image": "^2.3",
+                "larapack/doctrine-support": "^0.1.0"
             },
             "require-dev": {
                 "laravel/framework": "~5.3.8",
@@ -2438,7 +2484,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2017-01-08T12:02:35+00:00"
+            "time": "2017-01-14T14:36:03+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
