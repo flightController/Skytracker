@@ -18,7 +18,7 @@ class UserSettings extends Migration
             $table->integer('user_id');
             $table->integer('number_of_flights');
             $table->integer('refresh_time');
-            $table->boolean('test_mode');
+            $table->boolean('test_mode')->nullable();
             $table->string('home_airport');
             $table->timestamps();
         });

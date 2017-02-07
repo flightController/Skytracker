@@ -11,8 +11,6 @@ private $weatherCondition;
 private $cloud;
 private $wind;
 private $icon;
-private $city;
-private $country;
 
     public function __construct($temperature, $weatherCondition, $cloud, $wind, $icon)
     {
@@ -61,21 +59,5 @@ private $country;
     public function getIcon()
     {
         return $this->icon;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCountry()
-    {
-        return $this->country;
     }
 }
