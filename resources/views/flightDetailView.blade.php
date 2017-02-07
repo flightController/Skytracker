@@ -48,7 +48,7 @@
                         <img src="../images/icon/{{$weather -> getIcon()}}.png" class="weathericon" width="40px" height="40px"> {{$weather -> getWeatherCondition()}}
                     </div>
                     <div class="col-md-6">
-                    <img src="../images/thermometer.ico" class="weathericon" width="30px" height="30px"> {{$weather -> getTemperature()}} °C
+                    <img src="../images/thermometer.ico" class="weathericon" width="30px" height="30px"> {{round($weather -> getTemperature(), 1)}} °C
                     </div>
                 </div>
 
