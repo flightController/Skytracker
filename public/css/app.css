@@ -97,14 +97,7 @@
 /*
 * === DROPDOWNMENU ERSCHEINT BEI :HOVER ===
 */
-ul.nav li.dropdown:hover ul.dropdown-menu{
-    display: block;
-    margin-top:0px
-}
-/* Top Menu Höhe */
-.container-fluid{
-    height: 60px;
-}
+
 
 /*
 * === FLUGLISTEN DARSTELLUNG ===
@@ -237,6 +230,11 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 */
 .flightdetail h1 {
     margin-left: 12px;
+    color: #0067d3;
+}
+
+.flightlist h1 {
+    margin-left: 14px;
     color: #0067d3;
 }
 

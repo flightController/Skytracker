@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
-        <div class="row settingrow">
+
             <div class="col-md-12 settingcol">
                 <ul class="nav nav-tabs">
                     <li class="active">
@@ -136,6 +135,5 @@
                 </ul>
             </div>
         @endif
-    </div>
 
 @endsection
