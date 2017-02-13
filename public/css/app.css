@@ -109,6 +109,12 @@
     margin-bottom: 20px;
 }
 
+.settingcol {
+    margin-top: 30px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
 /*
 * === GRÖSSE DER WETTERICONS ===
 */
@@ -121,7 +127,7 @@
 * === GESTALTUNG H1 IN DER LISTENANSICHT ===
 */
 .flightlist h1 {
-    margin-top: 10px;
+    margin-top: 20px;
     font-family: sans-serif;
     font-size: 1.5em;
     font-weight: bold;
@@ -373,6 +379,11 @@
         margin-right: 10px;
         margin-left: 10px;
         border-radius: 5px;
+    }
+
+    .settingcol {
+        margin-right: 10px;
+        margin-left: 10px;
     }
 
 }
