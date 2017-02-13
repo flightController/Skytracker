@@ -165,6 +165,7 @@
 .btn-primary {
     background-image: linear-gradient(to bottom, #0067d3 0%,#0067d3 100%) !important;
     border-color: #0067d3;
+    margin-top: 15px;
 }
 
 /*
@@ -313,6 +314,9 @@
 */
 @media screen and (max-width: 960px) {
 
+    .moreinfobutton {
+        margin-bottom: 15px;
+    }
 
     .flightdetailweather {
         margin-top: 20px;
@@ -339,9 +343,6 @@
         display: none;
     }
 
-    .moreinfobutton {
-        margin-bottom: 10px;
-    }
 
     .mobilehide {
         display: none !important;
@@ -355,6 +356,18 @@
     .hidemobile {
         display: none;
         visibility: hidden;
+    }
+
+    .flightlistrow:first-child {
+        margin-top: 20px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .navbar-default {
+        margin-right: 10px;
+        margin-left: 10px;
+        border-radius: 5px;
     }
 
 }

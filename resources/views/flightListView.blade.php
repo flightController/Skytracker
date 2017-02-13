@@ -18,7 +18,7 @@
                 </div>
                     <div class="col-md-4 col-sm-4 weather"><img src="../images/thermometer.png" class="weathericon"> {{round($weather[$flight->getDestination()->getLocation()] -> getTemperature(),1)}} °C
                 </div>
-                <div class="col-md-4 moreinfobutton"><a href="/flight/{{$flight -> getIdent()}}"><button type="button" class="btn btn-primary btn-block"> Mehr Infos </button></a></div>
+                <div class="col-md-4 moreinfobutton"><a href="/flight/{{$flight -> getIdent()}}"><button type="button" class="btn btn-primary btn-block moreinfobutton"> Mehr Infos </button></a></div>
         </div>
     </div>
 </div>
