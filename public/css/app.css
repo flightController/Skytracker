@@ -314,6 +314,11 @@
 */
 @media screen and (max-width: 960px) {
 
+    .flightdetail {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
     .moreinfobutton {
         margin-bottom: 15px;
     }
