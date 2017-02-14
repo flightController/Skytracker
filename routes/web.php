@@ -18,12 +18,20 @@ Route::get('flight/{ident}', 'FlightController@flight');
 Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
-Route::get('/settings', 'SettingsController@index');
-Route::post ('/settings', 'SettingsController@store');
+
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function() {
+    Route::get('/settings', 'SettingsController@index');
+    Route::post('/settings', 'SettingsController@store');
+});
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

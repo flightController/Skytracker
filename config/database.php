@@ -55,8 +55,8 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '33060'),
-            'database' => env('DB_DATABASE', 'skytracker'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'homestead'),
             'username' => env('DB_USERNAME', 'homestead'),
             'password' => env('DB_PASSWORD', 'secret'),
             'charset' => 'utf8',
@@ -64,6 +64,7 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
+            'unix_socket' => '/var/run/mysqld/mysqld.sock'
         ],
 
         'pgsql' => [
