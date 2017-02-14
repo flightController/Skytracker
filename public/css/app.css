@@ -6,6 +6,30 @@
     margin: 10% auto 10% auto;
 }
 
+body
+{
+    background: url('../images/airport.jpg') fixed;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+
+.loginpanel{
+    background-color: rgba(255,255,255,0.9);
+    margin: 50% auto auto auto;
+    -webkit-box-shadow: 3px 3px 3px 3px rgba(77,77,77,0.8);
+    -moz-box-shadow: 3px 3px 3px 3px rgba(77,77,77,0.8);
+    box-shadow: 3px 3px 3px 3px rgba(77,77,77,0.8);
+}
+
+.loginlogo {
+    margin: 10% auto 60px auto;
+}
+
+.rememberme {
+    text-align: center;
+}
+
 /*
 * === MARGIN DEFAULT VON ROW UND CONTAINER ENTFERNEN ===
 */
@@ -30,7 +54,7 @@
 * === LOGIN PANEL SCHATTEN ENTFERNT ===
 */
 .panel {
-    box-shadow: none !important;
+    /*box-shadow: none !important;*/
 }
 
 /*
@@ -38,6 +62,13 @@
 */
 .navbar-right {
     padding-right: 30px;
+}
+.navbar-default {
+    background-color: rgba(248,248,248,0.9);
+}
+
+.dropdown-menu, .dropdown-menu>li>a:hover {
+    background-color: rgba(248,248,248,0.9);
 }
 
 /*
@@ -49,6 +80,11 @@
 
 .registerbutton {
     width: 100%;
+}
+
+.registergroup, .logingroup {
+    margin-top: 10px;
+    text-align: center;
 }
 
 /*
@@ -109,7 +145,7 @@
 .flightlist {
     border: solid 0.5px gainsboro;
     border-radius: 5px;
-    background-color: #f8f8f8;
+    background-color: rgba(248,248,248,0.9);
     margin-bottom: 20px;
 }
 
@@ -117,6 +153,19 @@
     margin-top: 30px;
     padding-right: 0px;
     padding-left: 0px;
+    padding-bottom: 20px;
+    border: solid 0.5px gainsboro;
+    border-radius: 5px;
+    background-color: rgba(248,248,248,0.9);
+}
+
+.settingcol h3 {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #0067d3;
+    margin-left: 15px;
+    margin-bottom: 20px;
 }
 
 /*
@@ -199,7 +248,7 @@
 */
 .flightdetail {
     border: solid 0.5px gainsboro;
-    background-color: #f8f8f8;
+    background-color: rgba(248,248,248,0.9);
     border-radius: 5px;
     margin: 20px 0px 20px 0px;
     padding-right: 30px;
@@ -495,4 +544,3 @@
     margin-bottom: -99999px;
     padding-bottom: 99999px;
 }
-

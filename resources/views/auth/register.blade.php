@@ -2,17 +2,15 @@
 @section('content')
 
     <div class="container">
-        <div id="header">
-            <div id="logo">
-                <a href="/home">
-                    <img src="images/logo.png" class="img-responsive" alt="SkyTracker" width="628" height="200"/>
-                </a>
-            </div>
-        </div>
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default loginpanel">
                     <div class="panel-body">
+                        <div class="col-md-12 loginlogo">
+                            <a href="/home">
+                                <img src="images/logo.png"  class="img-responsive" alt="SkyTracker" width="628" height="200"/>
+                            </a>
+                        </div>
                         <form class="form-horizontal" id ="register" role="form" method="POST" action="{{ url('/register') }}">
                             {{ csrf_field() }}
                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -51,17 +49,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-6">
-                                <a href="/login">
-                                    <button type="button" class="btn btn-primary submitbutton">
-                                        zum Login
-                                    </button>
-                                </a>
-                                </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <button type="submit" class="btn btn-primary submitbutton">
                                         Registrieren
                                     </button>
+                                </div>
+                                <div class="col-md-12 registergroup">
+                                    Zurück zum <a href="/login">Login</a>
                                 </div>
                             </div>
                         </form>
@@ -70,8 +64,5 @@
             </div>
         </div>
     </div>
-
-
-
 
 @endsection

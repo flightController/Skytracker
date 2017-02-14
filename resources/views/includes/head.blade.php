@@ -12,6 +12,9 @@
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 <link href="/css/app.css" rel="stylesheet" />
 
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_KoeHUrv6K01WJ9ULPRWBQDXRQg_zGvg&callback=initMap"></script>
+
 
 <!-- Scripts
 <script>
