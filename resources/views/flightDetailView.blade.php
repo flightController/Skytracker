@@ -103,7 +103,7 @@
                 </div>
             </div>
             <div class='row'>
-                <div class='col-lg-12 col-xs-12 imagesliderrow'>
+                <div class='col-md-12 imagesliderrow'>
                     <h2>Eindrücke</h2>
                     <div class="carousel slide media-carousel hidemobile" id="media">
                         <div class="carousel-inner">
@@ -129,6 +129,8 @@
                         <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
                         <a data-slide="next" href="#media" class="right carousel-control">›</a>
                     </div>
+                </div>
+                <div class='col-sm-12 imagesliderrow'>
                     <div class="carousel slide media-carousel desktophide" id="media2">
                         <div class="carousel-inner">
                             <div class="item  active">
