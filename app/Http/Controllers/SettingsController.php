@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\UserSetting;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,15 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        $data = $this->getDataToDisplay();
+        $data = array([
+            'users' => $this->getUsers()
+        ]);
+
+        return view('userSelection', $data);
+    }
+
+    public function show($userId){
+        $data = $this->getDataToDisplay($userId);
         return view('settings', $data);
     }
 
@@ -37,7 +46,7 @@ class SettingsController extends Controller
             'password' =>'min:6|confirmed',
         ]);
 
-        $userSettings = UserSetting::where('user_id', '=', Auth::user()->id) -> first();
+        $userSettings = UserSetting::where('user_id', '=', $request -> number_of_flights);
         $userSettings -> number_of_flights = $request -> number_of_flights ?: $userSettings -> number_of_flights;
         $userSettings -> refresh_time = $request -> refresh_time ?: $userSettings -> refresh_time;
         $userSettings -> home_airport = $request -> home_airport ?: $userSettings -> home_airport;
@@ -56,17 +65,23 @@ class SettingsController extends Controller
         return view('settings', $data);
     }
 
-    private function getDataToDisplay()
+    private function getDataToDisplay($userId)
     {
-        $userSettings = UserSetting::where('user_id', '=', Auth::user()->id) -> first();
+        $userSettings = UserSetting::where('user_id', '=',$userId) -> first();
+        $user = User::where('id', '=', $userId) -> first();
         $data = array(
-            'userName' => Auth::user() -> name,
-            'userEmail' => Auth::user() -> email,
+            'userName' => $user -> name,
+            'userEmail' => $user -> email,
             'numberOfFlights' => $userSettings -> number_of_flights,
             'refreshTime' => $userSettings -> refresh_time,
             'homeAirport' => $userSettings -> home_airport,
             'testMode' => $userSettings -> test_mode,
         );
         return $data;
+    }
+
+    private function getUsers(){
+     $users = User::where('role_id', '=', 0);
+     return $users;
     }
 }

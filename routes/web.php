@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function() {
     Route::get('/settings', 'SettingsController@index');
+    Route::get('/settings/{userId}', 'SettingsController@show');
     Route::post('/settings', 'SettingsController@store');
 });
 
