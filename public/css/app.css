@@ -41,7 +41,7 @@
 }
 
 /*
-* === BREITE DES SUBMITBUTTON ===
+* === BREITE DES SUBMITBUTTON UND REGISTERBUTTON ===
 */
 .submitbutton {
     width: 100%;
@@ -74,6 +74,9 @@
     top: 0;
 }
 
+/*
+* === LOGO AUF DER HAUPTSEITE ZENTRIERT ===
+*/
 .brand-centered {
     display: flex;
     justify-content: center;
@@ -90,18 +93,15 @@
     display: flex;
     align-items: center;
 }
+.navbar-brand {
+    padding: 10px 25px;
+}
+
 
 /*
 * === DROPDOWNMENU ERSCHEINT BEI :HOVER ===
 */
-ul.nav li.dropdown:hover ul.dropdown-menu{
-    display: block;
-    margin-top:0px
-}
-/* Top Menu Höhe */
-.container-fluid{
-    height: 60px;
-}
+
 
 /*
 * === FLUGLISTEN DARSTELLUNG ===
@@ -113,32 +113,55 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     margin-bottom: 20px;
 }
 
+.settingcol {
+    margin-top: 30px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+/*
+* === GRÖSSE DER WETTERICONS ===
+*/
 .weathericon {
     margin-top: 15px;
     margin-bottom: 20px;
 }
 
-
+/*
+* === GESTALTUNG H1 IN DER LISTENANSICHT ===
+*/
 .flightlist h1 {
-    margin-top: 10px;
+    margin-top: 20px;
     font-family: sans-serif;
     font-size: 1.5em;
     font-weight: bold;
 }
 
+/*
+* === GESTALTUNG PARAGRAPH IN DER LISTENANSICHT ===
+*/
 .flightlist p {
     font-size: 1.0em;
     font-family: sans-serif;
 }
 
+/*
+* === ABSTAND NACH OBEN ===
+*/
 .flightweather {
     margin-top: 20px;
 }
 
+/*
+* === SCHRIFTGRÖSSE DES WETTERS ===
+*/
 .weather {
     font-size: 1.2em;
 }
 
+/*
+* === GESTALTUNG DES DIVIDERS ===
+*/
 .divider {
     position: relative;
     border-bottom: 1px solid gainsboro;
@@ -152,6 +175,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 .btn-primary {
     background-image: linear-gradient(to bottom, #0067d3 0%,#0067d3 100%) !important;
     border-color: #0067d3;
+    margin-top: 15px;
 }
 
 /*
@@ -220,6 +244,11 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     color: #0067d3;
 }
 
+.flightlist h1 {
+    margin-left: 14px;
+    color: #0067d3;
+}
+
 /*
 * === EINSTELLUNGEN KARTENBILD  IM DETAILBEREICH===
 */
@@ -237,6 +266,19 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     padding-bottom: 15px;
 }
 
+/*
+* === FLUGINFORMATIONEN AUF DETAILSEITE ===
+*/
+.imagesliderrow {
+    /*border: solid 0.5px gainsboro;*/
+    border-radius: 5px;
+    margin: 20px 0px 20px 20px;
+    padding-bottom: 15px;
+}
+
+/*
+* === FLUGZEUGDETAILS KEIN PADDING ===
+*/
 .flightdetailairplane {
     padding: 0px;
 }
@@ -257,23 +299,38 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     .flightlist {
         margin: 20px auto 5px auto;
     }
+
+    .desktophide {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
 }
 
 /*
 * === EINSTELLUNGEN FÜR SCREENS ÜBER 960PX ===
 */
 @media screen and (min-width: 960px) {
-    .hidelarge {
-        display: none;
+
+    .desktophide {
+        display: none !important;
+        visibility: hidden !important;
     }
+
 }
 
 /*
 * === EINSTELLUNGEN FÜR SCREENS UNTER 960PX ===
 */
 @media screen and (max-width: 960px) {
-    .hidemediumsmall {
-        display: none;
+
+    .flightdetail {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .moreinfobutton {
+        margin-bottom: 15px;
     }
 
     .flightdetailweather {
@@ -301,9 +358,38 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
         display: none;
     }
 
-    .moreinfobutton {
-        margin-bottom: 10px;
+
+    .mobilehide {
+        display: none !important;
+        visibility: hidden !important;
     }
+
+    .airplanepicture {
+        margin: 10px auto 30px auto !important;
+    }
+
+    .hidemobile {
+        display: none;
+        visibility: hidden;
+    }
+
+    .flightlistrow:first-child {
+        margin-top: 20px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .navbar-default {
+        margin-right: 10px;
+        margin-left: 10px;
+        border-radius: 5px;
+    }
+
+    .settingcol {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
 }
 
 /*
@@ -376,6 +462,9 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
     height: 100px
 }
 
+/*
+* === Höhe der Google Maps Karte festlegen ===
+*/
 #map{
     height: 500px;
 }
@@ -388,14 +477,15 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 }
 
 /*
-* === Abstand von oben und unten ===
+* === Abstand jeweils von oben und unten ===
 */
 .airplanepicture {
-    margin: 20px 0px 20px 0px;
+    margin: 40px 0px 20px 0px;
 }
 .aircraftdetail {
-    margin: 60px 0px 20px 0px;
+    margin: 40px 0px 20px 0px;
 }
+
 
 .equal {
     overflow: hidden;

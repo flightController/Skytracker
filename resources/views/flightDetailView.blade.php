@@ -1,10 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    <head>
-        <meta http-equiv="refresh" content="{{$refreshTime}}; URL={{$_SERVER['REQUEST_URI']}}">
-    </head>
-
-    <body>
     <div class="container flightcontainer">
         <div class="row flightdetail">
             <div class="col-lg-12 col-md-12 col-sm-12 flightDetailText">
@@ -42,43 +37,80 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 flightdetailweather">
+                <div class="col-md-12 col-xs-12 flightdetailweather">
                     <h2>Wetterdaten</h2>
-                    <div class="col-md-6">
-                        <img src="../images/icon/{{$weather -> getIcon()}}.png" class="weathericon" width="40px" height="40px"> {{$weather -> getWeatherCondition()}}
-                    </div>
-                    <div class="col-md-6">
-                    <img src="../images/thermometer.ico" class="weathericon" width="30px" height="30px"> {{round($weather -> getTemperature(), 1)}} °C
-                    </div>
+                    <table class="col-md-12 col-xs-12">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td><img src="../images/icon/{{$weather -> getIcon()}}.png" class="weathericon" width="40px" height="40px"> {{$weather -> getWeatherCondition()}}</td>
+                                <td><img src="../images/thermometer.png" class="weathericon"> {{round($weather -> getTemperature(), 1)}} °C</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </table>
                 </div>
 
             <div class="col-md-12 flightdetailflight">
-                <div class="col-md-3 flightdetailairplane">
-                    <h2>Flugdetails</h2>
-                    <img src="{{$planePicture[0] or ""}}" class="img-responsive airplanepicture"/>
+                <h2>Flugdetails</h2>
+                <div class="col-md-6 col-xs-12 aircraftdetail">
+                    <div class="col-md-5 col-md-offset-1 col-xs-12 flightdetailairplane desktophide">
+                        <img src="{{$planePicture[0] or ""}}" class="img-responsive airplanepicture"/>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th scope="row">Flugnummer</th>
+                            <td>{{$flight->getIdent()}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Fluggesellschaft</th>
+                            <td>{{$flight->getAirline()}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Flugzeugtyp</th>
+                            <td>{{$flight->getAircraft()}}</td>
+                        </tr>
+                            <th scope="row">&nbsp;</th>
+                            <td>&nbsp;</td>
+                        <tr>
+                        </tr>
+                        <tr>
+                            <th scope="row">Restliche Flugzeit</th>
+                            <td>3 Std 34 Min</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Erwartete Ankunftszeit</th>
+                            <td>{{$flight->getArrivalTime()}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">&nbsp;</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Aktuelle Höhe</th>
+                            <td>{{$flight->getGpsCoordinates() -> getAltitude()}} M.ü.M.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Aktuelle Geschwindigkeit</th>
+                            <td>{{$flight->getSpeed()}} km/h</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="col-md-3 aircraftdetail">
-                    <h4>Flugnummer:</h4> {{$flight->getIdent()}}<br>
-                    <h4>Fluggesellschaft: </h4> {{$flight->getAirline()}}<br>
-                    <h4>Flugzeugtyp: </h4> {{$flight->getAircraft()}}<br>
-                </div>
-                <div class="col-md-3 aircraftdetail">
-                    <h4>Restliche Flugzeit: </h4> 3 Std 34 Min<br>
-                    <h4>Erwartete Ankunftszeit: </h4> {{$flight->getArrivalTime()}}<br>
-                </div>
-                <div class="col-md-3 aircraftdetail">
-                    <h4>Aktuelle Höhe: </h4> {{$flight->getGpsCoordinates() -> getAltitude()}} M.ü.M.<br>
-                    <h4>Aktuelle Geschw.: </h4> {{$flight->getSpeed()}} km/h<br>
+                <div class="col-md-5 col-md-offset-1 col-xs-12 flightdetailairplane hidemobile">
+                    <img src="{{$planePicture[0] or ""}}" class="img-responsive img-thumbnail airplanepicture"/>
                 </div>
             </div>
             <div class='row'>
-                <div class='col-lg-12 col-sm-12'>
-                    <div class="carousel slide media-carousel" id="media">
+                <div class='col-md-12 imagesliderrow'>
+                    <h2>Eindrücke</h2>
+                    <div class="carousel slide media-carousel hidemobile" id="media">
                         <div class="carousel-inner">
                             <div class="item  active">
                                 <div class="row">
                                     @for($i = 0; $i < 4; $i++)
-                                        <div class="col-lg-3 col-sm-12">
+                                        <div class="col-lg-3 col-xs-12">
                                             <a class="thumbnail" href="{{$cityPictures[$i] or ""}}" data-lightbox="Destination Pictures"><img alt="" src="{{$cityPictures[$i] or ""}}"></a>
                                         </div>
                                     @endfor
@@ -98,11 +130,33 @@
                         <a data-slide="next" href="#media" class="right carousel-control">›</a>
                     </div>
                 </div>
+                <div class='col-sm-12 imagesliderrow'>
+                    <div class="carousel slide media-carousel desktophide" id="media2">
+                        <div class="carousel-inner">
+                            <div class="item  active">
+                                <div class="row">
+                                        <div class="col-lg-3 col-xs-12">
+                                            <a class="thumbnail" href="{{$cityPictures[0] or ""}}" data-lightbox="Destination Pictures"><img alt="" src="{{$cityPictures[0] or ""}}"></a>
+                                        </div>
+                                </div>
+                            </div>
+                            @for($a = 1; $a < 8; $a++)
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                            <a class="thumbnail" href="{{$cityPictures[$a] or ""}}" data-lightbox="Destination Pictures"><img alt="" src="{{$cityPictures[$a] or ""}}"></a>
+                                        </div>
+                                </div>
+                            </div>
+                            @endfor
+                        </div>
+                        <a data-slide="prev" href="#media2" class="left carousel-control">‹</a>
+                        <a data-slide="next" href="#media2" class="right carousel-control">›</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <script src="/js/lightbox.js"></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_KoeHUrv6K01WJ9ULPRWBQDXRQg_zGvg&callback=initMap"></script>
-    </body>
 @endsection
