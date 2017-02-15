@@ -36,11 +36,13 @@ class SettingsController extends Controller
     }
 
     public function select(Request $request){
-       return redirect() -> route('userSettings', ['userId' => $request -> select_user]);
+        $userId = $request->select_user;
+        return redirect() -> route('userSettings', ['userId' => $userId]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $userId)
     {
+        echo $userId;
 
         $this->validate($request, [
             'number_of_flights' => 'numeric',
@@ -52,21 +54,22 @@ class SettingsController extends Controller
             'password' => 'min:6|confirmed',
         ]);
 
-        $userSettings = UserSetting::where('user_id', '=', $request->number_of_flights);
+        $userSettings = UserSetting::where('user_id', '=', $userId) -> first();
+        $user = User::where('id', '=', $userId) -> first();
         $userSettings->number_of_flights = $request->number_of_flights ?: $userSettings->number_of_flights;
         $userSettings->refresh_time = $request->refresh_time ?: $userSettings->refresh_time;
         $userSettings->home_airport = $request->home_airport ?: $userSettings->home_airport;
         $userSettings->test_mode = $request->test_mode;
         $userSettings->save();
 
-        Auth::user()->email = $request->email ?: Auth::user()->email;
-        Auth::user()->name = $request->name ?: Auth::user()->name;
+        $user->email = $request->email ?: $user->email;
+        $user->name = $request->name ?: $user->name;
         if (!empty($request->password)) {
             Auth::user()->password = bcrypt($request->password);
         }
-        Auth::user()->save();
+        $user->save();
 
-        $data = $this->getDataToDisplay();
+        $data = $this->getDataToDisplay($userId);
         $data['success'] = 'Einstellungen wurden erfolgreich gespeichert.';
         return view('settings', $data);
     }
