@@ -43,7 +43,7 @@ class FlightController extends Controller
         $test_mode = $userSettings -> test_mode;
 
         $endtime = microtime(true);
-        echo "Usersettings: " . ($endtime - $starttime) . "\n";
+        //echo "Usersettings: " . ($endtime - $starttime) . "\n";
 
         if($test_mode){
             $flights = $this->getTestFlights($numberOfFlights);
@@ -51,17 +51,17 @@ class FlightController extends Controller
             $starttime = microtime(true);
             $adapter = new FlightAwareJsonAdapter(FLIGHT_AWARE_NAME, FLIGHT_AWARE_KEY);
             $flights = $adapter -> getDepartedFlights($homeAirport, $numberOfFlights);
-            echo "Fligtaware: " . (microtime(true) - $starttime) . "\n";
+            //echo "Fligtaware: " . (microtime(true) - $starttime) . "\n";
         }
 
         $starttime = microtime(true);
         $cityDescriptions = $this->getWikiTexts($flights);
         $endtime = microtime(true);
-        echo "Wikipedia: " . ($endtime-$starttime) . "\n";
+        //echo "Wikipedia: " . ($endtime-$starttime) . "\n";
         $starttime = microtime(true);
         $cityPictures = $this->getListViewCityPictures($flights);
         $endtime = microtime(true);
-        echo "Flickr: " . ($endtime-$starttime) . "\n";
+        //echo "Flickr: " . ($endtime-$starttime) . "\n";
 
         $starttime = microtime(true);
         $openWeatherJSONAdapter = new OpenWeatherJsonAdapter(OPENWEATHER_API_KEY);
@@ -70,7 +70,7 @@ class FlightController extends Controller
             $weather[$flight -> getDestination() -> getLocation()] = $openWeatherJSONAdapter ->getWeather($flight -> getDestination() -> getGpsCoordinates());
         }
         $endtime = microtime(true);
-        echo "OpenWeather: " . ($endtime-$starttime) . "\n";
+        //echo "OpenWeather: " . ($endtime-$starttime) . "\n";
 
         $data = array(
             'flights' => $flights,
@@ -100,24 +100,24 @@ class FlightController extends Controller
             $starttime = microtime(true);
             $adapter = new FlightAwareJsonAdapter(FLIGHT_AWARE_NAME, FLIGHT_AWARE_KEY);
             $flight = $adapter ->getFlight($ident);
-            echo "flightAware: " . (microtime(true)-$starttime) . "\n";
+            //echo "flightAware: " . (microtime(true)-$starttime) . "\n";
         }
 
         $starttime = microtime(true);
         $flickerAdapter = new FlickrJsonAdapter(FLICKR_API_KEY);
         $planePicture = $flickerAdapter ->getSmallPictures($flight -> getAircraft(), 1);
-        echo "Flickr: " . (microtime(true) - $starttime) . "\n";
+        //echo "Flickr: " . (microtime(true) - $starttime) . "\n";
 
         $starttime = microtime(true);
         $cityDescription = $this->getWikiTexts([$flight]);
         $cityDescription = $cityDescription[$flight->getDestination()->getLocation()];
         $cityPictures = $this->getDetailViewCityPictures($flight);
-        echo "Wikipedia: " . (microtime(true) - $starttime) . "\n";
+        //echo "Wikipedia: " . (microtime(true) - $starttime) . "\n";
 
         $starttime=microtime(true);
         $openWeatherJSONAdapter = new OpenWeatherJsonAdapter(OPENWEATHER_API_KEY);
         $weather = $openWeatherJSONAdapter ->getWeather($flight -> getDestination() -> getGpsCoordinates());
-        echo "OpenWeather" . (microtime(true) - $starttime) . "\n";
+        //echo "OpenWeather" . (microtime(true) - $starttime) . "\n";
 
         $data = array(
             'flight' => $flight,

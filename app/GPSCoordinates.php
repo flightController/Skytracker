@@ -45,8 +45,8 @@ class GPSCoordinates extends Model
     public function getAltitude()
     {
         $altitudemeters = $this->altitude * 20.273;
-        round($altitudemeters, 0);
-        return $altitudemeters;
+        $altitude = round($altitudemeters);
+        return $altitude;
     }
 
 }

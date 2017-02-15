@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_KoeHUrv6K01WJ9ULPRWBQDXRQg_zGvg&callback=initMap"></script>
     <div class="container flightcontainer">
         <div class="row flightdetail">
             <div class="col-lg-12 col-md-12 col-sm-12 flightDetailText">
@@ -45,6 +46,7 @@
                             <tr>
                                 <td><img src="../images/icon/{{$weather -> getIcon()}}.png" class="weathericon" width="40px" height="40px"> {{$weather -> getWeatherCondition()}}</td>
                                 <td><img src="../images/thermometer.png" class="weathericon"> {{round($weather -> getTemperature(), 1)}} °C</td>
+                                <td></td>
                             </tr>
                             </tbody>
                         </table>
@@ -76,8 +78,8 @@
                         <tr>
                         </tr>
                         <tr>
-                            <th scope="row">Restliche Flugzeit</th>
-                            <td>3 Std 34 Min</td>
+                            <th scope="row">Abflugszeit</th>
+                            <td>{{$flight->getDepartureTime()}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Erwartete Ankunftszeit</th>
@@ -157,5 +159,4 @@
             </div>
         </div>
     </div>
-
 @endsection

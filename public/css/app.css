@@ -213,7 +213,7 @@ body
 */
 .divider {
     position: relative;
-    border-bottom: 1px solid gainsboro;
+    border-bottom: 1px solid lightgrey;
     margin-bottom: 20px;
     margin-top: 20px;
 }

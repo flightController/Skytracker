@@ -17,7 +17,7 @@ class Flight extends Model
     private $speed;
     private $flightRoute;
 
-    public function __construct(string $ident, string $airline = "", Airport $origin = null, Airport $destination, string $aircraft = "", GPSCoordinates $gpsCoordinates = null, int $departureTime = null, int $arrivalTime = null, int $speed = 0, array $flightRoute=[])
+    public function __construct(string $ident, string $airline, Airport $origin = null, Airport $destination, string $aircraft = "", GPSCoordinates $gpsCoordinates = null, int $departureTime = null, int $arrivalTime = null, int $speed = 0, array $flightRoute = [])
     {
         $this->ident = $ident;
         $this->airline = $airline;
@@ -92,7 +92,15 @@ class Flight extends Model
      */
     public function getDepartureTime()
     {
-        return $this->departureTime;
+        if ($this->departureTime == "0") {
+            $string = "Keine Abflugszeit verfügbar";
+            return $string;
+        }
+        else {
+            $timestamp = ($this->departureTime + (60 * 60));
+            $time = date("H:i", $timestamp);
+            return $time;
+        }
     }
 
     /**
@@ -100,7 +108,16 @@ class Flight extends Model
      */
     public function getArrivalTime()
     {
-        return $this->arrivalTime;
+
+        if ($this->arrivalTime == "0") {
+            $string = "Keine Ankunftszeit verfügbar";
+            return $string;
+        }
+        else {
+            $timestamp = ($this->arrivalTime + (60 * 60));
+            $time = date("H:i", $timestamp);
+            return $time;
+        }
     }
 
     /**
