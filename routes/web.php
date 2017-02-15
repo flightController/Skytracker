@@ -21,8 +21,9 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function() {
     Route::get('/settings', 'SettingsController@index');
-    Route::get('/settings/{userId}', 'SettingsController@show');
-    Route::post('/settings', 'SettingsController@store');
+    Route::get('/settings/{userId}', 'SettingsController@show')->name('userSettings');
+    Route::post('/settings', 'SettingsController@select');
+    Route::post('/settings/{userId}', 'SettingsController@store');
 });
 
 Route::group(['prefix' => 'admin'], function () {
