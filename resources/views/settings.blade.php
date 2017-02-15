@@ -13,7 +13,7 @@
 
                 <div class="tab-content">
                     <div id="setting1" class="tab-pane fade in active">
-                        <form class="form-horizontal" role="form" method="post" action="settings">
+                        <form class="form-horizontal" role="form" method="post">
                             {{ csrf_field() }}
                             <h3>Benutzereinstellungen</h3>
                             <div class="col-md-12 firstlabel">
@@ -59,7 +59,7 @@
                         </form>
                     </div>
                     <div id="setting2" class="tab-pane fade">
-                        <form class="form-horizontal" role="form" method="post" action="settings">
+                        <form class="form-horizontal" role="form" method="post">
                             {{ csrf_field() }}
                             <h3>Anzeigeeinstellungen</h3>
                             <div class="col-md-12 firstlabel">
