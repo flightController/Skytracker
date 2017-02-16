@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+
+
     <div class="col-md-12 settingcol">
         <h3>User Auswahl</h3>
         <div class="col-md-12 firstlabel">
@@ -9,8 +11,7 @@
             <form class="form-horizontal" role="form" method="post" action="settings">
                 {{ csrf_field() }}
                 <select name="select_user" class="form-control" id="userSelect" data-live-search="true">
-                    <option hidden value=""></option>
-                    @foreach($users as $user)
+                @foreach($users as $user)
                         <option value="{{$user->id}}">{{$user->name}}</option>
                     @endforeach
                 </select>
