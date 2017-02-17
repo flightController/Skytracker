@@ -1,6 +1,6 @@
 @if (Auth::user())
 
-    <nav style="margin-bottom: 0" class="navbar navbar-default hidemobile">
+    <nav style="margin-bottom: 0" class="navbar navbar-default mobilehide">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">

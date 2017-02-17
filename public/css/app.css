@@ -1,34 +1,10 @@
-/*
-* === FIRMENLOGO ZENTRIERT BEI LOGIN UND REGISTRATION ===
-*/
-#logo {
-    text-align: center;
-    margin: 10% auto 10% auto;
-}
+/*====================================================================================================================*/
+/*====================================================================================================================*/
 
-body
-{
-    background: url('../images/airport.jpg') fixed;
-    background-size: cover;
-    padding: 0;
-    margin: 0;
-}
 
-.loginpanel{
-    background-color: rgba(255,255,255,0.9);
-    margin: 50% auto auto auto;
-    -webkit-box-shadow: 3px 3px 3px 3px rgba(77,77,77,0.8);
-    -moz-box-shadow: 3px 3px 3px 3px rgba(77,77,77,0.8);
-    box-shadow: 3px 3px 3px 3px rgba(77,77,77,0.8);
-}
-
-.loginlogo {
-    margin: 10% auto 60px auto;
-}
-
-.rememberme {
-    text-align: center;
-}
+/*================================================================
+                      ALLGEMEIN / MENU
+================================================================*/
 
 /*
 * === MARGIN DEFAULT VON ROW UND CONTAINER ENTFERNEN ===
@@ -51,11 +27,23 @@ body
 }
 
 /*
-* === LOGIN PANEL SCHATTEN ENTFERNT ===
+* === PRIMARYBUTTON FARBE ===
 */
-.panel {
-    /*box-shadow: none !important;*/
+.btn-primary {
+    background-image: linear-gradient(to bottom, #0067d3 0%,#0067d3 100%) !important;
+    border-color: #0067d3;
+    margin-top: 15px;
 }
+
+/*
+* === PRIMARYBUTTON FARBE BEI :HOVER ===
+*/
+.btn-primary:hover {
+    background-color: black !important;
+    background-position: 0 +40px !important;
+    border-color: black;
+}
+
 
 /*
 * === MENU ABSTAND RECHTS IM NAVBAR CONTAINER ===
@@ -72,6 +60,83 @@ body
 }
 
 /*
+* === GESTALTUNG DES NAVBARS ===
+*/
+.brand-left {
+    display: flex;
+    justify-content: left;
+    position: absolute;
+    width: 100%;
+    padding-left: 5px;
+    left: 0;
+    top: 0;
+}
+
+/*
+* === FIRMENLOGO & ABSTÄNDE IM MENU ===
+*/
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+.navbar-brand {
+    padding: 10px 25px;
+}
+
+
+/*====================================================================================================================*/
+/*====================================================================================================================*/
+
+
+/*================================================================
+                    LOGIN / REGISTERSCREEN
+================================================================*/
+
+/*
+* === FIRMENLOGO ZENTRIERT BEI LOGIN UND REGISTRATION ===
+*/
+#logo {
+    text-align: center;
+    margin: 10% auto 10% auto;
+}
+
+/*
+* === BODY BACKGROUND ===
+*/
+body
+{
+    background: url('../images/airport.jpg') fixed;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+
+/*
+* === LOGINBOX STYLING MIT SCHATTEN ===
+*/
+.loginpanel{
+    background-color: rgba(255,255,255,0.9);
+    margin: 50% auto auto auto;
+    -webkit-box-shadow: 3px 3px 3px 3px rgba(77,77,77,0.8);
+    -moz-box-shadow: 3px 3px 3px 3px rgba(77,77,77,0.8);
+    box-shadow: 3px 3px 3px 3px rgba(77,77,77,0.8);
+}
+
+/*
+* === FIRMENLOGO ENTSPRECHEND POSITIONIEREN ===
+*/
+.loginlogo {
+    margin: 10% auto 60px auto;
+}
+
+/*
+* === LOGIN SPEICHERN CHECKBOS ZENTRIEREN ===
+*/
+.rememberme {
+    text-align: center;
+}
+
+/*
 * === BREITE DES SUBMITBUTTON UND REGISTERBUTTON ===
 */
 .submitbutton {
@@ -82,6 +147,9 @@ body
     width: 100%;
 }
 
+/*
+* === TEXTE ZENTRIEREN ===
+*/
 .registergroup, .logingroup {
     margin-top: 10px;
     text-align: center;
@@ -97,47 +165,14 @@ body
     display: inline;
 }
 
-/*
-* === GESTALTUNG DES NAVBARS ===
-*/
-.brand-left {
-    display: flex;
-    justify-content: left;
-    position: absolute;
-    width: 100%;
-    padding-left: 5px;
-    left: 0;
-    top: 0;
-}
 
-/*
-* === LOGO AUF DER HAUPTSEITE ZENTRIERT ===
-*/
-.brand-centered {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-}
-
-/*
-* === FIRMENLOGO ===
-*/
-.brand-centered .navbar-brand {
-    display: flex;
-    align-items: center;
-}
-.navbar-brand {
-    padding: 10px 25px;
-}
+/*====================================================================================================================*/
+/*====================================================================================================================*/
 
 
-/*
-* === DROPDOWNMENU ERSCHEINT BEI :HOVER ===
-*/
-
+/*================================================================
+                    FLUGLISTENANSICHT
+================================================================*/
 
 /*
 * === FLUGLISTEN DARSTELLUNG ===
@@ -149,27 +184,8 @@ body
     margin-bottom: 20px;
 }
 
-.settingcol {
-    margin-top: 30px;
-    padding-right: 0px;
-    padding-left: 0px;
-    padding-bottom: 20px;
-    border: solid 0.5px gainsboro;
-    border-radius: 5px;
-    background-color: rgba(248,248,248,0.9);
-}
-
-.settingcol h3 {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: sans-serif;
-    color: #0067d3;
-    margin-left: 15px;
-    margin-bottom: 20px;
-}
-
 /*
-* === GRÖSSE DER WETTERICONS ===
+* === ABSTÄNDE DER WETTERICONS ===
 */
 .weathericon {
     margin-top: 15px;
@@ -184,6 +200,8 @@ body
     font-family: sans-serif;
     font-size: 1.5em;
     font-weight: bold;
+    margin-left: 14px;
+    color: #0067d3;
 }
 
 /*
@@ -192,13 +210,6 @@ body
 .flightlist p {
     font-size: 1.0em;
     font-family: sans-serif;
-}
-
-/*
-* === ABSTAND NACH OBEN ===
-*/
-.flightweather {
-    margin-top: 20px;
 }
 
 /*
@@ -218,23 +229,14 @@ body
     margin-top: 20px;
 }
 
-/*
-* === PRIMARYBUTTON FARBE ===
-*/
-.btn-primary {
-    background-image: linear-gradient(to bottom, #0067d3 0%,#0067d3 100%) !important;
-    border-color: #0067d3;
-    margin-top: 15px;
-}
 
-/*
-* === PRIMARYBUTTON FARBE BEI :HOVER ===
-*/
-.btn-primary:hover {
-    background-color: black !important;
-    background-position: 0 +40px !important;
-    border-color: black;
-}
+/*====================================================================================================================*/
+/*====================================================================================================================*/
+
+
+/*================================================================
+                    FLUGDETAILANSICHT
+================================================================*/
 
 /*
 * === SCHRIFTGRÖSSE DETAILTEXT ===
@@ -293,18 +295,6 @@ body
     color: #0067d3;
 }
 
-.flightlist h1 {
-    margin-left: 14px;
-    color: #0067d3;
-}
-
-/*
-* === EINSTELLUNGEN KARTENBILD  IM DETAILBEREICH===
-*/
-.flightdetailmap img {
-    margin: 0 auto 20px auto;
-}
-
 /*
 * === FLUGINFORMATIONEN AUF DETAILSEITE ===
 */
@@ -342,103 +332,24 @@ body
 }
 
 /*
-* === EINSTELLUNGEN FÜR SCREENS ÜBER 1200PX ===
+* === ABSTAND VON OBEN UND UNTEN ===
 */
-@media screen and (min-width: 1200px) {
-    .flightlist {
-        margin: 20px auto 5px auto;
-    }
-
-    .desktophide {
-        display: none !important;
-        visibility: hidden !important;
-    }
-
+.airplanepicture {
+    margin: 40px 0px 20px 0px;
 }
 
 /*
-* === EINSTELLUNGEN FÜR SCREENS ÜBER 960PX ===
+* === GOOGLE MAP ABSTAND VON OBEN UND UNTEN ===
 */
-@media screen and (min-width: 960px) {
-
-    .desktophide {
-        display: none !important;
-        visibility: hidden !important;
-    }
-
+.googlemaps {
+    margin: 20px 0px 20px 0px;
 }
 
 /*
-* === EINSTELLUNGEN FÜR SCREENS UNTER 960PX ===
+* === HÖHE DER GOOGLE MAP ===
 */
-@media screen and (max-width: 960px) {
-
-    .flightdetail {
-        margin-right: 10px;
-        margin-left: 10px;
-    }
-
-    .moreinfobutton {
-        margin-bottom: 15px;
-    }
-
-    .flightdetailweather {
-        margin-top: 20px;
-    }
-
-    .aircraftdetail {
-        margin: 10px 0px 10px 0px !important;
-    }
-
-    .submitbutton {
-        margin: 10px 0px 10px 0px;
-    }
-
-    .registerbutton {
-        margin: 10px 0px 10px 0px;
-    }
-
-    .weather {
-        text-align: center;
-
-    }
-
-    .listViewImage{
-        display: none;
-    }
-
-
-    .mobilehide {
-        display: none !important;
-        visibility: hidden !important;
-    }
-
-    .airplanepicture {
-        margin: 10px auto 30px auto !important;
-    }
-
-    .hidemobile {
-        display: none;
-        visibility: hidden;
-    }
-
-    .flightlistrow:first-child {
-        margin-top: 20px;
-        margin-right: 10px;
-        margin-left: 10px;
-    }
-
-    .navbar-default {
-        margin-right: 10px;
-        margin-left: 10px;
-        border-radius: 5px;
-    }
-
-    .settingcol {
-        margin-right: 10px;
-        margin-left: 10px;
-    }
-
+#map{
+    height: 500px;
 }
 
 /*
@@ -502,6 +413,7 @@ body
 {
     background: #333333;
 }
+
 /*
 * === BILDGRÖSSE FESTLEGEN ===
 */
@@ -511,36 +423,204 @@ body
     height: 100px
 }
 
-/*
-* === Höhe der Google Maps Karte festlegen ===
-*/
-#map{
-    height: 500px;
-}
+
+/*====================================================================================================================*/
+/*====================================================================================================================*/
+
+
+/*================================================================
+                    EINSTELLUNGSSEITE
+================================================================*/
 
 /*
-* === Abstand oben und unten bei Google Map ===
+* === GESTALTUNG DES H3 IN DEN EINSTELLUNGEN ===
 */
-.googlemaps {
-    margin: 20px 0px 20px 0px;
+.settingcol h3 {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #0067d3;
+    margin-left: 15px;
+    margin-bottom: 20px;
 }
 
 /*
-* === Abstand jeweils von oben und unten ===
+* === EINSTELLUNGS CONTENT ABSTAND VON OBEN UND RAHMEN ===
 */
-.airplanepicture {
-    margin: 40px 0px 20px 0px;
+.settingcol {
+    margin-top: 30px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 20px;
+    border: solid 0.5px gainsboro;
+    border-radius: 5px;
+    background-color: rgba(248,248,248,0.9);
 }
-.aircraftdetail {
-    margin: 40px 0px 20px 0px;
+
+
+/*====================================================================================================================*/
+/*====================================================================================================================*/
+
+
+/*================================================================
+          EINSTELLUNGEN FÜR SCREENS ÜBER 1200PX
+================================================================*/
+
+@media screen and (min-width: 1200px) {
+
+    /*
+    * === FLUGLISTENANSICHT ABSTÄNDE ===
+    */
+    .flightlist {
+        margin: 20px auto 5px auto;
+    }
+
+    /*
+    * === INHALT DER AUF DESKTOPS NICHT ANGEZEIGT WIRD ===
+    */
+    .desktophide {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
 }
 
 
-.equal {
-    overflow: hidden;
+/*====================================================================================================================*/
+/*====================================================================================================================*/
+
+
+/*================================================================
+          EINSTELLUNGEN FÜR SCREENS ÜBER 960PX
+================================================================*/
+
+@media screen and (min-width: 960px) {
+
+    /*
+    * === INHALT DER AUF ENTSPRECHENDEN DESKTOPS NICHT ANGEZEIGT WIRD ===
+    */
+    .desktophide {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
 }
 
-.equal [class*="col-"]{
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
+
+/*====================================================================================================================*/
+/*====================================================================================================================*/
+
+
+/*================================================================
+          EINSTELLUNGEN FÜR SCREENS UNTER 960PX
+================================================================*/
+
+@media screen and (max-width: 960px) {
+
+    /*
+    * === FLUGDETAILBLOCK ABSTAND ===
+    */
+    .flightdetail {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    /*
+    * === GESTALTUNG DES MEHR INFO BUTTONS ===
+    */
+    .moreinfobutton {
+        margin-bottom: 15px;
+    }
+
+    /*
+    * === ABSTAND DER WETTER DETAILS VON OBEN ===
+    */
+    .flightdetailweather {
+        margin-top: 20px;
+    }
+
+    /*
+    * === FLUGDETAIL ===
+    */
+    .flightinfodetail {
+        margin: 10px 0px 10px 0px !important;
+    }
+
+    /*
+    * === LOGINBUTTON ABSTAND AUF MOBILEGERÄTEN ===
+    */
+    .submitbutton {
+        margin: 10px 0px 10px 0px;
+    }
+
+    /*
+    * === REGISTERBUTTON ABSTAND AUF MOBILEGERÄTEN ===
+    */
+    .registerbutton {
+        margin: 10px 0px 10px 0px;
+    }
+
+    /*
+    * === WETTER ICONS UND TEXTE ZENTRIERT IN IHRER COL ===
+    */
+    .weather {
+        text-align: center;
+
+    }
+
+    /*
+    * === AUSBLENDEN DES LISTENANSICHTS THUMBNAILS DER ZIELSTADT ===
+    */
+    .listViewImage{
+        display: none;
+    }
+
+    /*
+    * === INHALT DER AUF MOBILEGERÄTEN VERBORGEN BLEIBT ===
+    */
+    .mobilehide {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    /*
+    * === EINORDNEN DES FLUGZEUGFOTOS ===
+    */
+    .airplanepicture {
+        margin: 10px auto 30px auto !important;
+    }
+
+    /*
+    * === ERSTES ELEMENT DER LISTENANSICHT ABSTAND VON OBEN / LINKS UND RACHTS ===
+    */
+    .flightlistrow:first-child {
+        margin-top: 20px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    /*
+    * === NAVBAR ABSTAND VON DER SEITE / ECKEN ABGERUNDET ===
+    */
+    .navbar-default {
+        margin-right: 10px;
+        margin-left: 10px;
+        border-radius: 5px;
+    }
+
+    /*
+    * === EINSTELLUNGSBLOCK ABSTAND VON OBEN ===
+    */
+    .settingcol {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    /*
+    * === LOGINPANEL RICHTIG PLATZIERT ===
+    */
+    .loginpanel{
+        margin: 10% auto auto auto;
+    }
+
 }

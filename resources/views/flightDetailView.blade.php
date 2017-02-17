@@ -55,7 +55,7 @@
 
             <div class="col-md-12 flightdetailflight">
                 <h2>Flugdetails</h2>
-                <div class="col-md-6 col-xs-12 aircraftdetail">
+                <div class="col-md-6 col-xs-12 flightinfodetail">
                     <div class="col-md-5 col-md-offset-1 col-xs-12 flightdetailairplane desktophide">
                         <img src="{{$planePicture[0] or ""}}" class="img-responsive airplanepicture"/>
                     </div>
@@ -100,14 +100,14 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-md-5 col-md-offset-1 col-xs-12 flightdetailairplane hidemobile">
+                <div class="col-md-5 col-md-offset-1 col-xs-12 flightdetailairplane mobilehide">
                     <img src="{{$planePicture[0] or ""}}" class="img-responsive img-thumbnail airplanepicture"/>
                 </div>
             </div>
             <div class='row'>
                 <div class='col-md-12 imagesliderrow'>
                     <h2>Eindrücke</h2>
-                    <div class="carousel slide media-carousel hidemobile" id="media">
+                    <div class="carousel slide media-carousel mobilehide" id="media">
                         <div class="carousel-inner">
                             <div class="item  active">
                                 <div class="row">

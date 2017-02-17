@@ -81,11 +81,21 @@
                                 </select>
                             </div>
                             <div class="col-md-12">
-                                <label class='control-label'>Refreshtime in Sekunden</label>
+                                <label class='control-label'>Refreshtime</label>
                             </div>
                             <div class="col-md-6 settingoption">
                                 <select name="refresh_time" class="form-control" id="refreshTimeSelect">
-                                    <option hidden value="">{{$refreshTime}}</option>
+                                    <option hidden value="">
+                                        @php
+                                        if($refreshTime >= 60) {
+                                            $output = $refreshTime / 60;
+                                            echo $output . ' Minuten';
+                                            }
+                                        else {
+                                            echo $refreshTime . ' Sekunden';
+                                        }
+                                        @endphp
+                                    </option>
                                     <option value="30">30 Sekunden</option>
                                     <option value="60">60 Sekunden</option>
                                     <option value="300">5 Minuten</option>
