@@ -93,7 +93,7 @@ class Flight extends Model
     public function getDepartureTime()
     {
         if ($this->departureTime == "0") {
-            $string = "Keine Abflugszeit verfügbar";
+            $string = "Keine Abflugzeit verfügbar";
             return $string;
         }
         else {
@@ -110,7 +110,7 @@ class Flight extends Model
     {
 
         if ($this->arrivalTime == "0") {
-            $string = "Keine Ankunftszeit verfügbar";
+            $string = "Keine Ankunftzeit verfügbar";
             return $string;
         }
         else {
