@@ -158,7 +158,8 @@ class FlightController extends Controller
 
         foreach ($flights as $flight) {
             $city = $flight->getDestination()->getLocation();
-            $cityPicture = $flickJsonAdapter->getSmallPictures($city, 1);
+            $city1 = $city . ',city';
+            $cityPicture = $flickJsonAdapter->getSmallPictures($city1, 1);
             if(isset($cityPicture[0])){
                 $cityPictures[$city] = $cityPicture[0];
             } else {

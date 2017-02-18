@@ -11,6 +11,7 @@ class FlickrJsonAdapter
     private $tags = '&tags=';
     private $content_type = '&content_type=1';
     private $per_page = '&per_page=';
+    private $tag_mode = 'tag_mode=all';
 
     /**
      * FlickrJsonAdapter constructor.
@@ -26,7 +27,7 @@ class FlickrJsonAdapter
     {
         $searchString = preg_replace ( '/[^a-z0-9 ]/i', '', $searchString );
         $photoUrls = array();
-        $url = (self::$baseUrl . $this->method . $this->tags . rawurlencode($searchString) . $this->responseType . $this->content_type . $this->per_page . $howMany . '&api_key=' . $this->apiKey . '&nojsoncallback=1');
+        $url = (self::$baseUrl . $this->method . $this->tags . rawurlencode($searchString) . $this->responseType . $this->content_type . $this->per_page . $howMany . '&api_key=' . $this->apiKey . '&nojsoncallback=1' . $this->tag_mode);
         $response = json_decode(file_get_contents($url));
         if($response == null){
             $photoUrls[] = "";
