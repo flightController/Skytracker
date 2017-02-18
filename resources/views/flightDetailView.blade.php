@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+    <!-- Refresh Page -->
+    <meta http-equiv="refresh" content="{{$refreshTime}}" >
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_KoeHUrv6K01WJ9ULPRWBQDXRQg_zGvg&callback=initMap"></script>
     <div class="container flightcontainer">
         <div class="row flightdetail">

@@ -13,9 +13,6 @@
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 <link href="/css/app.css" rel="stylesheet" />
 
-
-
-
 <!-- Scripts
 <script>
     window.Laravel = <?php /* echo json_encode([
