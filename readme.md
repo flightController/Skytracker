@@ -39,7 +39,7 @@
 4. update to the new vagrant box: vagrant box update
 
 ### MySql
-1. open .env file in the project folder. If not exist, copy the .env-expamle and rename it to .env
+1. open .env file in the project folder. If not exist, copy the .env.expamle and rename it to .env
 2. host: localhost
 3. port: 33060
 4. user / pw: homestead/secret
