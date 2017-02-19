@@ -21,6 +21,7 @@
   - to: /home/vagrant/Code/Laravel/public
   - databses: -skytracker
   - if you already installed homestead before and you want to change some settings run in Terminal: vagrant reload --provision
+8. More Information about Homestead: https://laravel.com/docs/5.4/homestead
 
 ### hosts
 1. sudo nano etc/hosts
@@ -29,31 +30,33 @@
 ### Vagrant
 1. cd ~/Homestead
 2. start vm with: (sudo) vagrant up
-3. If id_rsa Error you have to create a ssh-key: ssh-keygen -t rsa -C "you@homestead" (Windows: use git-bash) 
+3. If you receive an id_rsa Error you have to create a ssh-key: ssh-keygen -t rsa -C "you@homestead" (Windows: use git-bash) 
 
 #### other vagrant commands:
-2. stop vm: vagrant halt
-3. destroy vm: vagrant destroy --force
-4. connect to vm with ssh: vagrant ssh
-5. update to the new vagrant box: vagrant box update
+1. stop vm: vagrant halt
+2. destroy vm: vagrant destroy --force
+3. connect to vm with ssh: vagrant ssh
+4. update to the new vagrant box: vagrant box update
 
-### mySql
-1. open .env file in the project folder
+### MySql
+1. open .env file in the project folder. If not exist, copy the .env-expamle and rename it to .env
 2. host: localhost
 3. port: 33060
 4. user / pw: homestead/secret
 5. do the same settings in config/database.php
 
 ### Laravel
-1. still with ssh: cd /home/vagrant/Code/Skytracker
-2. composer install
-3. php artisan key:generate
+1. connect again with ssh to the vm 
+2. cd /home/vagrant/Code/Skytracker
+3. composer install
+4. php artisan key:generate
 
 ### voyager admin panel
 1. cd /home/vagrant/Code/Skytracker/
 2. composer require tcg/voyager
 3. php artisan voyager:install
 4. php artisan voyager:admin name@mail.com --create
+5. php artisan key:generate
 
 ## How To Install (local)
 ### Install
@@ -79,6 +82,7 @@
 2. composer require tcg/voyager
 3. php artisan voyager:install
 4. php artisan voyager:admin name@mail.com --create
+5. php artisan key:generate
 
 ## Export / Import
 ### Export Vagrant Box
