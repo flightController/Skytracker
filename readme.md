@@ -1,4 +1,7 @@
 # SkyTracker
+- git clone 
+- Insert keys.php into Projectfolder/resources/keys.php
+
 ## How To Install (In VM)
 ### VM and Vagrant
 - Install virtualbox/paralles
