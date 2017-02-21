@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\UserSetting;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use League\Flysystem\Exception;
 
 class SettingsController extends Controller
 {
@@ -42,8 +43,6 @@ class SettingsController extends Controller
 
     public function store(Request $request, $userId)
     {
-        echo $userId;
-
         $this->validate($request, [
             'number_of_flights' => 'numeric',
             'refresh_time' => 'numeric',
@@ -59,13 +58,20 @@ class SettingsController extends Controller
         $userSettings->number_of_flights = $request->number_of_flights ?: $userSettings->number_of_flights;
         $userSettings->refresh_time = $request->refresh_time ?: $userSettings->refresh_time;
         $userSettings->home_airport = $request->home_airport ?: $userSettings->home_airport;
-        $userSettings->test_mode = $request->test_mode;
-        $userSettings->save();
+        if(!empty($request->test_mode)){
+            $userSettings->test_mode = $request->test_mode;
+        }
+        try{
+            $userSettings->save();
+        }catch (Exception $e){
+            echo "Es ist ein Fehler aufgetreten. Bitte laden Sie die Seite erneut.";
+        }
+
 
         $user->email = $request->email ?: $user->email;
         $user->name = $request->name ?: $user->name;
         if (!empty($request->password)) {
-            Auth::user()->password = bcrypt($request->password);
+            $user->password = bcrypt($request->password);
         }
         $user->save();
 
