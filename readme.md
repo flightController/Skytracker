@@ -1,5 +1,5 @@
 # SkyTracker
-- git clone 
+- git clone https://github.com/flightController/Skytracker
 - Insert keys.php into Projectfolder/resources/keys.php
 
 ## How To Install (In VM)
