@@ -2,9 +2,11 @@
 @section('content')
     <!-- Refresh Page -->
     <meta http-equiv="refresh" content="{{$refreshTime}}" >
+    <!-- Google Maps -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_KoeHUrv6K01WJ9ULPRWBQDXRQg_zGvg&callback=initMap"></script>
+
     <div class="container flightcontainer">
-        <div class="row flightdetail">
+        <div class="row flightDetail">
             <div class="col-lg-12 col-md-12 col-sm-12 flightDetailText">
                 <h1>{{$flight->getDestination()->getLocation()}}</h1>
                 <div class="row">
@@ -14,9 +16,9 @@
                 </div>
             </div>
 
-                <div class="col-md-12 flightdetailmap">
+                <div class="col-md-12 flightDetailMap">
                     <h2>Flugroute</h2>
-                    <div class="col-md-12 googlemaps">
+                    <div class="col-md-12 googleMaps">
                         <article
                                 id="coordinates"
                                 data-originlatitude="{{$flight->getOrigin()->getGpsCoordinates()->getLatitude()}}"
@@ -40,14 +42,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12 col-xs-12 flightdetailweather">
+                <div class="col-md-12 col-xs-12 flightDetailWeather">
                     <h2>Wetterdaten</h2>
                     <table class="col-md-12 col-xs-12">
                         <table class="table">
                             <tbody>
                             <tr>
-                                <td><img src="../images/icon/{{$weather -> getIcon()}}.png" class="weathericon" width="40px" height="40px"> {{$weather -> getWeatherCondition()}}</td>
-                                <td><img src="../images/thermometer.png" class="weathericon"> {{round($weather -> getTemperature(), 1)}} °C</td>
+                                <td><img src="../images/icon/{{$weather -> getIcon()}}.png" class="weatherIcon" width="40px" height="40px"> {{$weather -> getWeatherCondition()}}</td>
+                                <td><img src="../images/thermometer.png" class="weatherIcon"> {{round($weather -> getTemperature(), 1)}} °C</td>
                                 <td></td>
                             </tr>
                             </tbody>
@@ -55,21 +57,17 @@
                     </table>
                 </div>
 
-            <div class="col-md-12 flightdetailflight">
+            <div class="col-md-12 flightDetailFlight">
                 <h2>Flugdetails</h2>
-                <div class="col-md-6 col-xs-12 flightinfodetail">
-                    <div class="col-md-5 col-md-offset-1 col-xs-12 flightdetailairplane desktophide">
-                        <img src="{{$planePicture[0] or ""}}" class="img-responsive airplanepicture"/>
+                <div class="col-md-6 col-xs-12 flightInfoDetail">
+                    <div class="col-md-5 col-md-offset-1 col-xs-12 flightDetailairPlane desktopHide">
+                        <img src="{{$planePicture[0] or ""}}" class="img-responsive airplanePicture"/>
                     </div>
                     <table class="table">
                         <tbody>
                         <tr>
                             <th scope="row">Flugnummer</th>
                             <td>{{$flight->getIdent()}}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Fluggesellschaft</th>
-                            <td>{{$flight->getAirline()}}</td>
                         </tr>
                         <tr>
                             <th scope="row">Flugzeugtyp</th>
@@ -102,14 +100,14 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-md-5 col-md-offset-1 col-xs-12 flightdetailairplane mobilehide">
-                    <img src="{{$planePicture[0] or ""}}" class="img-responsive img-thumbnail airplanepicture"/>
+                <div class="col-md-5 col-md-offset-1 col-xs-12 flightDetailairPlane mobileHide">
+                    <img src="{{$planePicture[0] or ""}}" class="img-responsive img-thumbnail airplanePicture"/>
                 </div>
             </div>
             <div class='row'>
-                <div class='col-md-12 imagesliderrow'>
+                <div class='col-md-12 imageSliderRow'>
                     <h2>Eindrücke</h2>
-                    <div class="carousel slide media-carousel mobilehide" id="media">
+                    <div class="carousel slide media-carousel mobileHide" id="media">
                         <div class="carousel-inner">
                             <div class="item  active">
                                 <div class="row">
@@ -134,8 +132,8 @@
                         <a data-slide="next" href="#media" class="right carousel-control">›</a>
                     </div>
                 </div>
-                <div class='col-sm-12 imagesliderrow'>
-                    <div class="carousel slide media-carousel desktophide" id="media2">
+                <div class='col-sm-12 imageSliderRow'>
+                    <div class="carousel slide media-carousel desktopHide" id="media2">
                         <div class="carousel-inner">
                             <div class="item  active">
                                 <div class="row">

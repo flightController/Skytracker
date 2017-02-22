@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-            <div class="col-md-12 settingcol">
+            <div class="col-md-12 settingCol">
                 <ul class="nav nav-tabs">
                     <li class="active">
                         <a data-toggle="tab" href="#setting1">Benutzereinstellungen</a>
@@ -54,7 +54,7 @@
                             </div>
                             <div class="col-md-6"><br><br><br></div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary submitbutton">Speichern</button>
+                                <button type="submit" class="btn btn-primary submitButton">Speichern</button>
                             </div>
                         </form>
                     </div>
@@ -121,7 +121,7 @@
                             </div>
                             <div class="col-md-6"><br><br><br></div>
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary submitbutton">Speichern</button>
+                                <button type="submit" class="btn btn-primary submitButton">Speichern</button>
                             </div>
                         </form>
                     </div>

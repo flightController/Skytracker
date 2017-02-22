@@ -4,9 +4,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <div class="panel panel-default loginpanel">
+                <div class="panel panel-default loginPanel">
                     <div class="panel-body">
-                        <div class="col-md-12 loginlogo">
+                        <div class="col-md-12 loginLogo">
                             <a href="/home">
                                 <img src="images/logo.png"  class="img-responsive" alt="SkyTracker" width="628" height="200"/>
                             </a>
@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-12 rememberme">
+                                <div class="col-md-12 rememberMe">
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" name="remember"> Login speichern
@@ -45,9 +45,9 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary submitbutton">Login</button>
+                                    <button type="submit" class="btn btn-primary submitButton">Login</button>
                                 </div>
-                                <div class="col-md-12 logingroup">
+                                <div class="col-md-12 loginGroup">
                                     Noch kein Benutzer?
                                     <a href="/register">
                                         Registrieren</button>

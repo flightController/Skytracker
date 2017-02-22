@@ -4,9 +4,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <div class="panel panel-default loginpanel">
+                <div class="panel panel-default loginPanel">
                     <div class="panel-body">
-                        <div class="col-md-12 loginlogo">
+                        <div class="col-md-12 loginLogo">
                             <a href="/home">
                                 <img src="images/logo.png"  class="img-responsive" alt="SkyTracker" width="628" height="200"/>
                             </a>
@@ -50,11 +50,11 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary submitbutton">
+                                    <button type="submit" class="btn btn-primary submitButton">
                                         Registrieren
                                     </button>
                                 </div>
-                                <div class="col-md-12 registergroup">
+                                <div class="col-md-12 registerGroup">
                                     Zurück zum <a href="/login">Login</a>
                                 </div>
                             </div>

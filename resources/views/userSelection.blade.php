@@ -2,7 +2,7 @@
 @section('content')
 
 
-    <div class="col-md-12 settingcol">
+    <div class="col-md-12 settingCol">
         <h3>User Auswahl</h3>
         <div class="col-md-12 settingoption">
                 <form class="form-horizontal" role="form" method="post" action="settings">
@@ -22,7 +22,7 @@
                     </div>
                     <div class="place">
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-primary submitbutton">Auswählen</button>
+                        <button type="submit" class="btn btn-primary submitButton">Auswählen</button>
                     </div>
                 </form>
         </div>

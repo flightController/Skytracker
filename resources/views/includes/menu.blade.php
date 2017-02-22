@@ -1,6 +1,6 @@
 @if (Auth::user())
 
-    <nav style="margin-bottom: 0" class="navbar navbar-default mobilehide">
+    <nav style="margin-bottom: 0" class="navbar navbar-default mobileHide">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -47,7 +47,7 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-    <nav style="margin-bottom: 0" class="navbar navbar-default desktophide">
+    <nav style="margin-bottom: 0" class="navbar navbar-default desktopHide">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
