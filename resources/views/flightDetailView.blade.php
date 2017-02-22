@@ -16,46 +16,52 @@
                 </div>
             </div>
 
-                <div class="col-md-12 flightDetailMap">
-                    <h2>Flugroute</h2>
-                    <div class="col-md-12 googleMaps">
-                        <article
-                                id="coordinates"
-                                data-originlatitude="{{$flight->getOrigin()->getGpsCoordinates()->getLatitude()}}"
-                                data-originlongitude="{{$flight->getOrigin()->getGpsCoordinates()->getLongitude()}}"
-                                data-destinationlatitude="{{$flight->getDestination()->getGpsCoordinates()->getLatitude()}}"
-                                data-destinationlongitude="{{$flight->getDestination()->getGpsCoordinates()->getLongitude()}}"
-                                data-flightlatitude="{{$flight->getGpsCoordinates()-> getLatitude()}}"
-                                data-flightlongitude="{{$flight->getGpsCoordinates() -> getLongitude()}}"
-                                data-flightorigin="{{$flight->getOrigin()->getLocation()}}"
-                                data-flightdestination="{{$flight->getDestination()->getLocation()}}"
-                                data-flightairline="{{$flight->getAirline()}}"
-                                data-flightdeparturetime="{{$flight->getDepartureTime()}}"
-                                data-flightarrivaltime="{{$flight->getArrivalTime()}}"
-                                data-flightroute="{{json_encode($flight->getFlightRoute())}}"
-                                >
-                        </article>
-                        <div id="map">
-                            <script src="/js/googleMapsPolylines.js">
-                                initMap();
-                            </script>
-                        </div>
+            <div class="col-md-12 flightDetailMap">
+                <h2>Flugroute</h2>
+                <div class="col-md-12 googleMaps">
+                    <article
+                            id="coordinates"
+                            data-originlatitude="{{$flight->getOrigin()->getGpsCoordinates()->getLatitude()}}"
+                            data-originlongitude="{{$flight->getOrigin()->getGpsCoordinates()->getLongitude()}}"
+                            data-destinationlatitude="{{$flight->getDestination()->getGpsCoordinates()->getLatitude()}}"
+                            data-destinationlongitude="{{$flight->getDestination()->getGpsCoordinates()->getLongitude()}}"
+                            data-flightlatitude="{{$flight->getGpsCoordinates()-> getLatitude()}}"
+                            data-flightlongitude="{{$flight->getGpsCoordinates() -> getLongitude()}}"
+                            data-flightorigin="{{$flight->getOrigin()->getLocation()}}"
+                            data-flightdestination="{{$flight->getDestination()->getLocation()}}"
+                            data-flightairline="{{$flight->getAirline()}}"
+                            data-flightdeparturetime="{{$flight->getDepartureTime()}}"
+                            data-flightarrivaltime="{{$flight->getArrivalTime()}}"
+                            data-flightroute="{{json_encode($flight->getFlightRoute())}}"
+                            >
+                    </article>
+                    <div id="map">
+                        <script src="/js/googleMapsPolylines.js">
+                            initMap();
+                        </script>
                     </div>
                 </div>
-                <div class="col-md-12 col-xs-12 flightDetailWeather">
-                    <h2>Wetterdaten</h2>
-                    <table class="col-md-12 col-xs-12">
-                        <table class="table">
-                            <tbody>
-                            <tr>
-                                <td><img src="../images/icon/{{$weather -> getIcon()}}.png" class="weatherIcon" width="40px" height="40px"> {{$weather -> getWeatherCondition()}}</td>
-                                <td><img src="../images/thermometer.png" class="weatherIcon"> {{round($weather -> getTemperature(), 1)}} °C</td>
-                                <td></td>
-                            </tr>
-                            </tbody>
-                        </table>
+            </div>
+            <div class="col-md-12 col-xs-12 flightDetailWeather">
+                <h2>Wetterdaten</h2>
+                <table class="col-md-12 mobileHide">
+                    <table class="table mobileHide">
+                        <tbody>
+                        <tr>
+                            <td><img src="../images/icon/{{$weather -> getIcon()}}.png" class="weatherIcon" width="40px" height="40px"> {{$weather -> getWeatherCondition()}}</td>
+                            <td><img src="../images/thermometer.png" class="weatherIcon"> {{round($weather -> getTemperature(), 1)}} °C</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
                     </table>
+                </table>
+                <div class="col-sm-12 desktopHide">
+                    <img src="../images/icon/{{$weather -> getIcon()}}.png" class="weatherIcon" width="40px" height="40px"> {{$weather -> getWeatherCondition()}}
                 </div>
+                <div class="col-sm-12 desktopHide">
+                <img src="../images/thermometer.png" class="weatherIcon"> {{round($weather -> getTemperature(), 1)}} °C
+                </div>
+            </div>
 
             <div class="col-md-12 flightDetailFlight">
                 <h2>Flugdetails</h2>
@@ -158,5 +164,5 @@
                 </div>
             </div>
         </div>
-    </div>
+
 @endsection
